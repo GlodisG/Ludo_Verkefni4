@@ -1,0 +1,51 @@
+.styleGrid {
+    -fx-border-width: 2;
+    -fx-border-color: black;
+}
+.one, .two, .three, .four, .five, .six {
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.six {
+    -fx-background-image:
+            url("myndir/6.png");
+
+}
+
+.five {
+    -fx-background-image:
+            url("myndir/5.png");
+
+}
+
+.four {
+    -fx-background-image:
+            url("myndir/4.png");
+
+}
+
+.three {
+    -fx-background-image:
+            url("myndir/3.png");
+
+}
+
+.two {
+    -fx-background-image:
+            url("myndir/2.png");
+
+}
+
+.one{
+    -fx-background-image:
+            url("myndir/1.png");
+}
+
+.kall {
+    -fx-background-image:
+            url("myndir/graennKallSkuggi.png.png");
+}
