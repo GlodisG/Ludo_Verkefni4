@@ -13,7 +13,7 @@ public class Teningur {
     private static final int MAX = 6;
     private static final IntegerProperty talaProperty = new SimpleIntegerProperty(MAX);
     private final Random randomNum = new Random();
-    private final int hello = 0;
+    private final int hello = 1;
 
     public IntegerProperty talaProperty() {
         return talaProperty;
