@@ -448,7 +448,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children>
          </StackPane>
-         <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="9">
+         <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="9" >
             <children>
                <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>

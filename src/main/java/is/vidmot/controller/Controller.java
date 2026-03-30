@@ -4,6 +4,7 @@ import is.vinnsla.Ludo;
 import is.vinnsla.Reitur;
 import is.vinnsla.Teningur;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -11,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import java.util.HashMap;
+import java.util.Map;
 
 /******************************************************************************
  *  Lýsing  : Controllerinn
@@ -19,6 +21,7 @@ import java.util.HashMap;
 
 public class Controller {
     private static final String[] myndir = {"one", "two","three","four","five","six"};
+    
 
     //Skilaboð + takkar + grid
     @FXML private Label welcomeText; // Viðmótshlutur sem geymir texta með kveðju
@@ -62,6 +65,8 @@ public class Controller {
 
     //Leikborð skilgreint
     public static HashMap<Integer, StackPane> ludoBord = new HashMap<>();
+    // Leikborð 2.0
+    private final Map<Integer, StackPane> vidmotLeid = new HashMap<>();
 
     /**
      *Þegar ýtt er á tening
@@ -157,6 +162,7 @@ public class Controller {
     }
 
     public void initialize() {
+    	buaTilLeid();
         welcomeText.setText("Bleikur gerir fyrst");
         additionalText.setText("Ýttu á tening til að hefja leik");
 
@@ -212,6 +218,15 @@ public class Controller {
                             .add(myndir[nytt.intValue() - 1]);
                 }
         );
+    }
+    public void buaTilLeid() {
+    	int index = 0;
+    	for(Node node: fxGrid.getChildren()) {
+    		if(node instanceof StackPane && index < 57) {
+    			vidmotLeid.put(index++, (StackPane) node);
+    		}
+    	}
+    	vidmotLeid.forEach((i, pane) -> System.out.println("index: " + i + " | pane : " + pane));
     }
 }
 
