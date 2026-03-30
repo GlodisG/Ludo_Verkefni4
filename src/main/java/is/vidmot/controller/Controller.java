@@ -1,4 +1,4 @@
-package is.vidmot;
+package is.vidmot.controller;
 import is.vinnsla.Leikmadur;
 import is.vinnsla.Ludo;
 import is.vinnsla.Reitur;

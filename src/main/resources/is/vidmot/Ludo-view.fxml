@@ -16,7 +16,7 @@ Notendaviðmót fyrir Halló heimur forritið
 Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
 -->
 
-<AnchorPane stylesheets="@../../CSS/ludo.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.Controller">
+<AnchorPane stylesheets="@../../CSS/ludo.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.controller.Controller">
    <!-- Viðmótshlutirnir -->
        <Label fx:id="welcomeText" layoutX="96.0" layoutY="591.0" text="Label" />
        <Button fx:id="fxNyrLeikur" layoutX="273.0" layoutY="610.0" onAction="#onNyrLeikur" text="Nýr leikur" />
