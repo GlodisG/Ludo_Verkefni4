@@ -108,11 +108,11 @@ public class Controller {
         if(reiturG==reiturB) {
             if (Leikmadur.hvadaKall()==1) {
                 Ludo.bleikurLeid.set(0);
-                hreyfaBleikann(28);
+                hreyfaBleikann(57);
                 additionalText.setText("Úps! Bleikur aftur á byrjunarreit");
             } else {
                 Ludo.graennLeid.set(0);
-                hreyfaGraenann(29);
+                hreyfaGraenann(61);
                 additionalText.setText("Úps! Grænn aftur á byrjunarreit");
             }
         }
@@ -126,8 +126,8 @@ public class Controller {
         welcomeText.setText("Bleikur gerir fyrst");
         additionalText.setText("Ýttu á tening til að hefja leik");
         Leikmadur.setLeikmadur();
-        hreyfaGraenann(29);
-        hreyfaBleikann(28);
+        hreyfaGraenann(61);
+        hreyfaBleikann(57);
         Ludo.endurstillaLeid();
         Ludo.setLeikLokid(false);
         System.out.println(Ludo.getLeikLokid());
@@ -138,7 +138,7 @@ public class Controller {
      * Hreyfir græna kallinn
      */
     public void hreyfaGraenann(int stadsetning) {
-        Pane targetTile = ludoBord.get(stadsetning);
+        Pane targetTile = vidmotLeid.get(stadsetning);
         if (targetTile == null) return;
         Pane currentParent = (Pane) graennKall.getParent();
         if (currentParent != null) {
@@ -152,7 +152,7 @@ public class Controller {
      * Hreyfir bleika kallinn
      */
     public void hreyfaBleikann(int stadsetning) {
-        Pane targetTile = ludoBord.get(stadsetning);
+        Pane targetTile = vidmotLeid.get(stadsetning);
         if (targetTile == null) return;
         Pane currentParent = (Pane) bleikurKall.getParent();
         if (currentParent != null) {
@@ -222,7 +222,7 @@ public class Controller {
     public void buaTilLeid() {
     	int index = 0;
     	for(Node node: fxGrid.getChildren()) {
-    		if(node instanceof StackPane && index < 57) {
+    		if(node instanceof StackPane && index < 73) {
     			vidmotLeid.put(index++, (StackPane) node);
     		}
     	}

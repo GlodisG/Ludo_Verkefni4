@@ -48,7 +48,6 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          <RowConstraints maxHeight="50" minHeight="50.0" prefHeight="50" vgrow="SOMETIMES" />
          </rowConstraints>
       <children>
-         <StackPane fx:id="bleikur1" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          <StackPane fx:id="bleikur0" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="4">
             <opaqueInsets>
                <Insets top="30.0" />
@@ -61,93 +60,16 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children>
          </StackPane>
-         <StackPane fx:id="graenn9" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="10" GridPane.rowIndex="5" />
-         <StackPane fx:id="graenn8" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="10" GridPane.rowIndex="4" />
-         <StackPane fx:id="graenn7" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="9" GridPane.rowIndex="4" />
-         <StackPane fx:id="graenn6" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+         <StackPane fx:id="bleikur1" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          <StackPane fx:id="bleikur2" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-         <StackPane fx:id="bleikurEinn" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Bleikur.png" />
-                  </image>
-               </ImageView>
-            </children></StackPane>
-         <StackPane fx:id="graennSigur" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
-            <children>
-               <StackPane fx:id="graennThrir1" prefHeight="50.0" prefWidth="50.0">
-                  <children>
-                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../../CSS/myndir/Graenn.png" />
-                        </image>
-                     </ImageView>
-                  </children>
-               </StackPane>
-            </children></StackPane>
          <StackPane fx:id="bleikur3" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-         <StackPane fx:id="bleikurTveir" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Bleikur.png" />
-                  </image>
-               </ImageView>
-            </children></StackPane>
-         <StackPane fx:id="graennThrir" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Graenn.png" />
-                  </image>
-               </ImageView>
-            </children></StackPane>
-         <StackPane fx:id="graenn4" prefHeight="50.0" prefWidth="50.0" styleClass="leftdown" GridPane.columnIndex="6" GridPane.rowIndex="4" />
          <StackPane fx:id="bleikur4" prefHeight="50.0" prefWidth="50.0" styleClass="rightdown" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-         <StackPane fx:id="bleikurThrir" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Bleikur.png" />
-                  </image>
-               </ImageView>
-            </children></StackPane>
-         <StackPane fx:id="graennTveir" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Graenn.png" />
-                  </image>
-               </ImageView>
-            </children></StackPane>
-         <StackPane fx:id="graenn3" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="3" />
          <StackPane fx:id="bleikur5" prefHeight="50.0" prefWidth="50.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-         <StackPane fx:id="bleikurSigur" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
-            <children>
-               <StackPane fx:id="bleikurThrir1" prefHeight="50.0" prefWidth="50.0">
-                  <children>
-                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../../CSS/myndir/Bleikur.png" />
-                        </image>
-                     </ImageView>
-                  </children>
-               </StackPane>
-            </children></StackPane>
-         <StackPane fx:id="graennEinn" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Graenn.png" />
-                  </image>
-               </ImageView>
-            </children></StackPane>
-         <StackPane fx:id="graenn2" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="2" />
          <StackPane fx:id="bleikur6" prefHeight="50.0" prefWidth="50.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="2" />
          <StackPane fx:id="bleikur7" prefHeight="50.0" prefWidth="50.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="1" />
          <StackPane fx:id="bleikur8" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="4" />
          <StackPane fx:id="bleikur9" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" />
+
          <StackPane fx:id="graenn0" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="6">
             <children>
                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -157,88 +79,16 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children></StackPane>
          <StackPane fx:id="graenn1" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-         <StackPane fx:id="graennThrir2" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Blar.png" />
-                  </image>
-               </ImageView>
-            </children>
-         </StackPane>
-         <StackPane fx:id="graennThrir21" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="7" GridPane.rowIndex="5">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Blar.png" />
-                  </image>
-               </ImageView>
-            </children>
-         </StackPane>
-         <StackPane fx:id="graennThrir22" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="8" GridPane.rowIndex="5">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Blar.png" />
-                  </image>
-               </ImageView>
-            </children>
-         </StackPane>
-         <StackPane fx:id="graennThrir23" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="9" GridPane.rowIndex="5">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Blar.png" />
-                  </image>
-               </ImageView>
-            </children>
-         </StackPane>
-         <StackPane fx:id="graennThrir24" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Gulur.png" />
-                  </image>
-               </ImageView>
-            </children>
-         </StackPane>
-         <StackPane fx:id="graennThrir241" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="7">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Gulur.png" />
-                  </image>
-               </ImageView>
-            </children>
-         </StackPane>
-         <StackPane fx:id="graennThrir242" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="8">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Gulur.png" />
-                  </image>
-               </ImageView>
-            </children>
-         </StackPane>
-         <StackPane fx:id="graennThrir243" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="9">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Gulur.png" />
-                  </image>
-               </ImageView>
-            </children>
-         </StackPane>
-         <StackPane fx:id="graennThrir244" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
-            <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/Midja.png" />
-                  </image>
-               </ImageView>
-            </children>
-         </StackPane>
+         <StackPane fx:id="graenn2" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+         <StackPane fx:id="graenn3" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+         <StackPane fx:id="graenn4" prefHeight="50.0" prefWidth="50.0" styleClass="leftdown" GridPane.columnIndex="6" GridPane.rowIndex="4" />
          <StackPane fx:id="graenn5" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+         <StackPane fx:id="graenn6" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+         <StackPane fx:id="graenn7" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="9" GridPane.rowIndex="4" />
+         <StackPane fx:id="graenn8" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="10" GridPane.rowIndex="4" />
+         <StackPane fx:id="graenn9" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="10" GridPane.rowIndex="5" />
+
+
          <StackPane fx:id="blar0" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="10" GridPane.rowIndex="6">
             <opaqueInsets>
                <Insets top="30.0" />
@@ -313,6 +163,174 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          <StackPane fx:id="gulur7" prefHeight="150.0" prefWidth="200.0" styleClass="up" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          <StackPane fx:id="gulur8" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="6" />
          <StackPane fx:id="gulur9" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="5" />
+
+         <StackPane fx:id="bleikurEinn" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Bleikur.png" />
+                  </image>
+               </ImageView>
+            </children></StackPane>
+         <StackPane fx:id="bleikurTveir" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Bleikur.png" />
+                  </image>
+               </ImageView>
+            </children></StackPane>
+         <StackPane fx:id="bleikurThrir" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Bleikur.png" />
+                  </image>
+               </ImageView>
+            </children></StackPane>
+         <StackPane fx:id="bleikurSigur" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+            <children>
+               <StackPane fx:id="bleikurThrir1" prefHeight="50.0" prefWidth="50.0">
+                  <children>
+                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../CSS/myndir/Bleikur.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </StackPane>
+            </children></StackPane>
+
+         <StackPane fx:id="graennEinn" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Graenn.png" />
+                  </image>
+               </ImageView>
+            </children></StackPane>
+         <StackPane fx:id="graennTveir" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Graenn.png" />
+                  </image>
+               </ImageView>
+            </children></StackPane>
+         <StackPane fx:id="graennThrir" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Graenn.png" />
+                  </image>
+               </ImageView>
+            </children></StackPane>
+         <StackPane fx:id="graennSigur" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+            <children>
+               <StackPane fx:id="graennThrir1" prefHeight="50.0" prefWidth="50.0">
+                  <children>
+                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../CSS/myndir/Graenn.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </StackPane>
+            </children></StackPane>
+
+         <StackPane fx:id="blarEinn" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Blar.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </StackPane>
+         <StackPane fx:id="blarTveir" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="7" GridPane.rowIndex="5">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Blar.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </StackPane>
+         <StackPane fx:id="blarThrir" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="8" GridPane.rowIndex="5">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Blar.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </StackPane>
+         <StackPane fx:id="blarSigur" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="9" GridPane.rowIndex="5">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Blar.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </StackPane>
+
+         <StackPane fx:id="gulurEinn" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Gulur.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </StackPane>
+         <StackPane fx:id="gulurTveir" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="7">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Gulur.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </StackPane>
+         <StackPane fx:id="gulurThrir" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="8">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Gulur.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </StackPane>
+         <StackPane fx:id="gulurSigur" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="9">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Gulur.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </StackPane>
+
+         <StackPane fx:id="midja" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/Midja.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </StackPane>
+
+         <StackPane fx:id="bleikurStart" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <children>
+               <ImageView fx:id="bleikurKall" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/bleikurKall.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <children>
                <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
@@ -331,15 +349,6 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children>
          </StackPane>
-         <StackPane fx:id="bleikurStart" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-            <children>
-               <ImageView fx:id="bleikurKall" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/bleikurKall.png" />
-                  </image>
-               </ImageView>
-            </children>
-         </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
             <children>
                <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
@@ -349,6 +358,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children>
          </StackPane>
+
          <StackPane fx:id="graennStart" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="1">
             <children>
                <ImageView fx:id="graennKall" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
@@ -385,6 +395,16 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children>
          </StackPane>
+
+         <StackPane fx:id="gulurStart" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="9">
+            <children>
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/gulurKall.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
             <children>
                <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
@@ -412,16 +432,8 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children>
          </StackPane>
-         <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="9">
-            <children>
-               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../CSS/myndir/gulurKall.png" />
-                  </image>
-               </ImageView>
-            </children>
-         </StackPane>
-         <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="8">
+
+         <StackPane fx:id="blarStart" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="8">
             <children>
                <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
@@ -430,7 +442,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children>
          </StackPane>
-         <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="8">
+         <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="8">
             <children>
                <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
@@ -448,7 +460,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children>
          </StackPane>
-         <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="9" >
+         <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="9">
             <children>
                <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
@@ -457,6 +469,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children>
          </StackPane>
+
          <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="1" GridPane.columnSpan="3" />
          <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
          <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="2" />
