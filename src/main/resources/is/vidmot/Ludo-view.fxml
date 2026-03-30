@@ -149,7 +149,14 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          <StackPane fx:id="bleikur7" prefHeight="50.0" prefWidth="50.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="1" />
          <StackPane fx:id="bleikur8" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="4" />
          <StackPane fx:id="bleikur9" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" />
-         <StackPane fx:id="graenn0" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="6" />
+         <StackPane fx:id="graenn0" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="6">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/örGraenn.png" />
+                  </image>
+               </ImageView>
+            </children></StackPane>
          <StackPane fx:id="graenn1" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="1" />
          <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="1" GridPane.columnSpan="3" />
          <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
@@ -252,6 +259,13 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
             <opaqueInsets>
                <Insets top="30.0" />
             </opaqueInsets>
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/örBlar.png" />
+                  </image>
+               </ImageView>
+            </children>
          </StackPane>
          <StackPane fx:id="blar1" prefHeight="50.0" prefWidth="50.0" styleClass="up" GridPane.columnIndex="9" GridPane.rowIndex="6">
             <opaqueInsets>
@@ -298,7 +312,14 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                <Insets top="30.0" />
             </opaqueInsets>
          </StackPane>
-         <StackPane fx:id="gulur0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+         <StackPane fx:id="gulur0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="10">
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/örGulur.png" />
+                  </image>
+               </ImageView>
+            </children></StackPane>
          <StackPane fx:id="gulur1" prefHeight="150.0" prefWidth="200.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="9" />
          <StackPane fx:id="gulur2" prefHeight="150.0" prefWidth="200.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="8" />
          <StackPane fx:id="gulur3" prefHeight="150.0" prefWidth="200.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="7" />
@@ -310,7 +331,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          <StackPane fx:id="gulur9" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="5" />
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/bleikurKall.png" />
                   </image>
@@ -319,7 +340,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/bleikurKall.png" />
                   </image>
@@ -337,7 +358,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/bleikurKall.png" />
                   </image>
@@ -355,7 +376,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="1">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/graennKall.png" />
                   </image>
@@ -364,7 +385,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="2">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/graennKall.png" />
                   </image>
@@ -373,7 +394,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="2">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/graennKall.png" />
                   </image>
@@ -382,7 +403,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/gulurKall.png" />
                   </image>
@@ -391,7 +412,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/gulurKall.png" />
                   </image>
@@ -400,7 +421,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/gulurKall.png" />
                   </image>
@@ -409,7 +430,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="9">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/gulurKall.png" />
                   </image>
@@ -418,7 +439,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="8">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/blarKall.png" />
                   </image>
@@ -427,7 +448,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="8">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/blarKall.png" />
                   </image>
@@ -436,7 +457,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="9">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/blarKall.png" />
                   </image>
@@ -445,7 +466,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="9">
             <children>
-               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/blarKall.png" />
                   </image>
