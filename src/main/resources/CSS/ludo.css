@@ -2,6 +2,41 @@
     -fx-border-width: 2;
     -fx-border-color: black;
 }
+.blackStyle {
+    -fx-background-color: black;
+}
+.right {
+    -fx-border-width: 0 2 0 0;
+    -fx-border-color: black;
+}
+.left {
+    -fx-border-width: 0 0 0 2;
+    -fx-border-color: black;
+}
+.up {
+    -fx-border-width: 2 0 0 0;
+    -fx-border-color: black;
+}
+.down {
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: black;
+}
+.rightdown {
+    -fx-border-width: 0 2 2 0;
+    -fx-border-color: black;
+}
+.leftdown {
+    -fx-border-width: 0 0 2 2;
+    -fx-border-color: black;
+}
+.leftup {
+    -fx-border-width: 2 0 0 2;
+    -fx-border-color: black;
+}
+.rightup {
+    -fx-border-width: 2 2 0 0;
+    -fx-border-color: black;
+}
 .one, .two, .three, .four, .five, .six {
     -fx-background-size: cover;
     -fx-background-position: center;
@@ -43,9 +78,4 @@
 .one{
     -fx-background-image:
             url("myndir/1.png");
-}
-
-.kall {
-    -fx-background-image:
-            url("myndir/graennKallSkuggi.png.png");
 }

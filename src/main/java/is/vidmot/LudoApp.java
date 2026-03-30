@@ -22,7 +22,7 @@ public class LudoApp extends javafx.application.Application {
         // Gætið þess að .fxml skráin sé undir resources/is/vidmot
            FXMLLoader fxmlLoader = new FXMLLoader(LudoApp.class.getResource("Ludo-view.fxml"));
         // Smíða senuna með notendaviðmótinu sem er núna lesið inn af resources
-        Scene scene = new Scene(fxmlLoader.load(), 460, 414);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 700);
         // Setja titilinn á gluggann
         stage.setTitle("Ludo");
         // Tengja senuna við glugggann
