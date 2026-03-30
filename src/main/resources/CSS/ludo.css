@@ -1,6 +1,7 @@
 .styleGrid {
     -fx-border-width: 2;
     -fx-border-color: black;
+    /*-fx-background-color: black;*/
 }
 .blackStyle {
     -fx-background-color: black;
@@ -16,6 +17,8 @@
 .up {
     -fx-border-width: 2 0 0 0;
     -fx-border-color: black;
+    /*-fx-background-radius: 5px;*/
+    /*-fx-background-color: white;*/
 }
 .down {
     -fx-border-width: 0 0 2 0;

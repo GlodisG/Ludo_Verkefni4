@@ -53,6 +53,13 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
             <opaqueInsets>
                <Insets top="30.0" />
             </opaqueInsets>
+            <children>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../CSS/myndir/örBleikur.png" />
+                  </image>
+               </ImageView>
+            </children>
          </StackPane>
          <StackPane fx:id="graenn9" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="10" GridPane.rowIndex="5" />
          <StackPane fx:id="graenn8" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="10" GridPane.rowIndex="4" />
