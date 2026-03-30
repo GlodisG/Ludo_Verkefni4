@@ -55,7 +55,7 @@ public class Reitur {
 					return reiturPlayer2.get() + 4;
 				}
 				if(reiturPlayer2.get() + PLAYER2OFFSET >= 40) {
-					return reiturPlayer2.get() % 40;
+					return (reiturPlayer2.get() + PLAYER2OFFSET) % 40;
 				}
 				return reiturPlayer2.get() + PLAYER2OFFSET;
 			}
@@ -64,7 +64,7 @@ public class Reitur {
 					return reiturPlayer3.get() + 8;
 				}
 				if(reiturPlayer3.get() + PLAYER3OFFSET >= 40) {
-					return reiturPlayer3.get() % 40;
+					return (reiturPlayer3.get() + PLAYER3OFFSET) % 40;
 				}
 				return reiturPlayer3.get() + PLAYER3OFFSET;
 			}
@@ -73,7 +73,7 @@ public class Reitur {
 					return reiturPlayer4.get() + 12;
 				}
 				if(reiturPlayer4.get() + PLAYER4OFFSET >= 40) {
-					return reiturPlayer4.get() % 40;
+					return (reiturPlayer4.get() + PLAYER4OFFSET) % 40;
 				}
 				return reiturPlayer4.get() + PLAYER4OFFSET;
 			}
