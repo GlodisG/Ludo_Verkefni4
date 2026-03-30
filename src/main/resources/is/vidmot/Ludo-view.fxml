@@ -86,7 +86,6 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                   </children>
                </StackPane>
             </children></StackPane>
-         <StackPane prefHeight="50.0" prefWidth="50.0" styleClass="blackStyle" GridPane.rowSpan="4" />
          <StackPane fx:id="bleikur3" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="3" GridPane.rowIndex="4" />
          <StackPane fx:id="bleikurTveir" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
             <children>
@@ -158,21 +157,6 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children></StackPane>
          <StackPane fx:id="graenn1" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="1" GridPane.columnSpan="3" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="2" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="7" GridPane.columnSpan="4" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="7" GridPane.columnSpan="4" GridPane.rowIndex="3" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnSpan="4" GridPane.rowIndex="7" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnSpan="4" GridPane.rowIndex="10" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="7" GridPane.columnSpan="4" GridPane.rowIndex="7" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="7" GridPane.columnSpan="4" GridPane.rowIndex="10" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="7" GridPane.rowIndex="1" GridPane.rowSpan="2" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="10" GridPane.rowIndex="1" GridPane.rowSpan="2" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.rowIndex="8" GridPane.rowSpan="2" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="3" GridPane.rowIndex="8" GridPane.rowSpan="2" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="7" GridPane.rowIndex="8" GridPane.rowSpan="2" />
-         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="10" GridPane.rowIndex="8" GridPane.rowSpan="2" />
          <StackPane fx:id="graennThrir2" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
             <children>
                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -473,6 +457,22 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children>
          </StackPane>
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="1" GridPane.columnSpan="3" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="7" GridPane.columnSpan="4" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="7" GridPane.columnSpan="4" GridPane.rowIndex="3" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnSpan="4" GridPane.rowIndex="7" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnSpan="4" GridPane.rowIndex="10" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="7" GridPane.columnSpan="4" GridPane.rowIndex="7" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="7" GridPane.columnSpan="4" GridPane.rowIndex="10" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="7" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="10" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.rowIndex="8" GridPane.rowSpan="2" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="3" GridPane.rowIndex="8" GridPane.rowSpan="2" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="7" GridPane.rowIndex="8" GridPane.rowSpan="2" />
+         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="blackStyle" GridPane.columnIndex="10" GridPane.rowIndex="8" GridPane.rowSpan="2" />
+         <StackPane prefHeight="50.0" prefWidth="50.0" styleClass="blackStyle" GridPane.rowSpan="4" />
       </children>
       </GridPane>
    <Button fx:id="fxTeningur" layoutX="355.0" layoutY="600.0" mnemonicParsing="false" onAction="#onKastaTening" prefHeight="50.0" prefWidth="50.0" styleClass="one" />
