@@ -11,14 +11,14 @@ public class Leikmadur {
     private static final IntegerProperty hvadaKall = new SimpleIntegerProperty(1);
     private final Ped[] pedArray;
     private final String litur;
-    private final int leikmadurNumer;
+    private final int nafn;
     
-    public Leikmadur(int leikmadurNumer, String litur) {
+    public Leikmadur(int nafn, String litur) {
     	pedArray = new Ped[4];
     	for(int i = 0; i < pedArray.length; i++) {
     		pedArray[i] = new Ped();
     	}
-    	this.leikmadurNumer = leikmadurNumer;
+    	this.nafn = nafn;
     	this.litur = litur;
     }
     /**
@@ -26,6 +26,8 @@ public class Leikmadur {
      */
     public static int getLeikmadur() {
         int hverGera= hvadaKall.get();
+        //ifhvergera meira en 4 næsti=0
+        //int naesti=hvergera+1
         if (hverGera==1) {
             hvadaKall.set(2);
             return 2;

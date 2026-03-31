@@ -13,7 +13,18 @@ public class Ludo {
     public static final IntegerProperty bleikurLeid = new SimpleIntegerProperty(0);
     public static final IntegerProperty graennLeid = new SimpleIntegerProperty(0);
     public static final SimpleBooleanProperty leikLokid = new SimpleBooleanProperty(false);
-
+    
+    /*
+     * hugmynd fyrir leikmannafylki
+     * 
+	 *   private int N; //tala úr upphafsskjá
+	 *   public Leikmadur[] leikmenn = new Leikmadur[N];
+	 *   
+	 *   for(int i = 0; i < N; i ++) {
+	 *   	leikmenn[i] = new Leikmadur(nafn, i);
+	 *   }
+     */
+    
     /**
      *Spilar leikinn
      * Kastar tening
