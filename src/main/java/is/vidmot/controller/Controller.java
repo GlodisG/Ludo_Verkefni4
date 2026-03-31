@@ -67,6 +67,14 @@ public class Controller {
     public static HashMap<Integer, StackPane> ludoBord = new HashMap<>();
     // Leikborð 2.0
     private final Map<Integer, StackPane> vidmotLeid = new HashMap<>();
+    
+    /*
+     * Hashmap sem heldur utan um breytilegan fjölda leikmanna
+     * Integer lykill sem myndi ákvarða staðsetningu á leikborði (Gæti líka verið <String, Leikmadur> eða eitthvað slíkt)
+     * String gildi fyrir valkvætt nafn(upphafsstillt sem Leikmaður 1, Leikmaður 2 etc?)
+     * Upplýsingarnar myndu vera sóttar frá upphafsglugganum
+     */
+    private final Map<Integer, String> leikmenn = new HashMap<>();
 
     /**
      *Þegar ýtt er á tening
@@ -222,7 +230,7 @@ public class Controller {
     public void buaTilLeid() {
     	int index = 0;
     	for(Node node: fxGrid.getChildren()) {
-    		if(node instanceof StackPane && index < 73) {
+    		if(node instanceof StackPane && index < 57) {
     			vidmotLeid.put(index++, (StackPane) node);
     		}
     	}

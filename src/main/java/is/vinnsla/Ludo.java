@@ -30,11 +30,11 @@ public class Ludo {
         }
 
         //Skoðar hvort annar spilari vann
-        if (graennLeid.get()>=43){
+        if (graennLeid.get()>=45){
             //láta grænann vinna og enda leik
             setLeikLokid(true);
         }
-        if (bleikurLeid.get()>=43) {
+        if (bleikurLeid.get()>=45) {
             //láta bleikann vinna og enda leik
             setLeikLokid(true);
         }
