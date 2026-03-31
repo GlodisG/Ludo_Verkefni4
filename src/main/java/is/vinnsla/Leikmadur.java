@@ -9,6 +9,18 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class Leikmadur {
     private static final IntegerProperty hvadaKall = new SimpleIntegerProperty(1);
+    private final Ped[] pedArray;
+    private final String litur;
+    private final int leikmadurNumer;
+    
+    public Leikmadur(int leikmadurNumer, String litur) {
+    	pedArray = new Ped[4];
+    	for(int i = 0; i < pedArray.length; i++) {
+    		pedArray[i] = new Ped();
+    	}
+    	this.leikmadurNumer = leikmadurNumer;
+    	this.litur = litur;
+    }
     /**
      * @return int //sækir hver á að gera úr hvadaKall breytunni og skilgreinir að hinn á næst að gera
      */
