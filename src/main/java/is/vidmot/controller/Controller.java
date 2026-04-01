@@ -91,34 +91,39 @@ public class Controller {
         int ten = Teningur.getTala();
 
         int hverGera = Leikmadur.getLeikmadur(FJOLDI);
-        System.out.println(hverGera);
-        if(hverGera==1){
+        System.out.println("hverGera: "+hverGera);
+        if(hverGera==2){
             welcomeText.setText("Grænn færist " + ten + " áfram");
-            int gTeljari= Ludo.getGraennLeid();
-            hreyfaGraenann(Reitur.reitur(gTeljari,hverGera));
             
+            reitur.faeraLeikmann(2, ten);
+            hreyfaGraenann(reitur.getReitur(2));
+            System.out.println("Grænn: "+reitur.getReitur(2));
             /*
-            reitur.faeraLeikmann(1, ten);
-            hreyfaGraenann(reitur.getReitur(1));
+            int gTeljari= Ludo.getGraennLeid();
+            //int gTeljari= reitur.getReitur(1);
+            hreyfaGraenann(Reitur.reitur(gTeljari,hverGera));
              */
         } else {
             welcomeText.setText("Bleikur færist " + ten + " áfram");
+            
+            reitur.faeraLeikmann(1, ten);
+            hreyfaBleikann(reitur.getReitur(1));
+            System.out.println("Bleikur: "+reitur.getReitur(1));
+            /*
+            //int bTeljari= reitur.getReitur(2);
             int bTeljari= Ludo.getBleikurLeid();
             hreyfaBleikann(Reitur.reitur(bTeljari,hverGera));
-            
-            /*
-            reitur.faeraLeikmann(2, ten);
-            hreyfaBleikann(reitur.getReitur(2));
              */
         }
 
         //Prentar sigurtexta eftir því hver vann
         if(Ludo.getLeikLokid()) {
             if(Leikmadur.hvadaKall()==1){
-                additionalText.setText("Grænn vann!");
+            	additionalText.setText("Bleikur vann!");
+            	hreyfaBleikann(56);
             } else {
-                additionalText.setText("Bleikur vann!");
-                hreyfaBleikann(56);
+                additionalText.setText("Grænn vann!");
+                hreyfaGraenann(56);
             }
         }
 
@@ -153,6 +158,7 @@ public class Controller {
         hreyfaGraenann(61);
         hreyfaBleikann(57);
         Ludo.endurstillaLeid();
+        reitur.endursetjaLeid(); //
         Ludo.setLeikLokid(false);
         System.out.println(Ludo.getLeikLokid());
         

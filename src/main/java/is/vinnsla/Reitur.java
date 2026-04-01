@@ -86,6 +86,13 @@ public class Reitur {
 				return reiturPlayer4.get() + PLAYER4OFFSET;
 			}
 			default : return 0;
-    	}
+    	}    	
+    }
+    
+    public void endursetjaLeid() {
+    	reiturPlayer1.set(0);
+    	reiturPlayer2.set(0);
+    	reiturPlayer3.set(0);
+    	reiturPlayer4.set(0);
     }
 }
