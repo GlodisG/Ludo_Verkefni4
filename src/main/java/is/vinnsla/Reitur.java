@@ -16,12 +16,17 @@ public class Reitur {
 	private final int PLAYER3OFFSET = 20;
 	private final int PLAYER4OFFSET = 30;
 	
+	/*
+	 * Default constructor
+	 */
+	public Reitur() {}
+	
     /**
      * @param teningur //hvar í fylkinu spilarinn er
      * @param kall //hvaða spilari
      * @return int //Skilar númer hvað reiturinn er sem spilarinn á að fara á
      */
-    public static int Reitur(int teningur, int kall) {
+    public static int reitur(int teningur, int kall) {
         int[] fylki;
         if(kall==2) {
             fylki = new int[] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43};
@@ -35,10 +40,12 @@ public class Reitur {
         return fylki[teningur-1];
     }
     
-    public void faeraLeikmann(int leikmadur, int teningur) {
+    public  void faeraLeikmann(int leikmadur, int teningur) {
     	switch(leikmadur) {
 	    	case 1 -> reiturPlayer1.set(reiturPlayer1.get()+teningur);
 			case 2 -> reiturPlayer2.set(reiturPlayer2.get()+teningur);
+			case 3 -> reiturPlayer3.set(reiturPlayer3.get()+teningur);
+			case 4 -> reiturPlayer4.set(reiturPlayer4.get()+teningur);
     	}
     }
     

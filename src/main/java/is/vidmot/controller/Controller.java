@@ -11,6 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -69,12 +71,15 @@ public class Controller {
     private final Map<Integer, StackPane> vidmotLeid = new HashMap<>();
     
     /*
-     * Hashmap sem heldur utan um breytilegan fjölda leikmanna
-     * Integer lykill sem myndi ákvarða staðsetningu á leikborði (Gæti líka verið <String, Leikmadur> eða eitthvað slíkt)
-     * String gildi fyrir valkvætt nafn(upphafsstillt sem Leikmaður 1, Leikmaður 2 etc?)
-     * Upplýsingarnar myndu vera sóttar frá upphafsglugganum
+     * Array sem heldur utan um breytilegan fjölda leikmanna
+     * Fær fjöldan úr upphafsglugga ásamt nöfnum(placeholder sett inn)
      */
-    private final Map<Integer, String> leikmenn = new HashMap<>();
+    private final int FJOLDI = 2;
+    private final String[] NOFN = {"Leikmaður 1", "Leikmaður 2"};
+    private Leikmadur[] leikmenn;
+    
+    private Ludo ludo = new Ludo();
+    private Reitur reitur = new Reitur();
 
     /**
      *Þegar ýtt er á tening
@@ -85,15 +90,26 @@ public class Controller {
         Ludo.leikaLeik();
         int ten = Teningur.getTala();
 
-        int hverGera = Leikmadur.getLeikmadur();
+        int hverGera = Leikmadur.getLeikmadur(FJOLDI);
+        System.out.println(hverGera);
         if(hverGera==1){
             welcomeText.setText("Grænn færist " + ten + " áfram");
             int gTeljari= Ludo.getGraennLeid();
-            hreyfaGraenann(Reitur.Reitur(gTeljari,hverGera));
+            hreyfaGraenann(Reitur.reitur(gTeljari,hverGera));
+            
+            /*
+            reitur.faeraLeikmann(1, ten);
+            hreyfaGraenann(reitur.getReitur(1));
+             */
         } else {
             welcomeText.setText("Bleikur færist " + ten + " áfram");
             int bTeljari= Ludo.getBleikurLeid();
-            hreyfaBleikann(Reitur.Reitur(bTeljari,hverGera));
+            hreyfaBleikann(Reitur.reitur(bTeljari,hverGera));
+            
+            /*
+            reitur.faeraLeikmann(2, ten);
+            hreyfaBleikann(reitur.getReitur(2));
+             */
         }
 
         //Prentar sigurtexta eftir því hver vann
@@ -102,15 +118,16 @@ public class Controller {
                 additionalText.setText("Grænn vann!");
             } else {
                 additionalText.setText("Bleikur vann!");
+                hreyfaBleikann(56);
             }
         }
 
         //Skilgreint á hvaða reit báðir spilarar eru
         int reiturG = 0;
         if(Ludo.getGraennLeid()>0){
-            reiturG =Reitur.Reitur(Ludo.getGraennLeid(),1);
+            reiturG =Reitur.reitur(Ludo.getGraennLeid(),1);
         }
-        int reiturB =Reitur.Reitur(Ludo.getBleikurLeid(),2);
+        int reiturB =Reitur.reitur(Ludo.getBleikurLeid(),2);
 
         //Ef þeir lenda á sama reit
         if(reiturG==reiturB) {
@@ -124,7 +141,6 @@ public class Controller {
                 additionalText.setText("Úps! Grænn aftur á byrjunarreit");
             }
         }
-
     }
 
     /**
@@ -133,12 +149,17 @@ public class Controller {
     public void onNyrLeikur(){
         welcomeText.setText("Bleikur gerir fyrst");
         additionalText.setText("Ýttu á tening til að hefja leik");
-        Leikmadur.setLeikmadur();
+        Leikmadur.setLeikmadur(1);
         hreyfaGraenann(61);
         hreyfaBleikann(57);
         Ludo.endurstillaLeid();
         Ludo.setLeikLokid(false);
         System.out.println(Ludo.getLeikLokid());
+        
+        leikmenn = new Leikmadur[FJOLDI];
+        for(int i = 0; i < leikmenn.length; i++) {
+        	leikmenn[i] = new Leikmadur(NOFN[i]);
+        }
     }
 
     /**
@@ -167,6 +188,23 @@ public class Controller {
             currentParent.getChildren().remove(bleikurKall);
         }
         targetTile.getChildren().add(bleikurKall);
+    }
+    
+    public void hreyfaLeikmann(int stadsetning) {
+    	Pane targetTile = vidmotLeid.get(stadsetning);
+    	if(targetTile == null) return;
+    	int currentPlayer = Leikmadur.hvadaKall();
+    	Node ped = null;
+    	switch(currentPlayer) {
+    		case 1 : ped = bleikurKall;
+    		case 2 : ped = graennKall;
+    		//peð 3
+    		//peð 4
+    	}
+    	Pane currentParent = (Pane) ped.getParent();
+    	targetTile.getChildren().add(ped);
+    	if(currentParent != null) 
+    		currentParent.getChildren().remove(ped);
     }
 
     public void initialize() {
@@ -226,6 +264,11 @@ public class Controller {
                             .add(myndir[nytt.intValue() - 1]);
                 }
         );
+        
+        leikmenn = new Leikmadur[FJOLDI];
+        for(int i = 0; i < leikmenn.length; i++) {
+        	leikmenn[i] = new Leikmadur(NOFN[i]);
+        }
     }
     public void buaTilLeid() {
     	int index = 0;

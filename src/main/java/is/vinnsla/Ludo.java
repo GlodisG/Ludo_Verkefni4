@@ -14,16 +14,19 @@ public class Ludo {
     public static final IntegerProperty graennLeid = new SimpleIntegerProperty(0);
     public static final SimpleBooleanProperty leikLokid = new SimpleBooleanProperty(false);
     
-    /*
-     * hugmynd fyrir leikmannafylki
-     * 
-	 *   private int N; //tala úr upphafsskjá
-	 *   public Leikmadur[] leikmenn = new Leikmadur[N];
-	 *   
-	 *   for(int i = 0; i < N; i ++) {
-	 *   	leikmenn[i] = new Leikmadur(nafn, i);
-	 *   }
-     */
+    
+    private static final Reitur reitur = new Reitur();
+    private static int leikUmferd = 1;
+    private static int fjoldiLeikmanna = 2; //tala úr upphafsskjá
+    private Leikmadur[] leikmenn = new Leikmadur[fjoldiLeikmanna];
+	private String[] nofn = {"1","2"};
+	
+	public Ludo() {
+		for(int i = 0; i < fjoldiLeikmanna; i++) {
+			leikmenn[i] = new Leikmadur(nofn[i]);
+		}	
+	}
+     
     
     /**
      *Spilar leikinn
@@ -32,8 +35,16 @@ public class Ludo {
      */
     public static void leikaLeik() {
         teningur.kasta();
-
+        if(leikUmferd >= fjoldiLeikmanna)
+        	leikUmferd = 1;
+        //Leikmadur.setLeikmadur(leikUmferd);
+        
+        
+        
         //bætir í leið eftir hver er að gera
+        reitur.faeraLeikmann(leikUmferd, teningur.getTala());
+        leikUmferd++;
+        
         if(Leikmadur.hvadaKall()==2){
             graennLeid.set(graennLeid.get()+teningur.getTala());
         } else {
