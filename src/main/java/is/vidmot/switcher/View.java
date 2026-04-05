@@ -3,11 +3,10 @@ package is.vidmot.switcher;
 /**
  * @author Almas Baimagambetov (almaslvl@gmail.com)
  *
- * viðbætur fyrir Ferdaplan verkefni
  */
 public enum View {
-    ADAL("/is/vidmot/adal-view.fxml"),
-    FERD("/is/vidmot/ferd-view.fxml");
+    BORD("/is/vidmot/Ludo-view.fxml"),
+    VALMYND("/is/vidmot/Valmynd-view.fxml");
 
 
     private String fileName;

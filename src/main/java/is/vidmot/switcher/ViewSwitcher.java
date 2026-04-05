@@ -87,6 +87,9 @@ public class ViewSwitcher {
                 ((GognInterface) controller).setGogn(hlutur);
             }
             scene.setRoot(root);
+            if (scene.getWindow() instanceof javafx.stage.Stage stage) {
+                stage.sizeToScene();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

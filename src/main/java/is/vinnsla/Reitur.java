@@ -31,6 +31,7 @@ public class Reitur {
         if(teningur>43) {
             return fylki[42];
         }
+
         System.out.println("Teningur fyrir " + kall + "er" + (teningur-1));
         return fylki[teningur-1];
     }
