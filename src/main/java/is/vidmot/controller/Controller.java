@@ -1,8 +1,11 @@
 package is.vidmot.controller;
+import is.vidmot.switcher.View;
+import is.vidmot.switcher.ViewSwitcher;
 import is.vinnsla.Leikmadur;
 import is.vinnsla.Ludo;
 import is.vinnsla.Reitur;
 import is.vinnsla.Teningur;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -166,6 +169,15 @@ public class Controller {
         for(int i = 0; i < leikmenn.length; i++) {
         	leikmenn[i] = new Leikmadur(NOFN[i]);
         }
+    }
+
+    /**
+     * @param ignored
+     * Breytir senunni í valmynd senuna
+     */
+    @FXML
+    public void onValmynd(ActionEvent ignored) {
+        ViewSwitcher.switchTo(View.VALMYND,false, null);
     }
 
     /**
