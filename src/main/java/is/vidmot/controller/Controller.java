@@ -328,7 +328,7 @@ public class Controller {
     public void buaTilLeid() {
     	int index = 0;
     	for(Node node: fxGrid.getChildren()) {
-    		if(node instanceof StackPane && index < 57) {
+    		if(node instanceof StackPane && index < 73) {
     			vidmotLeid.put(index++, (StackPane) node);
     		}
     	}
