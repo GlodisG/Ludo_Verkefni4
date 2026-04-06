@@ -19,12 +19,12 @@ public class Ludo {
     private static int leikUmferd = 1;
     private static int fjoldiLeikmanna = 2; //tala úr upphafsskjá
     private Leikmadur[] leikmenn = new Leikmadur[fjoldiLeikmanna];
-	private String[] nofn = {"1","2"};
+	private String[] nofn = {"Leikmaður 1", "Leikmaður 2"};
 	
 	public Ludo() {
 		for(int i = 0; i < fjoldiLeikmanna; i++) {
 			leikmenn[i] = new Leikmadur(nofn[i]);
-		}	
+		}
 	}
      
     
@@ -33,7 +33,7 @@ public class Ludo {
      * Kastar tening
      * skoðar hvaða leikmaður er að gera og bætir við leiðina
      */
-    public static void leikaLeik() {
+    public void leikaLeik() {
         teningur.kasta();
         if(leikUmferd >= fjoldiLeikmanna)
         	leikUmferd = 1;
@@ -43,7 +43,21 @@ public class Ludo {
         
         //bætir í leið eftir hver er að gera
         reitur.faeraLeikmann(leikUmferd, teningur.getTala());
+        leikmenn[leikUmferd-1].faeraLeikmann(teningur.getTala(), 0, leikUmferd); // Vill á endanum nota þessa aðferð
+        
         leikUmferd++;
+        
+        // Leikstaða fyrir debugging -----------------------------------------
+        System.out.println("Leikstada:\n");
+        int cnt = 1;
+        for(Leikmadur i : leikmenn) {
+        	System.out.println("Leikmadur " + cnt++);
+        	for(int j = 0; j < 4; j++) {
+        		System.out.println("Ped " + (j + 1) + ": " + i.getPed(j).toString());
+        	}
+        	System.out.println();
+        }
+        // -------------------------------------------------------------------
         
         if(Leikmadur.hvadaKall()==2){
             graennLeid.set(graennLeid.get()+teningur.getTala());
@@ -60,6 +74,20 @@ public class Ludo {
             //láta bleikann vinna og enda leik
             setLeikLokid(true);
         }
+        if(leikmenn[leikUmferd-1].erSigurvegari()) {
+        	setLeikLokid(true);
+        }
+        
+        
+        
+    }
+    
+    /**
+     * @param leikmadurNumer Númer leikmanns
+     * @return Leikmaður
+     */
+    public Leikmadur getLeikmadur(int leikmadurNumer) {
+    	return leikmenn[leikmadurNumer-1];
     }
 
     /**
@@ -107,8 +135,11 @@ public class Ludo {
     /**
      * Núllstillir hvar bleikur og grænn eru
      */
-    public static void endurstillaLeid() {
+    public void endurstillaLeid() {
         bleikurLeid.set(0);
         graennLeid.set(0);
+        for(Leikmadur i: leikmenn) {
+        	i.endurstillaLeikmann();
+        }
     }
 }
