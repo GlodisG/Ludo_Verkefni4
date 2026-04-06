@@ -42,8 +42,16 @@ public class Reitur {
         return fylki[teningur-1];
     }
 	 */
-    
-    /**
+
+	public SimpleIntegerProperty reiturPlayer1Property() {
+		return reiturPlayer1;
+	}
+
+	public SimpleIntegerProperty reiturPlayer2Property() {
+		return reiturPlayer1;
+	}
+
+	/**
      * Færir leikmann á leikborði
      * @param leikmadur númer leikmanns
      * @param teningur vegalend sem á að ferðast um

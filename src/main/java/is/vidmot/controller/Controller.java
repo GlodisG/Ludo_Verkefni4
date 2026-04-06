@@ -137,6 +137,11 @@ public class Controller {
                 hreyfaGraenann(56);
             }
         }
+
+        if (erSamiReitur()) {
+            //gera nýja if s
+        }
+
         /*
         //Skilgreint á hvaða reit báðir spilarar eru
         int reiturG = 0;
@@ -158,6 +163,19 @@ public class Controller {
             }
         }
          */
+    }
+
+    /**
+     *
+     * @return boolean segir til hvort þeir séu á sama reit
+     */
+    public boolean erSamiReitur() {
+        int reitur1 = reitur.reiturPlayer1Property().get();
+        int reitur2 = reitur.reiturPlayer2Property().get();
+        if (reitur1==reitur2){
+            return true;
+        }
+        return false;
     }
 
     /**
