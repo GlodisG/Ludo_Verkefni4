@@ -15,6 +15,7 @@ public class Reitur {
 	private final int PLAYER2OFFSET = 10;
 	private final int PLAYER3OFFSET = 20;
 	private final int PLAYER4OFFSET = 30;
+	private final int FINISHOFFSET = 4;
 	
 	/*
 	 * Default constructor
@@ -41,6 +42,11 @@ public class Reitur {
         return fylki[teningur-1];
     }
     
+    /**
+     * Færir leikmann á leikborði
+     * @param leikmadur númer leikmanns
+     * @param teningur vegalend sem á að ferðast um
+     */
     public  void faeraLeikmann(int leikmadur, int teningur) {
     	switch(leikmadur) {
 	    	case 1 -> reiturPlayer1.set(reiturPlayer1.get()+teningur);
@@ -61,7 +67,7 @@ public class Reitur {
 	    	case 1 : return reiturPlayer1.get();
 			case 2 : {
 				if(reiturPlayer2.get() > 40) {
-					return reiturPlayer2.get() + 4;
+					return reiturPlayer2.get() + FINISHOFFSET * (PLAYER2OFFSET/10);
 				}
 				if(reiturPlayer2.get() + PLAYER2OFFSET >= 40) {
 					return (reiturPlayer2.get() + PLAYER2OFFSET) % 40;
@@ -70,7 +76,7 @@ public class Reitur {
 			}
 			case 3 : {
 				if(reiturPlayer3.get() > 40) {
-					return reiturPlayer3.get() + 8;
+					return reiturPlayer3.get() + FINISHOFFSET * (PLAYER3OFFSET/10);
 				}
 				if(reiturPlayer3.get() + PLAYER3OFFSET >= 40) {
 					return (reiturPlayer3.get() + PLAYER3OFFSET) % 40;
@@ -79,7 +85,7 @@ public class Reitur {
 			}
 			case 4 : {
 				if(reiturPlayer4.get() > 40) {
-					return reiturPlayer4.get() + 12;
+					return reiturPlayer4.get() + FINISHOFFSET * (PLAYER4OFFSET/10);
 				}
 				if(reiturPlayer4.get() + PLAYER4OFFSET >= 40) {
 					return (reiturPlayer4.get() + PLAYER4OFFSET) % 40;
