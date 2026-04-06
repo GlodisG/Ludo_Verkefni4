@@ -7,15 +7,20 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class Ped {
 	private boolean erABordi = false;
 	private boolean erSigrari = false;
-	private final SimpleIntegerProperty stadur = new SimpleIntegerProperty(0);
+	private final String leikmadur;
+	private final SimpleIntegerProperty stadur = new SimpleIntegerProperty(-1);
 	
-	public Ped() {}
+	public Ped(String leikmadur) {
+		this.leikmadur = leikmadur;
+	}
 	
 	public void faeraPed(int teningur) {
 		stadur.set(stadur.get() + teningur);
 	}
 	public void endurstillaPed() {
-		stadur.set(0);
+		stadur.set(-1);
+		erABordi = false;
+		erSigrari = false;
 	}
 	
 	public void setABordi(boolean erABordi) {
@@ -34,5 +39,14 @@ public class Ped {
 	}
 	public boolean getErSigrari() {
 		return erSigrari;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return 
+				"Nafn(" + leikmadur + 
+				"): Stadsetning: " + stadur.get() +
+				" (Sigurvegari: " + (erSigrari ? "Ja" : "Nei") +
+				") (A Bordi: " + (erABordi ? "Ja" : "Nei") + ")"; 
 	}
 }
