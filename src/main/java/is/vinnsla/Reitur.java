@@ -27,6 +27,8 @@ public class Reitur {
      * @param kall //hvaða spilari
      * @return int //Skilar númer hvað reiturinn er sem spilarinn á að fara á
      */
+	  
+	/*
     public static int reitur(int teningur, int kall) {
         int[] fylki;
         if(kall==2) {
@@ -37,10 +39,9 @@ public class Reitur {
         if(teningur>43) {
             return fylki[42];
         }
-
-        System.out.println("Teningur fyrir " + kall + "er" + (teningur-1));
         return fylki[teningur-1];
     }
+	 */
     
     /**
      * Færir leikmann á leikborði
