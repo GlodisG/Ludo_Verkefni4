@@ -13,17 +13,27 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class Leikmadur {
     private static final IntegerProperty hvadaKall = new SimpleIntegerProperty(1);
     private final Ped[] pedArray;
+    private final IntegerProperty ped1 = new SimpleIntegerProperty(-1);
+	private final IntegerProperty ped2 = new SimpleIntegerProperty(-1);
+	private final IntegerProperty ped3 = new SimpleIntegerProperty(-1);
+	private final IntegerProperty ped4 = new SimpleIntegerProperty(-1);
     private final String nafn;
+    private static int fjoldi;
     private HashMap<Ped, Integer> virkPed = new HashMap<>();
     
+    private int pedCounter = 0; //placeholder teljari fyrir peð
+    public int getPedCounter() {
+    	return pedCounter;
+    }
     /**
      * Smiður fyrir leikmann, inniheldur fylki af 4 peðum.
      * @param nafn Valkvætt nafn leikmanns
+     * @param leikmadurNumer Númer leikmanns, merkir peðin hans.
      */
     public Leikmadur(String nafn) {
     	pedArray = new Ped[4];
     	for(int i = 0; i < pedArray.length; i++) {
-    		pedArray[i] = new Ped();
+    		pedArray[i] = new Ped(nafn);
     	}
     	this.nafn = nafn;
     }
@@ -39,7 +49,13 @@ public class Leikmadur {
     	return virkPed;
     }
     
-    public void faeraLeikmann(int teningur, int ped) {
+    /**
+     * Færir peð leikmanns á leikborði
+     * @param teningur Vegalengdin sem á að ferðast um
+     * @param ped númer peðs sem á að hreyfa
+     * @param leikmadurNumer Númer leikmanns sem á að hreyfa
+     */
+    public void faeraLeikmann(int teningur, int ped, int leikmadurNumer) {
     	if(teningur == 6) {
     		//valkostur um að bæta við peði ?
     		//kannski hafa þann kóða í controller?
@@ -49,20 +65,27 @@ public class Leikmadur {
     	 * placeholder kóði, fer í gegnum fylkið, eitt peð í einu, þar til það hefur komist í mark
     	 * notar þá næsta peð eftir á o.s.frv.
     	 */
-    	for(Ped i: pedArray) {
-    		if(!i.getErSigrari()) {
-    			i.faeraPed(teningur);
-    			return;
-    		}
+    	if(!pedArray[pedCounter].getErSigrari()) {
+    		if(!pedArray[pedCounter].getABordi())
+    			pedArray[pedCounter].setABordi(true);
+    		
+    		pedArray[pedCounter].faeraPed(teningur);
+    		
+    		if(pedArray[pedCounter].getStadsetning() >= 44) {
+    			System.out.println(">> Ped komst i mark <<");
+    			pedArray[pedCounter].setErSigrari(true);
+    			pedArray[pedCounter].setABordi(false);
+    			pedCounter++;
+    		}    		
     	}
-    	
     }
     
-    /**
-     * @return int //sækir hver á að gera úr hvadaKall breytunni og skilgreinir að hinn á næst að gera
-     */
-    public static int getLeikmadur(int fjoldi) {
-        int hverGera= hvadaKall.get();
+    
+     /**
+      * Skilar hvaða leikmadur á næsta leik
+      * @return númer leikmanns
+      */
+    public static int getNaestiLeikmadur() {
         /*
         //ifhvergera meira en 4 næsti=0
         //int naesti=hvergera+1
@@ -74,32 +97,50 @@ public class Leikmadur {
         return 1;
         */
         
-        switch(fjoldi) {
-	        case 2:
-	        {
-	        	if(hverGera == 1) hvadaKall.set(2);
-	        	if(hverGera == 2) hvadaKall.set(1);
-	        	break;
-	        }
-	        case 3:
-	        {
-	        	if(hverGera == 1) hvadaKall.set(2);
-	        	if(hverGera == 2) hvadaKall.set(3);
-	        	if(hverGera == 3) hvadaKall.set(1);
-	        	break;
-	        }
-	        case 4: 
-	        {
-	        	if(hverGera == 1) hvadaKall.set(2);
-	        	if(hverGera == 2) hvadaKall.set(3);
-	        	if(hverGera == 3) hvadaKall.set(4);
-	        	if(hverGera == 4) hvadaKall.set(1);
-	        	break;
-	        }
-        }
-        System.out.println("hvadaKall: " + hvadaKall.get());
+        //System.out.println("hvadaKall: " + hvadaKall.get());
         return hvadaKall.get();
         
+    }
+    
+    /**
+     * Færir næsta leik á næsta leikmann, breytilegt eftir fjölda leikmanna
+     * @param fjoldi Fjöldi leikmanna sem eru að spila
+     */
+    public static void setNaestiLeikmadur() {
+    	int hverGera = hvadaKall.get();
+    	switch(fjoldi) {
+	    	case 2:
+	    	{
+	    		if(hverGera == 1) hvadaKall.set(2);
+	    		if(hverGera == 2) hvadaKall.set(1);
+	    		break;
+	    	}
+	    	case 3:
+	    	{
+	    		if(hverGera == 1) hvadaKall.set(2);
+	    		if(hverGera == 2) hvadaKall.set(3);
+	    		if(hverGera == 3) hvadaKall.set(1);
+	    		break;
+	    	}
+	    	case 4: 
+	    	{
+	    		if(hverGera == 1) hvadaKall.set(2);
+	    		if(hverGera == 2) hvadaKall.set(3);
+	    		if(hverGera == 3) hvadaKall.set(4);
+	    		if(hverGera == 4) hvadaKall.set(1);
+	    		break;
+	    	}
+    	}  	
+    }
+    
+    public IntegerProperty pedProperty(int ped) {
+    	switch(ped) {
+    	case 1 : return ped1;
+		case 2 : return ped2;
+		case 3 : return ped3;
+		case 4 : return ped4;
+		default : return null;
+    	}
     }
 
     /**
@@ -114,6 +155,39 @@ public class Leikmadur {
      */
     public static void setLeikmadur(int hver){
         hvadaKall.set(hver);
+    }
+    
+    /**
+     * Skilgreinir fjölda leikmanna sem eru að spila
+     * @param fjoldi
+     */
+    public static void setFjoldi(int fjoldiInn) {
+    	fjoldi = fjoldiInn;
+    }
+    
+    public Ped getPed(int pedNumer) {
+    	return pedArray[pedNumer];
+    }
+    
+    public void endurstillaLeikmann() {
+    	for(Ped i: pedArray) {
+    		i.endurstillaPed();
+    	}
+		pedCounter = 0;
+    }
+    
+    /**
+     * Fer yfir öll peð leikmann og ákvarðar hvort leikmaður hefur sigrað.
+     * @return Satt ef leikmaður hefur sigrað.
+     */
+    public boolean erSigurvegari() {
+		boolean sigurvegari = false;
+    	for(Ped i: pedArray) {
+    		if(i.getErSigrari())
+				sigurvegari = true;
+    		else return false;
+    	}
+    	return sigurvegari;
     }
 
 
