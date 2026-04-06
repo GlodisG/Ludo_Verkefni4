@@ -8,10 +8,10 @@ import javafx.beans.property.SimpleIntegerProperty;
  *****************************************************************************/
 
 public class Reitur {
-	private final SimpleIntegerProperty reiturPlayer1 = new SimpleIntegerProperty(0);
-	private final SimpleIntegerProperty reiturPlayer2 = new SimpleIntegerProperty(0);
-	private final SimpleIntegerProperty reiturPlayer3 = new SimpleIntegerProperty(0);
-	private final SimpleIntegerProperty reiturPlayer4 = new SimpleIntegerProperty(0);
+	private final SimpleIntegerProperty reiturPlayer1 = new SimpleIntegerProperty(-1);
+	private final SimpleIntegerProperty reiturPlayer2 = new SimpleIntegerProperty(-1);
+	private final SimpleIntegerProperty reiturPlayer3 = new SimpleIntegerProperty(-1);
+	private final SimpleIntegerProperty reiturPlayer4 = new SimpleIntegerProperty(-1);
 	private final int PLAYER2OFFSET = 10;
 	private final int PLAYER3OFFSET = 20;
 	private final int PLAYER4OFFSET = 30;
@@ -91,9 +91,9 @@ public class Reitur {
     }
     
     public void endursetjaLeid() {
-    	reiturPlayer1.set(0);
-    	reiturPlayer2.set(0);
-    	reiturPlayer3.set(0);
-    	reiturPlayer4.set(0);
+    	reiturPlayer1.set(-1);
+    	reiturPlayer2.set(-1);
+    	reiturPlayer3.set(-1);
+    	reiturPlayer4.set(-1);
     }
 }
