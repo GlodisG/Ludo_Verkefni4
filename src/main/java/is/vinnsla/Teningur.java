@@ -22,7 +22,7 @@ public class Teningur {
         this.talaProperty.set(((int)(Math.random()*MAX)+1));
     }
 
-    public static int getTala() {
+    public int getTala() {
         return talaProperty.get();
     }
 
