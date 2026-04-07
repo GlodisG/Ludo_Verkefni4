@@ -74,6 +74,14 @@ public class Controller {
     @FXML private ImageView graennKall2;
     @FXML private ImageView graennKall3;
     @FXML private ImageView graennKall4;
+    @FXML private ImageView gulurKall1;
+    @FXML private ImageView gulurKall2;
+    @FXML private ImageView gulurKall3;
+    @FXML private ImageView gulurKall4;
+    @FXML private ImageView blarKall1;
+    @FXML private ImageView blarKall2;
+    @FXML private ImageView blarKall3;
+    @FXML private ImageView blarKall4;
 
     //Leikborð skilgreint
     public static HashMap<Integer, StackPane> ludoBord = new HashMap<>();
@@ -89,8 +97,8 @@ public class Controller {
      * Array sem heldur utan um breytilegan fjölda leikmanna
      * Fær fjöldan úr upphafsglugga ásamt nöfnum(placeholder sett inn)
      */
-    private final int FJOLDI = 2;
-    private final String[] NOFN = {"Leikmaður 1", "Leikmaður 2"}; // hafa þetta allt í Ludo frekar
+    private final int FJOLDI = 3;
+    private final String[] NOFN = {"Leikmaður 1", "Leikmaður 2", "Leikmaður 2"}; // hafa þetta allt í Ludo frekar
     
     
     private Ludo ludo;
@@ -350,8 +358,24 @@ public class Controller {
 	    				}
 	    				break;
 	    			}
-	    			//leikmaður 3(2)
-	    			//leikmaður 4(3)
+	    			case 2: {
+		    			switch(j) {
+		    			case 0 -> bindaPed(ped, gulurKall1, i, j);
+		    			case 1 -> bindaPed(ped, gulurKall2, i, j);
+		    			case 2 -> bindaPed(ped, gulurKall3, i, j);
+		    			case 3 -> bindaPed(ped, gulurKall4, i, j);
+		    			}
+		    			break;
+	    			}
+	    			case 3: {
+		    			switch(j) {
+		    			case 0 -> bindaPed(ped, blarKall1, i, j);
+		    			case 1 -> bindaPed(ped, blarKall2, i, j);
+		    			case 2 -> bindaPed(ped, blarKall3, i, j);
+		    			case 3 -> bindaPed(ped, blarKall4, i, j);
+		    			}
+		    			break;
+	    			}
 				}
 	    	}
 		}

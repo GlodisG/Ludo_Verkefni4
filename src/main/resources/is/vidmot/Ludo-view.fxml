@@ -399,7 +399,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
 
          <StackPane fx:id="gulurStart" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="9">
             <children>
-               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fx:id="gulurKall1" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/gulurKall.png" />
                   </image>
@@ -408,7 +408,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
             <children>
-               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fx:id="gulurKall2" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/gulurKall.png" />
                   </image>
@@ -417,7 +417,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
             <children>
-               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fx:id="gulurKall3" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/gulurKall.png" />
                   </image>
@@ -426,7 +426,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
             <children>
-               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fx:id="gulurKall4" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/gulurKall.png" />
                   </image>
@@ -436,7 +436,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
 
          <StackPane fx:id="blarStart" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="8">
             <children>
-               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fx:id="blarKall1" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/blarKall.png" />
                   </image>
@@ -445,7 +445,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="8">
             <children>
-               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fx:id="blarKall2" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/blarKall.png" />
                   </image>
@@ -454,7 +454,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="9">
             <children>
-               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fx:id="blarKall3" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/blarKall.png" />
                   </image>
@@ -463,7 +463,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          </StackPane>
          <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="9">
             <children>
-               <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fx:id="blarKall4" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/blarKall.png" />
                   </image>
