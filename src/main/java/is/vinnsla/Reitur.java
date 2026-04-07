@@ -21,8 +21,8 @@ public class Reitur {
 	private final static int FINISHOFFSET = 4;
 	private final static int[] PLAYER1START = {57,58,59,60};
 	private final static int[] PLAYER2START = {61,62,63,64}; 
-	private final static int[] PLAYER3START = {65,66,67,68};
-	private final static int[] PLAYER4START = {69,70,71,72};
+	private final static int[] PLAYER3START = {69,70,71,72};
+	private final static int[] PLAYER4START = {65,66,67,68};
 	
 	
 	/*

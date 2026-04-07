@@ -88,17 +88,17 @@ public class Controller {
     // Leikborð 2.0
     private final Map<Integer, StackPane> vidmotLeid = new HashMap<>();
     
-    private final int[] bleikurUpphafsreitir = {57,58,59,60};
-    private final int[] graennUpphafsreitir = {61,62,63,64};
-    private final int[] gulurUpphafsreitir = {65,66,67,68};
-    private final int[] blarUpphafsreitir = {69,70,71,72};
+    private final int[] bleikurUpphafsreitir = {57,58,59,60}; 	//leikmaður 1
+    private final int[] graennUpphafsreitir = {61,62,63,64};	//leikmaður 2
+    private final int[] gulurUpphafsreitir = {65,66,67,68};		//leikmaður 4
+    private final int[] blarUpphafsreitir = {69,70,71,72};		//leikmaður 3
     
     /*
      * Array sem heldur utan um breytilegan fjölda leikmanna
      * Fær fjöldan úr upphafsglugga ásamt nöfnum(placeholder sett inn)
      */
-    private final int FJOLDI = 3;
-    private final String[] NOFN = {"Leikmaður 1", "Leikmaður 2", "Leikmaður 2"}; // hafa þetta allt í Ludo frekar
+    private final int FJOLDI = 4;
+    private final String[] NOFN = {"Leikmaður 1", "Leikmaður 2", "Leikmaður 3", "Leikmaður 4"}; // hafa þetta allt í Ludo frekar
     
     
     private Ludo ludo;
@@ -119,8 +119,8 @@ public class Controller {
         		switch(hverGera) {
         		case 0 -> "Bleikur færist " + ten + " áfram";
 				case 1 -> "Grænn færist " + ten + " áfram";
-				case 2 -> "Gulur færist " + ten + " áfram";
-				case 3 -> "Blar færist " + ten + " áfram";
+				case 2 -> "Blar færist " + ten + " áfram";
+				case 3 -> "Gulur færist " + ten + " áfram";
 				default -> "";
         		});
         
@@ -148,8 +148,8 @@ public class Controller {
         	switch(hverGera) {
         	case 0 -> additionalText.setText("Bleikur vann!");
         	case 1 -> additionalText.setText("Grænn vann!");
-        	case 2 -> additionalText.setText("Gulur vann!");
-        	case 3 -> additionalText.setText("Blár vann!");
+        	case 2 -> additionalText.setText("Blár vann!");
+        	case 3 -> additionalText.setText("Gulur vann!");
         	}
         	Ludo.setLeikLokid(true);
         }
@@ -359,20 +359,20 @@ public class Controller {
 	    				break;
 	    			}
 	    			case 2: {
+	    				switch(j) {
+	    				case 0 -> bindaPed(ped, blarKall1, i, j);
+	    				case 1 -> bindaPed(ped, blarKall2, i, j);
+	    				case 2 -> bindaPed(ped, blarKall3, i, j);
+	    				case 3 -> bindaPed(ped, blarKall4, i, j);
+	    				}
+	    				break;
+	    			}
+	    			case 3: {
 		    			switch(j) {
 		    			case 0 -> bindaPed(ped, gulurKall1, i, j);
 		    			case 1 -> bindaPed(ped, gulurKall2, i, j);
 		    			case 2 -> bindaPed(ped, gulurKall3, i, j);
 		    			case 3 -> bindaPed(ped, gulurKall4, i, j);
-		    			}
-		    			break;
-	    			}
-	    			case 3: {
-		    			switch(j) {
-		    			case 0 -> bindaPed(ped, blarKall1, i, j);
-		    			case 1 -> bindaPed(ped, blarKall2, i, j);
-		    			case 2 -> bindaPed(ped, blarKall3, i, j);
-		    			case 3 -> bindaPed(ped, blarKall4, i, j);
 		    			}
 		    			break;
 	    			}

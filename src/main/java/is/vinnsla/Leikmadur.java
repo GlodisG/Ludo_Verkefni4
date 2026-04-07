@@ -41,8 +41,8 @@ public class Leikmadur {
     		switch(leikmadurNumer) {
     		case 0 -> pedArray[i] = new Ped(nafn, bleikurUpphafsreitir[i]);
     		case 1 -> pedArray[i] = new Ped(nafn, graennUpphafsreitir[i]);
-			case 2 -> pedArray[i] = new Ped(nafn, gulurUpphafsreitir[i]);
-			case 3 -> pedArray[i] = new Ped(nafn, blarUpphafsreitir[i]);
+			case 2 -> pedArray[i] = new Ped(nafn, blarUpphafsreitir[i]);
+			case 3 -> pedArray[i] = new Ped(nafn, gulurUpphafsreitir[i]);
     		}
     	}
     	this.nafn = nafn;
