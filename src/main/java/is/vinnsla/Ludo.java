@@ -43,7 +43,7 @@ public class Ludo {
         
         //bætir í leið eftir hver er að gera
         //reitur.faeraLeikmann(leikUmferd, teningur.getTala());
-        leikmenn[leikUmferd-1].faeraLeikmann(teningur.getTala(), 0, leikUmferd-1); // Vill á endanum nota þessa aðferð
+        leikmenn[leikUmferd].faeraLeikmann(teningur.getTala(), 0, leikUmferd); // Vill á endanum nota þessa aðferð
         
         // Leikstaða fyrir debugging -----------------------------------------
         System.out.println("Leikstada:\n");
@@ -89,7 +89,7 @@ public class Ludo {
      * @return Leikmaður
      */
     public Leikmadur getLeikmadur(int leikmadurNumer) {
-    	return leikmenn[leikmadurNumer-1];
+    	return leikmenn[leikmadurNumer];
     }
     public Leikmadur[] getLeikmenn() {
     	return leikmenn;

@@ -111,6 +111,8 @@ public class Controller {
         		switch(hverGera) {
         		case 0 -> "Bleikur færist " + ten + " áfram";
 				case 1 -> "Grænn færist " + ten + " áfram";
+				case 2 -> "Gulur færist " + ten + " áfram";
+				case 3 -> "Blar færist " + ten + " áfram";
 				default -> "";
         		});
         
@@ -133,8 +135,17 @@ public class Controller {
         }
         */
         
-
         //Prentar sigurtexta eftir því hver vann
+        if(ludo.getLeikmadur(hverGera).erSigurvegari()) {
+        	switch(hverGera) {
+        	case 0 -> additionalText.setText("Bleikur vann!");
+        	case 1 -> additionalText.setText("Grænn vann!");
+        	case 2 -> additionalText.setText("Gulur vann!");
+        	case 3 -> additionalText.setText("Blár vann!");
+        	}
+        	Ludo.setLeikLokid(true);
+        }
+        /*
         if(Ludo.getLeikLokid()) {
             if(Leikmadur.hvadaKall()==1){
             	additionalText.setText("Bleikur vann!");
@@ -144,6 +155,7 @@ public class Controller {
                 hreyfaGraenann(56);
             }
         }
+        */
 
         if (erSamiReitur()) {
             //gera nýja if s
@@ -192,7 +204,7 @@ public class Controller {
         welcomeText.setText("Bleikur gerir fyrst");
         additionalText.setText("Ýttu á tening til að hefja leik");
         Leikmadur.setFjoldi(FJOLDI);
-        Leikmadur.setLeikmadur(0);
+        Leikmadur.setLeikmadur(-1);
         ludo.endurstillaLeid();
         Ludo.setLeikLokid(false);
         System.out.println(Ludo.getLeikLokid());
@@ -211,6 +223,7 @@ public class Controller {
      * @param stadsetning //hvert á ludobordid á að færa
      * Hreyfir græna kallinn
      */
+    /*
     public void hreyfaGraenann(int stadsetning) {
         Pane targetTile = vidmotLeid.get(stadsetning);
         if (targetTile == null) return;
@@ -220,11 +233,13 @@ public class Controller {
         }
         targetTile.getChildren().add(graennKall1);
     }
+    */
 
     /**
      * @param stadsetning //hvert á ludobordid á að færa
      * Hreyfir bleika kallinn
      */
+    /*
     public void hreyfaBleikann(int stadsetning) {
         Pane targetTile = vidmotLeid.get(stadsetning);
         if (targetTile == null) return;
@@ -234,16 +249,19 @@ public class Controller {
         }
         targetTile.getChildren().add(bleikurKall1);
     }
+    */
+    
     
     /**
      * Færir leikmann sem á næsta leik
      * @param stadsetning Núverandi staðsetning peðs
      */
+    /*
     public void hreyfaLeikmann(int stadsetning) {
     	Pane targetTile = vidmotLeid.get(stadsetning);
     	if(targetTile == null) return;
     	int currentPlayer = Leikmadur.hvadaKall();
-    	int currentPed = ludo.getLeikmadur(currentPlayer-1).getPedCounter(); //TODO fá return frá hvadaPed() aðferð að neðan : placeholder counter settur þangað til
+    	int currentPed = ludo.getLeikmadur(currentPlayer).getPedCounter(); //TODO fá return frá hvadaPed() aðferð að neðan : placeholder counter settur þangað til
     	Node ped = null;
     	switch(currentPlayer) {
     		case 1 : {
@@ -272,6 +290,8 @@ public class Controller {
     	if(currentParent != null) 
     		currentParent.getChildren().remove(ped);
     }
+    */
+    
     
     /**
      * Gefur leikmanni valkost á hvaða peði hann/hún vill hreyfa af þeim sem eru virk
@@ -279,7 +299,7 @@ public class Controller {
      * //TODO Seinna bæta við return value með vali leikmanns
      */
     private void hvadaPed(int leikmadur) {
-    	HashMap<Ped, Integer> virkPed; //TODO Viljum við eitthvað nota þetta?
+    	HashMap<Ped, Integer> virkPed; //TODO Viljum örugglega nota þetta :D
     }
 
     public void initialize() {
@@ -287,43 +307,6 @@ public class Controller {
     	Leikmadur.setFjoldi(FJOLDI);
         welcomeText.setText("Bleikur gerir fyrst");
         additionalText.setText("Ýttu á tening til að hefja leik");
-
-        //ludoBord
-        //Reitir í kringum borðið
-        ludoBord.put(0, graenn0);
-        ludoBord.put(1, graenn1);
-        ludoBord.put(2, graenn2);
-        ludoBord.put(3, graenn3);
-        ludoBord.put(4, graenn4);
-        ludoBord.put(5, graenn5);
-        ludoBord.put(6, graenn6);
-        ludoBord.put(7, graenn7);
-        ludoBord.put(8, graenn8);
-        ludoBord.put(9, graenn9);
-        ludoBord.put(10, bleikur0);
-        ludoBord.put(11, bleikur1);
-        ludoBord.put(12, bleikur2);
-        ludoBord.put(13, bleikur3);
-        ludoBord.put(14, bleikur4);
-        ludoBord.put(15, bleikur5);
-        ludoBord.put(16, bleikur6);
-        ludoBord.put(17, bleikur7);
-        ludoBord.put(18, bleikur8);
-        ludoBord.put(19, bleikur9);
-        //Sigurleið hjá grænum
-        ludoBord.put(20, graennEinn);
-        ludoBord.put(21, graennTveir);
-        ludoBord.put(22, graennThrir);
-        ludoBord.put(23, graennSigur);
-        //Sigurleið hjá bleikum
-        ludoBord.put(24, bleikurEinn);
-        ludoBord.put(25, bleikurTveir);
-        ludoBord.put(26, bleikurThrir);
-        ludoBord.put(27, bleikurSigur);
-        //Upphafsreitir
-        ludoBord.put(28, bleikurStart);
-        ludoBord.put(29, graennStart);
-
 
         fxNyrLeikur.disableProperty().bind(Ludo.leikLokidProperty().not());
 
@@ -388,9 +371,11 @@ public class Controller {
     		parent.getChildren().remove(ped);
     	}
     	StackPane targetTile = vidmotLeid.get(stadsetning);
+    	if(stadsetning == 99) return; // staðsetning 99 er til að "fela" peð þegar það kemst í mark(placeholder?)
 		if(targetTile != null) {
 			targetTile.getChildren().add(ped);
 		}
+		
     }
     
     /**
@@ -398,6 +383,8 @@ public class Controller {
      * Bætir við listener sem hlustar á IntegerProperty peðs og uppfærir viðmótshlut samsvarandi peðs.
      * @param ped Peð leikmanns
      * @param pedImage Viðmótshlutur á leikborði
+     * @param leikmadurNr Númer leikmanns
+     * @param pedNr Númer peðs
      */
     private void bindaPed(Ped ped, ImageView pedImage, int leikmadurNr, int pedNr) {
     	ped.stadurProperty().addListener((obs, oldVal, newVal) -> {

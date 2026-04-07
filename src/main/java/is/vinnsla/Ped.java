@@ -48,6 +48,9 @@ public class Ped {
 	public SimpleIntegerProperty stadurProperty() {
 		return stadur;
 	}
+	public void felaPed() {
+		stadur.set(99);
+	}
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub

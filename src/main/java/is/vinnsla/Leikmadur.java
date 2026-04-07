@@ -83,6 +83,7 @@ public class Leikmadur {
     			System.out.println(">> Ped komst i mark <<");
     			pedArray[pedCounter].setErSigrari(true);
     			pedArray[pedCounter].setABordi(false);
+    			pedArray[pedCounter].felaPed();
     			pedCounter++;
     		}    		
     	}
@@ -106,7 +107,7 @@ public class Leikmadur {
         */
         
         //System.out.println("hvadaKall: " + hvadaKall.get());
-        return hvadaKall.get();
+        return hvadaKall.get()-1;
         
     }
     
@@ -156,7 +157,7 @@ public class Leikmadur {
      * @return int //nær í hver á að gera 1 eða 2 fyrir föll í öðrum klösum
      */
     public static int hvadaKall() {
-        return hvadaKall.get();
+        return hvadaKall.get()-1;
     }
 
     /**
@@ -180,7 +181,7 @@ public class Leikmadur {
     
     public void endurstillaLeikmann() {
 		for(int i = 0; i < 4; i++) {
-			pedArray[i].endurstillaPed(0);    			
+			pedArray[i].endurstillaPed(-1);    			
 		}
 		pedCounter = 0;
     }
