@@ -17,6 +17,10 @@ public class Leikmadur {
 	private final IntegerProperty ped2 = new SimpleIntegerProperty(-1);
 	private final IntegerProperty ped3 = new SimpleIntegerProperty(-1);
 	private final IntegerProperty ped4 = new SimpleIntegerProperty(-1);
+	private final int[] bleikurUpphafsreitir = {57,58,59,60};
+    private final int[] graennUpphafsreitir = {61,62,63,64};
+    private final int[] gulurUpphafsreitir = {65,66,67,68};
+    private final int[] blarUpphafsreitir = {69,70,71,72};
     private final String nafn;
     private static int fjoldi;
     private HashMap<Ped, Integer> virkPed = new HashMap<>();
@@ -30,10 +34,15 @@ public class Leikmadur {
      * @param nafn Valkvætt nafn leikmanns
      * @param leikmadurNumer Númer leikmanns, merkir peðin hans.
      */
-    public Leikmadur(String nafn) {
+    public Leikmadur(String nafn, int leikmadurNumer) {
     	pedArray = new Ped[4];
     	for(int i = 0; i < pedArray.length; i++) {
-    		pedArray[i] = new Ped(nafn);
+    		switch(leikmadurNumer) {
+    		case 0 -> pedArray[i] = new Ped(nafn, bleikurUpphafsreitir[i]);
+    		case 1 -> pedArray[i] = new Ped(nafn, graennUpphafsreitir[i]);
+			case 2 -> pedArray[i] = new Ped(nafn, gulurUpphafsreitir[i]);
+			case 3 -> pedArray[i] = new Ped(nafn, blarUpphafsreitir[i]);
+    		}
     	}
     	this.nafn = nafn;
     }
@@ -60,7 +69,6 @@ public class Leikmadur {
     		//valkostur um að bæta við peði ?
     		//kannski hafa þann kóða í controller?
     	}
-    	
     	/*
     	 * placeholder kóði, fer í gegnum fylkið, eitt peð í einu, þar til það hefur komist í mark
     	 * notar þá næsta peð eftir á o.s.frv.
@@ -108,6 +116,7 @@ public class Leikmadur {
      */
     public static void setNaestiLeikmadur() {
     	int hverGera = hvadaKall.get();
+    	if(hverGera == 0) hvadaKall.set(1);;
     	switch(fjoldi) {
 	    	case 2:
 	    	{
@@ -170,9 +179,9 @@ public class Leikmadur {
     }
     
     public void endurstillaLeikmann() {
-    	for(Ped i: pedArray) {
-    		i.endurstillaPed();
-    	}
+		for(int i = 0; i < 4; i++) {
+			pedArray[i].endurstillaPed(0);    			
+		}
 		pedCounter = 0;
     }
     

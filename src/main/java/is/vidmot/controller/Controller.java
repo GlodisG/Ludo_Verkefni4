@@ -80,15 +80,20 @@ public class Controller {
     // Leikborð 2.0
     private final Map<Integer, StackPane> vidmotLeid = new HashMap<>();
     
+    private final int[] bleikurUpphafsreitir = {57,58,59,60};
+    private final int[] graennUpphafsreitir = {61,62,63,64};
+    private final int[] gulurUpphafsreitir = {65,66,67,68};
+    private final int[] blarUpphafsreitir = {69,70,71,72};
+    
     /*
      * Array sem heldur utan um breytilegan fjölda leikmanna
      * Fær fjöldan úr upphafsglugga ásamt nöfnum(placeholder sett inn)
      */
     private final int FJOLDI = 2;
     private final String[] NOFN = {"Leikmaður 1", "Leikmaður 2"}; // hafa þetta allt í Ludo frekar
-    private Leikmadur[] leikmenn;
     
-    private Ludo ludo = new Ludo();
+    
+    private Ludo ludo;
     private Teningur teningur = new Teningur();
     private Reitur reitur = new Reitur();
 
@@ -100,7 +105,6 @@ public class Controller {
         additionalText.setText("");
         ludo.leikaLeik();
         int ten = teningur.getTala();
-        Leikmadur.setNaestiLeikmadur();
         int hverGera = Leikmadur.getNaestiLeikmadur();
         ludo.getLeikmadur(hverGera).faeraLeikmann(ten, 0, hverGera);
         welcomeText.setText(
@@ -187,15 +191,11 @@ public class Controller {
     public void onNyrLeikur(){
         welcomeText.setText("Bleikur gerir fyrst");
         additionalText.setText("Ýttu á tening til að hefja leik");
-        Leikmadur.setLeikmadur(FJOLDI);
-        hreyfaGraenann(61);
-        hreyfaBleikann(57);
+        Leikmadur.setFjoldi(FJOLDI);
+        Leikmadur.setLeikmadur(0);
         ludo.endurstillaLeid();
-        reitur.endursetjaLeid(); //
         Ludo.setLeikLokid(false);
         System.out.println(Ludo.getLeikLokid());
-        
-        ludo = new Ludo();
     }
 
     /**
@@ -279,7 +279,7 @@ public class Controller {
      * //TODO Seinna bæta við return value með vali leikmanns
      */
     private void hvadaPed(int leikmadur) {
-    	HashMap<Ped, Integer> virkPed = leikmenn[leikmadur-1].getVirkPed();
+    	HashMap<Ped, Integer> virkPed; //TODO Viljum við eitthvað nota þetta?
     }
 
     public void initialize() {
@@ -341,31 +341,28 @@ public class Controller {
                 }
         );
         Leikmadur.setFjoldi(FJOLDI);
-        leikmenn = new Leikmadur[FJOLDI];
-        for(int i = 0; i < leikmenn.length; i++) {
-        	leikmenn[i] = new Leikmadur(NOFN[i]);
-        	//System.out.println("Bjo til leikmann " + (i+1) + " : Nafn " + NOFN[i]);
-        }
+        ludo = new Ludo(FJOLDI,NOFN);
         
         // tengir viðmótshluti leikmanna við property með listeners með hjálparaðferðum.
-        for(int i = 0; i < leikmenn.length; i++) {
+        for(int i = 0; i < FJOLDI; i++) {
     		for(int j = 0; j < 4; j++) {
-    			Ped ped = leikmenn[i].getPed(j);
+    			Ped ped = ludo.getLeikmenn()[i].getPed(j); 
+    			System.out.println("Bind: " + NOFN[i] + "| ped:" + j);
     			switch(i) {
 	    			case 0: {
 	    				switch(j) {
-		    			case 0 -> bindaPed(ped, bleikurKall1);
-		    			case 1 -> bindaPed(ped, bleikurKall2);
-		    			case 2 -> bindaPed(ped, bleikurKall3);
-		    			case 3 -> bindaPed(ped, bleikurKall4);
+		    			case 0 -> bindaPed(ped, bleikurKall1, i, j);
+		    			case 1 -> bindaPed(ped, bleikurKall2, i, j);
+		    			case 2 -> bindaPed(ped, bleikurKall3, i, j);
+		    			case 3 -> bindaPed(ped, bleikurKall4, i, j);
 	    				}
 	    			}
 	    			case 1: {
 	    				switch(j) {
-	    				case 0 -> bindaPed(ped, graennKall1);
-	    				case 1 -> bindaPed(ped, graennKall2);
-	    				case 2 -> bindaPed(ped, graennKall3);
-	    				case 3 -> bindaPed(ped, graennKall4);
+	    				case 0 -> bindaPed(ped, graennKall1, i, j);
+	    				case 1 -> bindaPed(ped, graennKall2, i, j);
+	    				case 2 -> bindaPed(ped, graennKall3, i, j);
+	    				case 3 -> bindaPed(ped, graennKall4, i, j);
 	    				}
 	    			}
 	    			//leikmaður 3(2)
@@ -374,6 +371,8 @@ public class Controller {
 				}
 	    	}
 		}
+        Leikmadur.setLeikmadur(0);
+        ludo.endurstillaLeid();
     }
     
     /**
@@ -400,11 +399,13 @@ public class Controller {
      * @param ped Peð leikmanns
      * @param pedImage Viðmótshlutur á leikborði
      */
-    private void bindaPed(Ped ped, ImageView pedImage) {
-    	ped.stadurProperty().addListener((obs, oldVal, newVal) ->
-    		hreyfaPed(pedImage, newVal.intValue())
-    	);
-    	hreyfaPed(pedImage, ped.getStadsetning());
+    private void bindaPed(Ped ped, ImageView pedImage, int leikmadurNr, int pedNr) {
+    	ped.stadurProperty().addListener((obs, oldVal, newVal) -> {
+    		int raunStadur = Reitur.getReitur(leikmadurNr+1, pedNr, newVal.intValue());
+    		hreyfaPed(pedImage, raunStadur);
+    	});
+    	int raunStadur = Reitur.getReitur(leikmadurNr+1, pedNr, ped.getStadsetning());
+    	hreyfaPed(pedImage, raunStadur);
     }
     /**
      * Finnur öll stackpane sem eru á leikborði og tengir þær við staðsetningar.

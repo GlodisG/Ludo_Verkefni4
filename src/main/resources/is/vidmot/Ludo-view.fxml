@@ -324,6 +324,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
 
          <StackPane fx:id="bleikurStart" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <children>
+               <Label text="BleikurStart" />
                <ImageView fx:id="bleikurKall1" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/bleikurKall.png" />

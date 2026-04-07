@@ -11,17 +11,19 @@ public class Ped {
 	private boolean erABordi = false;
 	private boolean erSigrari = false;
 	private final String leikmadur;
+	private final int upphafsReitur;
 	private final SimpleIntegerProperty stadur = new SimpleIntegerProperty(-1);
 	
-	public Ped(String leikmadur) {
+	public Ped(String leikmadur, int upphafsReitur) {
 		this.leikmadur = leikmadur;
+		this.upphafsReitur = upphafsReitur;
 	}
 	
 	public void faeraPed(int teningur) {
 		stadur.set(stadur.get() + teningur);
 	}
-	public void endurstillaPed() {
-		stadur.set(-1);
+	public void endurstillaPed(int upphafsReitur) {
+		stadur.set(upphafsReitur);
 		erABordi = false;
 		erSigrari = false;
 	}

@@ -1,5 +1,8 @@
 package is.vinnsla;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.beans.property.SimpleIntegerProperty;
 
 /******************************************************************************
@@ -12,10 +15,15 @@ public class Reitur {
 	private final SimpleIntegerProperty reiturPlayer2 = new SimpleIntegerProperty(-1);
 	private final SimpleIntegerProperty reiturPlayer3 = new SimpleIntegerProperty(-1);
 	private final SimpleIntegerProperty reiturPlayer4 = new SimpleIntegerProperty(-1);
-	private final int PLAYER2OFFSET = 10;
-	private final int PLAYER3OFFSET = 20;
-	private final int PLAYER4OFFSET = 30;
-	private final int FINISHOFFSET = 4;
+	private final static int PLAYER2OFFSET = 10;
+	private final static int PLAYER3OFFSET = 20;
+	private final static int PLAYER4OFFSET = 30;
+	private final static int FINISHOFFSET = 4;
+	private final static int[] PLAYER1START = {57,58,59,60};
+	private final static int[] PLAYER2START = {61,62,63,64}; 
+	private final static int[] PLAYER3START = {65,66,67,68};
+	private final static int[] PLAYER4START = {69,70,71,72};
+	
 	
 	/*
 	 * Default constructor
@@ -65,41 +73,49 @@ public class Reitur {
     	}
     }
     
-	/**
-	 * @param leikmadur Númer leikmanns sem nær í reitinn
-	 * @return int Skilar reit leikmanns
-	 * Staða leikmanns ræðst á hvar hann byrjar á leikborðinu (OFFSET)
-	 * og endalengja leikmanns er alltaf 4 lengra en leikmaður með næsta númer á undan.
-	 */
-    public int getReitur(int leikmadur) {
+    /**
+     * Finnur hvar leikmaður er staðsettur út frá hans offset
+     * Tekur vegalengd sem peð hefur ferðast og umbreytir í raunstöðu á leikborði
+     * @param leikmadur Númer leikmanns sem nær í reitinn
+     * @param stadsetning Staðsetning sem þarf að finna
+     * @param ped Númer peðs
+     * @return raunveruleg staðsetning peð leikmanns
+     */
+    public static int getReitur(int leikmadur, int ped,  int stadsetning) {
     	switch(leikmadur) {
-	    	case 1 : return reiturPlayer1.get();
+	    	case 1 : {
+	    		if(stadsetning == -1) return PLAYER1START[ped];
+	    		return stadsetning;
+	    	}
 			case 2 : {
-				if(reiturPlayer2.get() > 40) {
-					return reiturPlayer2.get() + FINISHOFFSET * (PLAYER2OFFSET/10);
+				if(stadsetning == -1) return PLAYER2START[ped];
+				if(stadsetning > 40) {
+					return stadsetning + FINISHOFFSET * (PLAYER2OFFSET/10);
 				}
-				if(reiturPlayer2.get() + PLAYER2OFFSET >= 40) {
-					return (reiturPlayer2.get() + PLAYER2OFFSET) % 40;
+				if(stadsetning + PLAYER2OFFSET >= 40) {
+					return (stadsetning + PLAYER2OFFSET) % 40;
 				}
-				return reiturPlayer2.get() + PLAYER2OFFSET;
+				return stadsetning + PLAYER2OFFSET;
 			}
 			case 3 : {
-				if(reiturPlayer3.get() > 40) {
-					return reiturPlayer3.get() + FINISHOFFSET * (PLAYER3OFFSET/10);
+				if(stadsetning == -1) return PLAYER3START[ped];
+				if(stadsetning > 40) {
+					return stadsetning + FINISHOFFSET * (PLAYER3OFFSET/10);
 				}
-				if(reiturPlayer3.get() + PLAYER3OFFSET >= 40) {
-					return (reiturPlayer3.get() + PLAYER3OFFSET) % 40;
+				if(stadsetning + PLAYER3OFFSET >= 40) {
+					return (stadsetning + PLAYER3OFFSET) % 40;
 				}
-				return reiturPlayer3.get() + PLAYER3OFFSET;
+				return stadsetning + PLAYER3OFFSET;
 			}
 			case 4 : {
-				if(reiturPlayer4.get() > 40) {
-					return reiturPlayer4.get() + FINISHOFFSET * (PLAYER4OFFSET/10);
+				if(stadsetning == -1) return PLAYER4START[ped];
+				if(stadsetning > 40) {
+					return stadsetning + FINISHOFFSET * (PLAYER4OFFSET/10);
 				}
-				if(reiturPlayer4.get() + PLAYER4OFFSET >= 40) {
-					return (reiturPlayer4.get() + PLAYER4OFFSET) % 40;
+				if(stadsetning + PLAYER4OFFSET >= 40) {
+					return (stadsetning + PLAYER4OFFSET) % 40;
 				}
-				return reiturPlayer4.get() + PLAYER4OFFSET;
+				return stadsetning + PLAYER4OFFSET;
 			}
 			default : return 0;
     	}    	

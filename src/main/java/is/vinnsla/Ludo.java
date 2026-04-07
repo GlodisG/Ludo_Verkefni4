@@ -17,13 +17,16 @@ public class Ludo {
     
     private static final Reitur reitur = new Reitur();
     private static int leikUmferd = 1;
-    private static int fjoldiLeikmanna = 2; //tala úr upphafsskjá
-    private Leikmadur[] leikmenn = new Leikmadur[fjoldiLeikmanna];
-	private String[] nofn = {"Leikmaður 1", "Leikmaður 2"};
+    private static int fjoldi; //tala úr upphafsskjá
+    private Leikmadur[] leikmenn;
+	private String[] nofn;
 	
-	public Ludo() {
-		for(int i = 0; i < fjoldiLeikmanna; i++) {
-			leikmenn[i] = new Leikmadur(nofn[i]);
+	public Ludo(int fjoldi, String[] nofn) {
+		this.fjoldi = fjoldi;
+		this.nofn = nofn;
+		leikmenn = new Leikmadur[fjoldi];
+		for(int i = 0; i < fjoldi; i++) {
+			leikmenn[i] = new Leikmadur(nofn[i], i);
 		}
 	}
      
@@ -35,17 +38,12 @@ public class Ludo {
      */
     public void leikaLeik() {
         teningur.kasta();
-        if(leikUmferd >= fjoldiLeikmanna)
-        	leikUmferd = 1;
-        //Leikmadur.setLeikmadur(leikUmferd);
-        
-        
+        Leikmadur.setNaestiLeikmadur();
+        int leikUmferd = Leikmadur.getNaestiLeikmadur();
         
         //bætir í leið eftir hver er að gera
         //reitur.faeraLeikmann(leikUmferd, teningur.getTala());
-        leikmenn[leikUmferd-1].faeraLeikmann(teningur.getTala(), 0, leikUmferd); // Vill á endanum nota þessa aðferð
-        
-        leikUmferd++;
+        leikmenn[leikUmferd-1].faeraLeikmann(teningur.getTala(), 0, leikUmferd-1); // Vill á endanum nota þessa aðferð
         
         // Leikstaða fyrir debugging -----------------------------------------
         System.out.println("Leikstada:\n");
@@ -92,6 +90,9 @@ public class Ludo {
      */
     public Leikmadur getLeikmadur(int leikmadurNumer) {
     	return leikmenn[leikmadurNumer-1];
+    }
+    public Leikmadur[] getLeikmenn() {
+    	return leikmenn;
     }
 
     /**
@@ -140,10 +141,8 @@ public class Ludo {
      * Núllstillir hvar bleikur og grænn eru
      */
     public void endurstillaLeid() {
-        bleikurLeid.set(0);
-        graennLeid.set(0);
-        for(Leikmadur i: leikmenn) {
-        	i.endurstillaLeikmann();
-        }
+    	for(Leikmadur i : leikmenn) {
+    		i.endurstillaLeikmann();
+    	}
     }
 }
