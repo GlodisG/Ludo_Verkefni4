@@ -23,6 +23,7 @@ public class Leikmadur {
     private final int[] blarUpphafsreitir = {69,70,71,72};
     private final String nafn;
     private static int fjoldi;
+    private static boolean leikHafid = false;
     private HashMap<Ped, Integer> virkPed = new HashMap<>();
     
     private int pedCounter = 0; //placeholder teljari fyrir peð
@@ -94,7 +95,7 @@ public class Leikmadur {
       * Skilar hvaða leikmadur á næsta leik
       * @return númer leikmanns
       */
-    public static int getNaestiLeikmadur() {
+    public static int getNaestiLeikmadur() { // þetta er bara nkl það sama og hvadaKall D:
         /*
         //ifhvergera meira en 4 næsti=0
         //int naesti=hvergera+1
@@ -107,7 +108,7 @@ public class Leikmadur {
         */
         
         //System.out.println("hvadaKall: " + hvadaKall.get());
-        return hvadaKall.get()-1;
+        return hvadaKall.get();
         
     }
     
@@ -117,27 +118,31 @@ public class Leikmadur {
      */
     public static void setNaestiLeikmadur() {
     	int hverGera = hvadaKall.get();
-    	if(hverGera == 0) hvadaKall.set(1);;
+    	if(!leikHafid) {
+    		hvadaKall.set(0);
+			leikHafid = true;
+    		return;
+    	}
     	switch(fjoldi) {
 	    	case 2:
 	    	{
-	    		if(hverGera == 1) hvadaKall.set(2);
-	    		if(hverGera == 2) hvadaKall.set(1);
+	    		if(hverGera == 0) hvadaKall.set(1);
+	    		if(hverGera == 1) hvadaKall.set(0);
 	    		break;
 	    	}
 	    	case 3:
 	    	{
+	    		if(hverGera == 0) hvadaKall.set(1);
 	    		if(hverGera == 1) hvadaKall.set(2);
-	    		if(hverGera == 2) hvadaKall.set(3);
-	    		if(hverGera == 3) hvadaKall.set(1);
+	    		if(hverGera == 2) hvadaKall.set(0);
 	    		break;
 	    	}
 	    	case 4: 
 	    	{
+	    		if(hverGera == 0) hvadaKall.set(1);
 	    		if(hverGera == 1) hvadaKall.set(2);
 	    		if(hverGera == 2) hvadaKall.set(3);
-	    		if(hverGera == 3) hvadaKall.set(4);
-	    		if(hverGera == 4) hvadaKall.set(1);
+	    		if(hverGera == 3) hvadaKall.set(0);
 	    		break;
 	    	}
     	}  	
@@ -157,7 +162,7 @@ public class Leikmadur {
      * @return int //nær í hver á að gera 1 eða 2 fyrir föll í öðrum klösum
      */
     public static int hvadaKall() {
-        return hvadaKall.get()-1;
+        return hvadaKall.get();
     }
 
     /**
@@ -183,6 +188,7 @@ public class Leikmadur {
 		for(int i = 0; i < 4; i++) {
 			pedArray[i].endurstillaPed(-1);    			
 		}
+		leikHafid = false;
 		pedCounter = 0;
     }
     

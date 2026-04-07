@@ -106,7 +106,7 @@ public class Controller {
         ludo.leikaLeik();
         int ten = teningur.getTala();
         int hverGera = Leikmadur.getNaestiLeikmadur();
-        ludo.getLeikmadur(hverGera).faeraLeikmann(ten, 0, hverGera);
+        //ludo.getLeikmadur(hverGera).faeraLeikmann(ten, 0, hverGera); // sökudólgur >:C
         welcomeText.setText(
         		switch(hverGera) {
         		case 0 -> "Bleikur færist " + ten + " áfram";
@@ -204,7 +204,7 @@ public class Controller {
         welcomeText.setText("Bleikur gerir fyrst");
         additionalText.setText("Ýttu á tening til að hefja leik");
         Leikmadur.setFjoldi(FJOLDI);
-        Leikmadur.setLeikmadur(-1);
+        Leikmadur.setLeikmadur(0);
         ludo.endurstillaLeid();
         Ludo.setLeikLokid(false);
         System.out.println(Ludo.getLeikLokid());
@@ -339,6 +339,7 @@ public class Controller {
 		    			case 2 -> bindaPed(ped, bleikurKall3, i, j);
 		    			case 3 -> bindaPed(ped, bleikurKall4, i, j);
 	    				}
+	    				break;
 	    			}
 	    			case 1: {
 	    				switch(j) {
@@ -347,10 +348,10 @@ public class Controller {
 	    				case 2 -> bindaPed(ped, graennKall3, i, j);
 	    				case 3 -> bindaPed(ped, graennKall4, i, j);
 	    				}
+	    				break;
 	    			}
 	    			//leikmaður 3(2)
 	    			//leikmaður 4(3)
-	    			break;
 				}
 	    	}
 		}
