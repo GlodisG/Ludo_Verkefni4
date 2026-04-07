@@ -42,7 +42,7 @@ public class Ludo {
         
         
         //bætir í leið eftir hver er að gera
-        reitur.faeraLeikmann(leikUmferd, teningur.getTala());
+        //reitur.faeraLeikmann(leikUmferd, teningur.getTala());
         leikmenn[leikUmferd-1].faeraLeikmann(teningur.getTala(), 0, leikUmferd); // Vill á endanum nota þessa aðferð
         
         leikUmferd++;
@@ -59,11 +59,14 @@ public class Ludo {
         }
         // -------------------------------------------------------------------
         
+        /*
         if(Leikmadur.hvadaKall()==2){
             graennLeid.set(graennLeid.get()+teningur.getTala());
         } else {
             bleikurLeid.set(bleikurLeid.get()+teningur.getTala());
         }
+        
+        
 
         //Skoðar hvort annar spilari vann
         if (graennLeid.get()>=45){
@@ -77,6 +80,7 @@ public class Ludo {
         if(leikmenn[leikUmferd-1].erSigurvegari()) {
         	setLeikLokid(true);
         }
+        */
         
         
         

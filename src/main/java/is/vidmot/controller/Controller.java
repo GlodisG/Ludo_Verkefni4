@@ -6,6 +6,7 @@ import is.vinnsla.Ludo;
 import is.vinnsla.Ped;
 import is.vinnsla.Reitur;
 import is.vinnsla.Teningur;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -101,31 +102,33 @@ public class Controller {
         int ten = teningur.getTala();
         Leikmadur.setNaestiLeikmadur();
         int hverGera = Leikmadur.getNaestiLeikmadur();
+        ludo.getLeikmadur(hverGera).faeraLeikmann(ten, 0, hverGera);
+        welcomeText.setText(
+        		switch(hverGera) {
+        		case 0 -> "Bleikur færist " + ten + " áfram";
+				case 1 -> "Grænn færist " + ten + " áfram";
+				default -> "";
+        		});
+        
+        /*
         //System.out.println("hverGera: " + hverGera);
         if(hverGera==2){
         	hvadaPed(2);
+        	ludo.getLeikmadur(hverGera).faeraLeikmann(ten, 0, hverGera);
             welcomeText.setText("Grænn færist " + ten + " áfram");
             
             reitur.faeraLeikmann(2, ten);
             hreyfaGraenann(reitur.getReitur(2));
             System.out.println("Graenn: "+reitur.getReitur(2));
-            /*
-            int gTeljari= Ludo.getGraennLeid();
-            //int gTeljari= reitur.getReitur(1);
-            hreyfaGraenann(Reitur.reitur(gTeljari,hverGera));
-             */
         } else {
             welcomeText.setText("Bleikur færist " + ten + " áfram");
             hvadaPed(1);
             reitur.faeraLeikmann(1, ten);
             hreyfaBleikann(reitur.getReitur(1));
             System.out.println("Bleikur: "+reitur.getReitur(1));
-            /*
-            //int bTeljari= reitur.getReitur(2);
-            int bTeljari= Ludo.getBleikurLeid();
-            hreyfaBleikann(Reitur.reitur(bTeljari,hverGera));
-             */
         }
+        */
+        
 
         //Prentar sigurtexta eftir því hver vann
         if(Ludo.getLeikLokid()) {
@@ -250,6 +253,7 @@ public class Controller {
     			case 3 -> ped = bleikurKall3;
     			case 4 -> ped = bleikurKall4;
     			}
+    			break;
     		}
     		case 2 : {
     			switch(currentPed) {
@@ -258,7 +262,7 @@ public class Controller {
 				case 3 -> ped = graennKall3;
 				case 4 -> ped = graennKall4;
     			}
-    			
+    			break;
     		}
     		//peð 3
     		//peð 4
@@ -342,8 +346,72 @@ public class Controller {
         	leikmenn[i] = new Leikmadur(NOFN[i]);
         	//System.out.println("Bjo til leikmann " + (i+1) + " : Nafn " + NOFN[i]);
         }
+        
+        // tengir viðmótshluti leikmanna við property með listeners með hjálparaðferðum.
+        for(int i = 0; i < leikmenn.length; i++) {
+    		for(int j = 0; j < 4; j++) {
+    			Ped ped = leikmenn[i].getPed(j);
+    			switch(i) {
+	    			case 0: {
+	    				switch(j) {
+		    			case 0 -> bindaPed(ped, bleikurKall1);
+		    			case 1 -> bindaPed(ped, bleikurKall2);
+		    			case 2 -> bindaPed(ped, bleikurKall3);
+		    			case 3 -> bindaPed(ped, bleikurKall4);
+	    				}
+	    			}
+	    			case 1: {
+	    				switch(j) {
+	    				case 0 -> bindaPed(ped, graennKall1);
+	    				case 1 -> bindaPed(ped, graennKall2);
+	    				case 2 -> bindaPed(ped, graennKall3);
+	    				case 3 -> bindaPed(ped, graennKall4);
+	    				}
+	    			}
+	    			//leikmaður 3(2)
+	    			//leikmaður 4(3)
+	    			break;
+				}
+	    	}
+		}
     }
-    public void buaTilLeid() {
+    
+    /**
+     * Færir viðmótshlut peðs á leikborði
+     * Viðmótshluturinn er fjarlægður fyrst frá StackPane foreldri,
+     * því næst er því bætt við nýtt StackPane foreldri.
+     * 
+     * @param ped Viðmótshlutur peðs
+     * @param stadsetning Stadsetning sem á að færa til
+     */
+    private void hreyfaPed(ImageView ped , int stadsetning) {
+    	if(ped.getParent() instanceof Pane parent) {
+    		parent.getChildren().remove(ped);
+    	}
+    	StackPane targetTile = vidmotLeid.get(stadsetning);
+		if(targetTile != null) {
+			targetTile.getChildren().add(ped);
+		}
+    }
+    
+    /**
+     * Hjálparaðferð
+     * Bætir við listener sem hlustar á IntegerProperty peðs og uppfærir viðmótshlut samsvarandi peðs.
+     * @param ped Peð leikmanns
+     * @param pedImage Viðmótshlutur á leikborði
+     */
+    private void bindaPed(Ped ped, ImageView pedImage) {
+    	ped.stadurProperty().addListener((obs, oldVal, newVal) ->
+    		hreyfaPed(pedImage, newVal.intValue())
+    	);
+    	hreyfaPed(pedImage, ped.getStadsetning());
+    }
+    /**
+     * Finnur öll stackpane sem eru á leikborði og tengir þær við staðsetningar.
+     * Býr til HashMap sem notar index sem táknar staðsetningu(key) 
+     * og StackPane(value) er viðmótshluturinn.
+     */
+    private void buaTilLeid() {
     	int index = 0;
     	for(Node node: fxGrid.getChildren()) {
     		if(node instanceof StackPane && index < 73) {

@@ -2,7 +2,10 @@ package is.vinnsla;
 
 import java.util.HashMap;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.image.Image;
 
 public class Ped {
 	private boolean erABordi = false;
@@ -39,6 +42,9 @@ public class Ped {
 	}
 	public boolean getErSigrari() {
 		return erSigrari;
+	}
+	public SimpleIntegerProperty stadurProperty() {
+		return stadur;
 	}
 	@Override
 	public String toString() {
