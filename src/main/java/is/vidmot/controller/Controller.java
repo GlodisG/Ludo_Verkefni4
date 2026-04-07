@@ -98,7 +98,7 @@ public class Controller {
      * Fær fjöldan úr upphafsglugga ásamt nöfnum(placeholder sett inn)
      */
     private final int FJOLDI = 4;
-    private final String[] NOFN = {"Leikmaður 1", "Leikmaður 2", "Leikmaður 3", "Leikmaður 4"}; // hafa þetta allt í Ludo frekar
+    private final String[] NOFN = {"Leikmaður 1", "Leikmaður 2", "Leikmaður 3", "Leikmaður 4"};
     
     
     private Ludo ludo;
