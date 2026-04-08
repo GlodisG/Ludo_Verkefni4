@@ -18,7 +18,7 @@ public class ValmyndController {
     @FXML private CheckBox checkThrir;
     @FXML private CheckBox checkFjorir;
     @FXML private Button hefjaLeik;
-    public static boolean [] hvadaLit = {false,false,false,false};
+    public static boolean [] hvadaLit = {false,false,false,false}; //bleikur, grænn, blár, gulur
     public static String [] nafnSpilara = {"","","",""};
 
     public void initialize() {
