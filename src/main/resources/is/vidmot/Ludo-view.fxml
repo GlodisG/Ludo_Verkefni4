@@ -503,12 +503,12 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          <Font name="Consolas" size="18.0" />
       </font>
    </Label>
-   <Label fx:id="labelFjorir" layoutX="398.0" layoutY="393.0" text="Spilari 3" textFill="WHITE">
+   <Label fx:id="labelThrir" layoutX="398.0" layoutY="393.0" text="Spilari 3" textFill="WHITE">
       <font>
          <Font name="Consolas" size="18.0" />
       </font>
    </Label>
-   <Label fx:id="labelThrir" layoutX="46.0" layoutY="393.0" text="Spilari 4" textFill="WHITE">
+   <Label fx:id="labelFjorir" layoutX="46.0" layoutY="393.0" text="Spilari 4" textFill="WHITE">
       <font>
          <Font name="Consolas" size="18.0" />
       </font>
