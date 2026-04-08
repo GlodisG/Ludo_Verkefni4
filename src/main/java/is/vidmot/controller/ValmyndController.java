@@ -74,16 +74,16 @@ public class ValmyndController {
     @FXML
     public void onHefjaLeik(ActionEvent ignored) {
         if (hvadaLit[0]) { nafnSpilara[0] = Spilari1.getText();
-            if (Spilari1.getText().isEmpty()) { nafnSpilara[0] = "Spilari 1"; }
+            if (Spilari1.getText().isEmpty()) { nafnSpilara[0] = "Bjarni Bleiki"; }
         }
         if (hvadaLit[1]) { nafnSpilara[1] = Spilari2.getText();
-            if (Spilari2.getText().isEmpty()) { nafnSpilara[1] = "Spilari 2"; }
+            if (Spilari2.getText().isEmpty()) { nafnSpilara[1] = "Gerður Græna"; }
         }
         if (hvadaLit[2]) { nafnSpilara[2] = Spilari3.getText();
-            if (Spilari3.getText().isEmpty()) { nafnSpilara[2] = "Spilari 3"; }
+            if (Spilari3.getText().isEmpty()) { nafnSpilara[2] = "Stjáni Blái"; }
         }
         if (hvadaLit[3]) { nafnSpilara[3] = Spilari4.getText();
-            if (Spilari4.getText().isEmpty()) { nafnSpilara[3] = "Spilari 4"; }
+            if (Spilari4.getText().isEmpty()) { nafnSpilara[3] = "Gyða Gula"; }
         }
         System.out.println(nafnSpilara[0] + nafnSpilara[1] + nafnSpilara[2] + nafnSpilara[3]);
         ViewSwitcher.switchTo(View.BORD,false, null);
