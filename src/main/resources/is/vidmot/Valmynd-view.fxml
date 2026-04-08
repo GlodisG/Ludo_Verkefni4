@@ -24,22 +24,22 @@
          <padding>
             <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
          </padding></Button>
-      <TextField fx:id="Spilari1" layoutX="100.0" layoutY="100.0" prefHeight="32.0" prefWidth="300.0" promptText="Spilari1" styleClass="nameField">
+      <TextField fx:id="Spilari1" layoutX="100.0" layoutY="100.0" prefHeight="32.0" prefWidth="300.0" promptText="Bjarni Bleiki" styleClass="nameField">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="Spilari2" layoutX="100.0" layoutY="153.0" prefHeight="32.0" prefWidth="300.0" promptText="Spilari2" styleClass="nameField">
+      <TextField fx:id="Spilari2" layoutX="100.0" layoutY="153.0" prefHeight="32.0" prefWidth="300.0" promptText="Gerður Græna" styleClass="nameField">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="Spilari3" layoutX="100.0" layoutY="212.0" prefHeight="32.0" prefWidth="300.0" promptText="Spilari3" styleClass="nameField">
+      <TextField fx:id="Spilari3" layoutX="100.0" layoutY="212.0" prefHeight="32.0" prefWidth="300.0" promptText="Stjáni Blái" styleClass="nameField">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="Spilari4" layoutX="100.0" layoutY="272.0" prefHeight="32.0" prefWidth="300.0" promptText="Spilari4" styleClass="nameField">
+      <TextField fx:id="Spilari4" layoutX="100.0" layoutY="272.0" prefHeight="32.0" prefWidth="300.0" promptText="Gyða Gula" styleClass="nameField">
          <font>
             <Font size="14.0" />
          </font>
