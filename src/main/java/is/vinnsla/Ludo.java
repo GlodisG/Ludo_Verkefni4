@@ -21,7 +21,7 @@ public class Ludo {
     private Leikmadur[] leikmenn;
 	private String[] nofn;
 	
-	public Ludo(int fjoldi, String[] nofn) {
+	public Ludo(int fjoldi, String[] nofn, boolean[] virkirLeikmenn) {
 		this.fjoldi = fjoldi;
 		this.nofn = nofn;
 		leikmenn = new Leikmadur[fjoldi];

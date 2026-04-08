@@ -36,36 +36,6 @@ public class Controller {
     @FXML public Button fxNyrLeikur;
     @FXML public GridPane fxGrid;
     //Reitir sem Spilarar færast á
-    @FXML private StackPane bleikur0;
-    @FXML private StackPane bleikur1;
-    @FXML private StackPane bleikur2;
-    @FXML private StackPane bleikur3;
-    @FXML private StackPane bleikur4;
-    @FXML private StackPane bleikur5;
-    @FXML private StackPane bleikur6;
-    @FXML private StackPane bleikur7;
-    @FXML private StackPane bleikur8;
-    @FXML private StackPane bleikur9;
-    @FXML private StackPane bleikurEinn;
-    @FXML private StackPane bleikurTveir;
-    @FXML private StackPane bleikurThrir;
-    @FXML private StackPane bleikurSigur;
-    @FXML private StackPane graenn0;
-    @FXML private StackPane graenn1;
-    @FXML private StackPane graenn2;
-    @FXML private StackPane graenn3;
-    @FXML private StackPane graenn4;
-    @FXML private StackPane graenn5;
-    @FXML private StackPane graenn6;
-    @FXML private StackPane graenn7;
-    @FXML private StackPane graenn8;
-    @FXML private StackPane graenn9;
-    @FXML private StackPane graennEinn;
-    @FXML private StackPane graennTveir;
-    @FXML private StackPane graennThrir;
-    @FXML private StackPane graennSigur;
-    @FXML private StackPane bleikurStart;
-    @FXML private StackPane graennStart;
     @FXML private ImageView bleikurKall1;
     @FXML private ImageView bleikurKall2;
     @FXML private ImageView bleikurKall3;
@@ -97,8 +67,9 @@ public class Controller {
      * Array sem heldur utan um breytilegan fjölda leikmanna
      * Fær fjöldan úr upphafsglugga ásamt nöfnum(placeholder sett inn)
      */
-    private final boolean[] ERVIRKUR = {false,false,false,false};
-    private final int FJOLDI = 4;
+    private final boolean[] VIRKIR = {true,false,true,false};
+    private int[] hverjirVirkir;
+    private final int FJOLDI = getVirkir();
     private final String[] NOFN = {"Leikmaður 1", "Leikmaður 2", "Leikmaður 3", "Leikmaður 4"};
     
     
@@ -125,25 +96,6 @@ public class Controller {
 				default -> "";
         		});
         
-        /*
-        //System.out.println("hverGera: " + hverGera);
-        if(hverGera==2){
-        	hvadaPed(2);
-        	ludo.getLeikmadur(hverGera).faeraLeikmann(ten, 0, hverGera);
-            welcomeText.setText("Grænn færist " + ten + " áfram");
-            
-            reitur.faeraLeikmann(2, ten);
-            hreyfaGraenann(reitur.getReitur(2));
-            System.out.println("Graenn: "+reitur.getReitur(2));
-        } else {
-            welcomeText.setText("Bleikur færist " + ten + " áfram");
-            hvadaPed(1);
-            reitur.faeraLeikmann(1, ten);
-            hreyfaBleikann(reitur.getReitur(1));
-            System.out.println("Bleikur: "+reitur.getReitur(1));
-        }
-        */
-        
         //Prentar sigurtexta eftir því hver vann
         if(ludo.getLeikmadur(hverGera).erSigurvegari()) {
         	switch(hverGera) {
@@ -154,17 +106,6 @@ public class Controller {
         	}
         	Ludo.setLeikLokid(true);
         }
-        /*
-        if(Ludo.getLeikLokid()) {
-            if(Leikmadur.hvadaKall()==1){
-            	additionalText.setText("Bleikur vann!");
-            	hreyfaBleikann(56);
-            } else {
-                additionalText.setText("Grænn vann!");
-                hreyfaGraenann(56);
-            }
-        }
-        */
 
         if (erSamiReitur()) {
             //gera nýja if s
@@ -194,6 +135,30 @@ public class Controller {
     }
 
     /**
+     * Telur hversu margir leikmenn eru að spila og upphafsstillir fylki
+     * sem inniheldur númer leikmanns sem er virkur
+     * @return fjöldi leikmanna sem spila
+     */
+    private int getVirkir() {
+    	int counter = 0;
+    	int hverjirCounter = 0;
+		for(int i = 0; i < VIRKIR.length; i++) {
+			if(VIRKIR[i])
+				counter++;	
+		}
+		hverjirVirkir = new int[counter];
+		for(int i = 0; i < VIRKIR.length; i++) {
+			if(VIRKIR[i]) {
+				hverjirVirkir[hverjirCounter] = i;			
+				System.out.println(i + " :: " + hverjirVirkir[hverjirCounter]);
+				hverjirCounter++;
+			}
+		}
+		System.out.println("FJOLDI: " + counter);
+		return counter;
+	}
+
+	/**
      *
      * @return boolean segir til hvort þeir séu á sama reit
      */
@@ -333,7 +298,7 @@ public class Controller {
                 }
         );
         Leikmadur.setFjoldi(FJOLDI);
-        ludo = new Ludo(FJOLDI,NOFN);
+        ludo = new Ludo(FJOLDI,NOFN,VIRKIR);
         
         // tengir viðmótshluti leikmanna við property með listeners með hjálparaðferðum.
         for(int i = 0; i < FJOLDI; i++) {

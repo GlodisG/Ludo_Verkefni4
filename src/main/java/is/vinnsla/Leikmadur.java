@@ -125,7 +125,7 @@ public class Leikmadur {
 					counter++;
 				}
 			}
-			nyttFylki= new int[counter];
+			nyttFylki = new int[counter];
 			int counter2 = 0;
 			for(int i =0;i<fylki.length;i++) {
 				if (fylki[i]) {
