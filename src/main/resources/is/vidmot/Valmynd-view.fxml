@@ -17,44 +17,44 @@
             <Image url="@../../CSS/myndir/bleikurKall.png" />
          </image>
       </ImageView>
-      <Button layoutX="401.0" layoutY="330.0" mnemonicParsing="false" onAction="#onHefjaLeik" text="Hefja leik">
+      <Button fx:id="hefjaLeik" layoutX="401.0" layoutY="330.0" mnemonicParsing="false" onAction="#onHefjaLeik" text="Hefja leik">
          <font>
             <Font size="16.0" />
          </font>
          <padding>
             <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
          </padding></Button>
-      <TextField layoutX="100.0" layoutY="100.0" prefHeight="32.0" prefWidth="300.0" promptText="Spilari1" styleClass="nameField">
+      <TextField fx:id="Spilari1" layoutX="100.0" layoutY="100.0" prefHeight="32.0" prefWidth="300.0" promptText="Spilari1" styleClass="nameField">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="100.0" layoutY="153.0" prefHeight="32.0" prefWidth="300.0" promptText="Spilari2" styleClass="nameField">
+      <TextField fx:id="Spilari2" layoutX="100.0" layoutY="153.0" prefHeight="32.0" prefWidth="300.0" promptText="Spilari2" styleClass="nameField">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="100.0" layoutY="212.0" prefHeight="32.0" prefWidth="300.0" promptText="Spilari3" styleClass="nameField">
+      <TextField fx:id="Spilari3" layoutX="100.0" layoutY="212.0" prefHeight="32.0" prefWidth="300.0" promptText="Spilari3" styleClass="nameField">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="100.0" layoutY="272.0" prefHeight="32.0" prefWidth="300.0" promptText="Spilari4" styleClass="nameField">
+      <TextField fx:id="Spilari4" layoutX="100.0" layoutY="272.0" prefHeight="32.0" prefWidth="300.0" promptText="Spilari4" styleClass="nameField">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <CheckBox layoutX="417.0" layoutY="106.0" mnemonicParsing="false" selected="true">
+      <CheckBox fx:id="checkEinn" layoutX="417.0" layoutY="106.0" mnemonicParsing="false" onAction="#onChecked">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
-      <CheckBox layoutX="417.0" layoutY="159.0" mnemonicParsing="false">
+      <CheckBox fx:id="checkTveir" layoutX="417.0" layoutY="159.0" mnemonicParsing="false" onAction="#onChecked">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
-      <CheckBox layoutX="417.0" layoutY="218.0" mnemonicParsing="false">
+      <CheckBox fx:id="checkThrir" layoutX="417.0" layoutY="218.0" mnemonicParsing="false" onAction="#onChecked">
          <font>
             <Font size="14.0" />
          </font>
@@ -79,7 +79,7 @@
             <Image url="@../../CSS/myndir/gulurKall.png" />
          </image>
       </ImageView>
-      <CheckBox layoutX="417.0" layoutY="278.0" mnemonicParsing="false">
+      <CheckBox fx:id="checkFjorir" layoutX="417.0" layoutY="278.0" mnemonicParsing="false" onAction="#onChecked">
          <font>
             <Font size="14.0" />
          </font>

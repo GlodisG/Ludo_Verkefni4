@@ -6,7 +6,6 @@ import is.vinnsla.Ludo;
 import is.vinnsla.Ped;
 import is.vinnsla.Reitur;
 import is.vinnsla.Teningur;
-import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -19,6 +18,9 @@ import javafx.scene.layout.StackPane;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static is.vidmot.controller.ValmyndController.hvadaLit;
+import static is.vidmot.controller.ValmyndController.nafnSpilara;
 
 /******************************************************************************
  *  Lýsing  : Controllerinn
@@ -36,36 +38,7 @@ public class Controller {
     @FXML public Button fxNyrLeikur;
     @FXML public GridPane fxGrid;
     //Reitir sem Spilarar færast á
-    @FXML private StackPane bleikur0;
-    @FXML private StackPane bleikur1;
-    @FXML private StackPane bleikur2;
-    @FXML private StackPane bleikur3;
-    @FXML private StackPane bleikur4;
-    @FXML private StackPane bleikur5;
-    @FXML private StackPane bleikur6;
-    @FXML private StackPane bleikur7;
-    @FXML private StackPane bleikur8;
-    @FXML private StackPane bleikur9;
-    @FXML private StackPane bleikurEinn;
-    @FXML private StackPane bleikurTveir;
-    @FXML private StackPane bleikurThrir;
-    @FXML private StackPane bleikurSigur;
-    @FXML private StackPane graenn0;
-    @FXML private StackPane graenn1;
-    @FXML private StackPane graenn2;
-    @FXML private StackPane graenn3;
-    @FXML private StackPane graenn4;
-    @FXML private StackPane graenn5;
-    @FXML private StackPane graenn6;
-    @FXML private StackPane graenn7;
-    @FXML private StackPane graenn8;
-    @FXML private StackPane graenn9;
-    @FXML private StackPane graennEinn;
-    @FXML private StackPane graennTveir;
-    @FXML private StackPane graennThrir;
-    @FXML private StackPane graennSigur;
-    @FXML private StackPane bleikurStart;
-    @FXML private StackPane graennStart;
+
     @FXML private ImageView bleikurKall1;
     @FXML private ImageView bleikurKall2;
     @FXML private ImageView bleikurKall3;
@@ -82,10 +55,12 @@ public class Controller {
     @FXML private ImageView blarKall2;
     @FXML private ImageView blarKall3;
     @FXML private ImageView blarKall4;
+    @FXML private Label labelEinn;
+    @FXML private Label labelTveir;
+    @FXML private Label labelThrir;
+    @FXML private Label labelFjorir;
 
-    //Leikborð skilgreint
-    public static HashMap<Integer, StackPane> ludoBord = new HashMap<>();
-    // Leikborð 2.0
+    // Leikborð skilgreint
     private final Map<Integer, StackPane> vidmotLeid = new HashMap<>();
     
     private final int[] bleikurUpphafsreitir = {57,58,59,60}; 	//leikmaður 1
@@ -97,7 +72,7 @@ public class Controller {
      * Array sem heldur utan um breytilegan fjölda leikmanna
      * Fær fjöldan úr upphafsglugga ásamt nöfnum(placeholder sett inn)
      */
-    private final boolean[] ERVIRKUR = {false,false,false,false};
+    private boolean[] ERVIRKUR = {false,false,false,false};
     private final int FJOLDI = 4;
     private final String[] NOFN = {"Leikmaður 1", "Leikmaður 2", "Leikmaður 3", "Leikmaður 4"};
     
@@ -105,6 +80,7 @@ public class Controller {
     private Ludo ludo;
     private Teningur teningur = new Teningur();
     private Reitur reitur = new Reitur();
+
 
     /**
      *Þegar ýtt er á tening
@@ -124,7 +100,9 @@ public class Controller {
 				case 3 -> "Gulur færist " + ten + " áfram";
 				default -> "";
         		});
-        
+
+
+
         /*
         //System.out.println("hverGera: " + hverGera);
         if(hverGera==2){
@@ -314,6 +292,12 @@ public class Controller {
     public void initialize() {
     	buaTilLeid();
     	Leikmadur.setFjoldi(FJOLDI);
+        labelEinn.setText(nafnSpilara[0]);
+        labelTveir.setText(nafnSpilara[1]);
+        labelThrir.setText(nafnSpilara[2]);
+        labelFjorir.setText(nafnSpilara[3]);
+
+        System.out.println("Boolean fylkið: " + hvadaLit[0] + " " + hvadaLit[1] + " " + hvadaLit[2] + " " + hvadaLit[3]);
         welcomeText.setText("Bleikur gerir fyrst");
         additionalText.setText("Ýttu á tening til að hefja leik");
 
