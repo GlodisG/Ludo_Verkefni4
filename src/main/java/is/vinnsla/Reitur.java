@@ -89,7 +89,7 @@ public class Reitur {
 	    	}
 			case 2 : {
 				if(stadsetning == -1) return PLAYER2START[ped];
-				if(stadsetning > 40) {
+				if(stadsetning >= 40) {
 					return stadsetning + FINISHOFFSET * (PLAYER2OFFSET/10);
 				}
 				if(stadsetning + PLAYER2OFFSET >= 40) {
@@ -99,7 +99,7 @@ public class Reitur {
 			}
 			case 3 : {
 				if(stadsetning == -1) return PLAYER3START[ped];
-				if(stadsetning > 40) {
+				if(stadsetning >= 40) {
 					return stadsetning + FINISHOFFSET * (PLAYER3OFFSET/10);
 				}
 				if(stadsetning + PLAYER3OFFSET >= 40) {
@@ -109,7 +109,7 @@ public class Reitur {
 			}
 			case 4 : {
 				if(stadsetning == -1) return PLAYER4START[ped];
-				if(stadsetning > 40) {
+				if(stadsetning >= 	 40) {
 					return stadsetning + FINISHOFFSET * (PLAYER4OFFSET/10);
 				}
 				if(stadsetning + PLAYER4OFFSET >= 40) {

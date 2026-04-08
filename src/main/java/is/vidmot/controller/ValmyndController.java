@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 public class ValmyndController {
+	
     /**
      * @param ignored
      * Breytir senunni í leik senuna
