@@ -25,7 +25,7 @@ public class Leikmadur {
     private static int fjoldi;
     private static boolean leikHafid = false;
     private HashMap<Ped, Integer> virkPed = new HashMap<>();
-    
+    private static int[] nyttFylki;
     private int pedCounter = 0; //placeholder teljari fyrir peð
     public int getPedCounter() {
     	return pedCounter;
@@ -116,33 +116,47 @@ public class Leikmadur {
      * Færir næsta leik á næsta leikmann, breytilegt eftir fjölda leikmanna
      * @param fjoldi Fjöldi leikmanna sem eru að spila
      */
-    public static void setNaestiLeikmadur() {
+    public static void setNaestiLeikmadur(boolean[] fylki) {
+		int counter = 0;
     	int hverGera = hvadaKall.get();
     	if(!leikHafid) {
+			for(int i=0;i<fylki.length;i++){
+				if (fylki[i]) {
+					counter++;
+				}
+			}
+			nyttFylki= new int[counter];
+			int counter2 = 0;
+			for(int i =0;i<fylki.length;i++) {
+				if (fylki[i]) {
+					nyttFylki[counter2]=i;
+					counter2++;
+				}
+			}
     		hvadaKall.set(0);
 			leikHafid = true;
     		return;
     	}
-    	switch(fjoldi) {
+    	switch(counter) {
 	    	case 2:
 	    	{
-	    		if(hverGera == 0) hvadaKall.set(1);
-	    		if(hverGera == 1) hvadaKall.set(0);
+	    		if(hverGera == nyttFylki[0]) hvadaKall.set(nyttFylki[1]);
+	    		if(hverGera == nyttFylki[1]) hvadaKall.set(nyttFylki[0]);
 	    		break;
 	    	}
 	    	case 3:
 	    	{
-	    		if(hverGera == 0) hvadaKall.set(1);
-	    		if(hverGera == 1) hvadaKall.set(2);
-	    		if(hverGera == 2) hvadaKall.set(0);
+	    		if(hverGera == nyttFylki[0]) hvadaKall.set(nyttFylki[1]);
+	    		if(hverGera == nyttFylki[1]) hvadaKall.set(nyttFylki[2]);
+	    		if(hverGera == nyttFylki[2]) hvadaKall.set(nyttFylki[0]);
 	    		break;
 	    	}
 	    	case 4: 
 	    	{
-	    		if(hverGera == 0) hvadaKall.set(1);
-	    		if(hverGera == 1) hvadaKall.set(2);
-	    		if(hverGera == 2) hvadaKall.set(3);
-	    		if(hverGera == 3) hvadaKall.set(0);
+	    		if(hverGera == nyttFylki[0]) hvadaKall.set(nyttFylki[1]);
+	    		if(hverGera == nyttFylki[1]) hvadaKall.set(nyttFylki[2]);
+	    		if(hverGera == nyttFylki[2]) hvadaKall.set(nyttFylki[3]);
+	    		if(hverGera == nyttFylki[3]) hvadaKall.set(nyttFylki[0]);
 	    		break;
 	    	}
     	}  	

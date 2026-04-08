@@ -37,8 +37,9 @@ public class Ludo {
      * skoðar hvaða leikmaður er að gera og bætir við leiðina
      */
     public void leikaLeik() {
+        boolean [] fylki = {true,false,true,true}; //TODO LÁTA FREKAR SÆKJA boolean fylkið okkar
         teningur.kasta();
-        Leikmadur.setNaestiLeikmadur();
+        Leikmadur.setNaestiLeikmadur(fylki);
         int leikUmferd = Leikmadur.getNaestiLeikmadur();
         
         //bætir í leið eftir hver er að gera
