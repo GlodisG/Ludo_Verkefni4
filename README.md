@@ -1,5 +1,5 @@
 # Ludo Spil
-Forritið er borðspilið Ludo
+Forritið er borðspilið Ludo.
 Gefið er val á 2-4 leikmönnum, valkvætt er að setja nafn sitt inn og hægt er að velja liti.
 
 ## Leiðbeiningar um keyrslu
