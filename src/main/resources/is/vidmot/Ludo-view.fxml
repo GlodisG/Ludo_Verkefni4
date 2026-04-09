@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
 <!--
 Notendaviðmót fyrir Halló heimur forritið
@@ -492,6 +493,26 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
    <Button fx:id="fxTeningur" layoutX="355.0" layoutY="600.0" mnemonicParsing="false" onAction="#onKastaTening" prefHeight="50.0" prefWidth="50.0" styleClass="one" />
    <Label fx:id="additionalText" layoutX="96.0" layoutY="625.0" text="Label" />
    <Button layoutX="499.0" layoutY="612.0" mnemonicParsing="false" onAction="#onValmynd" text="Valmynd" />
+   <Label fx:id="labelEinn" layoutX="46.0" layoutY="44.0" text="Spilari 1" textFill="WHITE">
+      <font>
+         <Font name="Consolas" size="18.0" />
+      </font>
+   </Label>
+   <Label fx:id="labelTveir" layoutX="398.0" layoutY="42.0" text="Spilari 2" textFill="WHITE">
+      <font>
+         <Font name="Consolas" size="18.0" />
+      </font>
+   </Label>
+   <Label fx:id="labelThrir" layoutX="398.0" layoutY="393.0" text="Spilari 3" textFill="WHITE">
+      <font>
+         <Font name="Consolas" size="18.0" />
+      </font>
+   </Label>
+   <Label fx:id="labelFjorir" layoutX="46.0" layoutY="393.0" text="Spilari 4" textFill="WHITE">
+      <font>
+         <Font name="Consolas" size="18.0" />
+      </font>
+   </Label>
    <padding>
       <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
    </padding>

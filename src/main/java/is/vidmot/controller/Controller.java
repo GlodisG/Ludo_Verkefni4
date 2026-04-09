@@ -6,7 +6,6 @@ import is.vinnsla.Ludo;
 import is.vinnsla.Ped;
 import is.vinnsla.Reitur;
 import is.vinnsla.Teningur;
-import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -19,6 +18,9 @@ import javafx.scene.layout.StackPane;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static is.vidmot.controller.ValmyndController.hvadaLit;
+import static is.vidmot.controller.ValmyndController.nafnSpilara;
 
 /******************************************************************************
  *  Lýsing  : Controllerinn
@@ -52,10 +54,12 @@ public class Controller {
     @FXML private ImageView blarKall2;
     @FXML private ImageView blarKall3;
     @FXML private ImageView blarKall4;
+    @FXML private Label labelEinn;
+    @FXML private Label labelTveir;
+    @FXML private Label labelThrir;
+    @FXML private Label labelFjorir;
 
-    //Leikborð skilgreint
-    public static HashMap<Integer, StackPane> ludoBord = new HashMap<>();
-    // Leikborð 2.0
+    // Leikborð skilgreint
     private final Map<Integer, StackPane> vidmotLeid = new HashMap<>();
     
     private final int[] bleikurUpphafsreitir = {57,58,59,60}; 	//leikmaður 1
@@ -67,15 +71,16 @@ public class Controller {
      * Array sem heldur utan um breytilegan fjölda leikmanna
      * Fær fjöldan úr upphafsglugga ásamt nöfnum(placeholder sett inn)
      */
-    private final boolean[] VIRKIR = {true,false,true,false};
     private int[] hverjirVirkir;
-    private final int FJOLDI = getVirkir();
+    private boolean[] ERVIRKUR = {false,false,false,false};
+    private final int FJOLDI = 4;
     private final String[] NOFN = {"Leikmaður 1", "Leikmaður 2", "Leikmaður 3", "Leikmaður 4"};
     
     
     private Ludo ludo;
     private Teningur teningur = new Teningur();
     private Reitur reitur = new Reitur();
+
 
     /**
      *Þegar ýtt er á tening
@@ -95,7 +100,9 @@ public class Controller {
 				case 3 -> "Gulur færist " + ten + " áfram";
 				default -> "";
         		});
-        
+
+
+
         //Prentar sigurtexta eftir því hver vann
         if(ludo.getLeikmadur(hverGera).erSigurvegari()) {
         	switch(hverGera) {
@@ -279,6 +286,12 @@ public class Controller {
     public void initialize() {
     	buaTilLeid();
     	Leikmadur.setFjoldi(FJOLDI);
+        labelEinn.setText(nafnSpilara[0]);
+        labelTveir.setText(nafnSpilara[1]);
+        labelThrir.setText(nafnSpilara[2]);
+        labelFjorir.setText(nafnSpilara[3]);
+
+        System.out.println("Boolean fylkið: " + hvadaLit[0] + " " + hvadaLit[1] + " " + hvadaLit[2] + " " + hvadaLit[3]);
         welcomeText.setText("Bleikur gerir fyrst");
         additionalText.setText("Ýttu á tening til að hefja leik");
 
