@@ -72,6 +72,7 @@ public class Controller {
      * Fær fjöldan úr upphafsglugga ásamt nöfnum(placeholder sett inn)
      */
     private int[] hverjirVirkir;
+    private boolean[] VIRKIR;
     private boolean[] ERVIRKUR = {false,false,false,false};
     private final int FJOLDI = 4;
     private final String[] NOFN = {"Leikmaður 1", "Leikmaður 2", "Leikmaður 3", "Leikmaður 4"};
