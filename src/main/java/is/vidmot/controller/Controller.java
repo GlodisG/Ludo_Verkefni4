@@ -67,7 +67,7 @@ public class Controller {
     private final int[] gulurUpphafsreitir = {65,66,67,68};		//leikmaður 4
     private final int[] blarUpphafsreitir = {69,70,71,72};		//leikmaður 3
     
-    /*
+    /**
      * Array sem heldur utan um breytilegan fjölda leikmanna
      * Fær fjöldan úr upphafsglugga ásamt nöfnum(placeholder sett inn)
      */
