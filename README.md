@@ -1,8 +1,8 @@
-#Ludo Spil
+# Ludo Spil
 Forritið er borðspilið Ludo
 Gefið er val á 2-4 leikmönnum, valkvætt er að setja nafn sitt inn og hægt er að velja liti.
 
-#Leiðbeiningar um keyrslu
+# Leiðbeiningar um keyrslu
 Forritið notar verkefnisstjórnunartólið Maven til þess að byggja forritið, til þess að geta notað það.
 Farið eftir leiðbeiningur í eftirfarandi hlekk til þess að sækja maven:
 https://maven.apache.org/install.html
