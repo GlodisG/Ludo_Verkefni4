@@ -67,7 +67,7 @@ public class Controller {
     private final int[] gulurUpphafsreitir = {65,66,67,68};		//leikmaður 4
     private final int[] blarUpphafsreitir = {69,70,71,72};		//leikmaður 3
     
-    /*
+    /**
      * Array sem heldur utan um breytilegan fjölda leikmanna
      * Fær fjöldan úr upphafsglugga ásamt nöfnum(placeholder sett inn)
      */
@@ -200,80 +200,6 @@ public class Controller {
     public void onValmynd(ActionEvent ignored) {
         ViewSwitcher.switchTo(View.VALMYND,false, null);
     }
-
-    /**
-     * @param stadsetning //hvert á ludobordid á að færa
-     * Hreyfir græna kallinn
-     */
-    /*
-    public void hreyfaGraenann(int stadsetning) {
-        Pane targetTile = vidmotLeid.get(stadsetning);
-        if (targetTile == null) return;
-        Pane currentParent = (Pane) graennKall1.getParent();
-        if (currentParent != null) {
-            currentParent.getChildren().remove(graennKall1);
-        }
-        targetTile.getChildren().add(graennKall1);
-    }
-    */
-
-    /**
-     * @param stadsetning //hvert á ludobordid á að færa
-     * Hreyfir bleika kallinn
-     */
-    /*
-    public void hreyfaBleikann(int stadsetning) {
-        Pane targetTile = vidmotLeid.get(stadsetning);
-        if (targetTile == null) return;
-        Pane currentParent = (Pane) bleikurKall1.getParent();
-        if (currentParent != null) {
-            currentParent.getChildren().remove(bleikurKall1);
-        }
-        targetTile.getChildren().add(bleikurKall1);
-    }
-    */
-    
-    
-    /**
-     * Færir leikmann sem á næsta leik
-     * @param stadsetning Núverandi staðsetning peðs
-     */
-    /*
-    public void hreyfaLeikmann(int stadsetning) {
-    	Pane targetTile = vidmotLeid.get(stadsetning);
-    	if(targetTile == null) return;
-    	int currentPlayer = Leikmadur.hvadaKall();
-    	int currentPed = ludo.getLeikmadur(currentPlayer).getPedCounter(); //TODO fá return frá hvadaPed() aðferð að neðan : placeholder counter settur þangað til
-    	Node ped = null;
-    	switch(currentPlayer) {
-    		case 1 : {
-    			switch(currentPed) {
-    			case 1 -> ped = bleikurKall1;
-    			case 2 -> ped = bleikurKall2;
-    			case 3 -> ped = bleikurKall3;
-    			case 4 -> ped = bleikurKall4;
-    			}
-    			break;
-    		}
-    		case 2 : {
-    			switch(currentPed) {
-    			case 1 -> ped = graennKall1;
-    			case 2 -> ped = graennKall2;
-				case 3 -> ped = graennKall3;
-				case 4 -> ped = graennKall4;
-    			}
-    			break;
-    		}
-    		//peð 3
-    		//peð 4
-    	}
-    	Pane currentParent = (Pane) ped.getParent();
-    	targetTile.getChildren().add(ped);
-    	if(currentParent != null) 
-    		currentParent.getChildren().remove(ped);
-    }
-    */
-    
     
     /**
      * Gefur leikmanni valkost á hvaða peði hann/hún vill hreyfa af þeim sem eru virk
@@ -284,6 +210,57 @@ public class Controller {
     	HashMap<Ped, Integer> virkPed; //TODO Viljum örugglega nota þetta :D
     }
 
+    
+    /**
+     * Færir viðmótshlut peðs á leikborði
+     * Viðmótshluturinn er fjarlægður fyrst frá StackPane foreldri,
+     * því næst er því bætt við nýtt StackPane foreldri.
+     * 
+     * @param ped Viðmótshlutur peðs
+     * @param stadsetning Stadsetning sem á að færa til
+     */
+    private void hreyfaPed(ImageView ped , int stadsetning) {
+    	if(ped.getParent() instanceof Pane parent) {
+    		parent.getChildren().remove(ped);
+    	}
+    	StackPane targetTile = vidmotLeid.get(stadsetning);
+    	if(stadsetning == 99) return; // staðsetning 99 er til að "fela" peð þegar það kemst í mark(placeholder?)
+    	if(targetTile != null) {
+    		targetTile.getChildren().add(ped);
+    	}
+    }
+    
+    /**
+     * Hjálparaðferð
+     * Bætir við listener sem hlustar á IntegerProperty peðs og uppfærir viðmótshlut samsvarandi peðs.
+     * @param ped Peð leikmanns
+     * @param pedImage Viðmótshlutur á leikborði
+     * @param leikmadurNr Númer leikmanns
+     * @param pedNr Númer peðs
+     */
+    private void bindaPed(Ped ped, ImageView pedImage, int leikmadurNr, int pedNr) {
+    	ped.stadurProperty().addListener((obs, oldVal, newVal) -> {
+    		int raunStadur = Reitur.getReitur(leikmadurNr+1, pedNr, newVal.intValue());
+    		hreyfaPed(pedImage, raunStadur);
+    	});
+    	int raunStadur = Reitur.getReitur(leikmadurNr+1, pedNr, ped.getStadsetning());
+    	hreyfaPed(pedImage, raunStadur);
+    }
+    /**
+     * Finnur öll stackpane sem eru á leikborði og tengir þær við staðsetningar.
+     * Býr til HashMap sem notar index sem táknar staðsetningu(key) 
+     * og StackPane(value) er viðmótshluturinn.
+     */
+    private void buaTilLeid() {
+    	int index = 0;
+    	for(Node node: fxGrid.getChildren()) {
+    		if(node instanceof StackPane && index < 73) {
+    			vidmotLeid.put(index++, (StackPane) node);
+    		}
+    	}
+    	vidmotLeid.forEach((i, pane) -> System.out.println("index: " + i + " | pane : " + pane));
+    }
+    
     public void initialize() {
     	buaTilLeid();
     	Leikmadur.setFjoldi(FJOLDI);
@@ -361,57 +338,6 @@ public class Controller {
 		}
         Leikmadur.setLeikmadur(0);
         ludo.endurstillaLeid();
-    }
-    
-    /**
-     * Færir viðmótshlut peðs á leikborði
-     * Viðmótshluturinn er fjarlægður fyrst frá StackPane foreldri,
-     * því næst er því bætt við nýtt StackPane foreldri.
-     * 
-     * @param ped Viðmótshlutur peðs
-     * @param stadsetning Stadsetning sem á að færa til
-     */
-    private void hreyfaPed(ImageView ped , int stadsetning) {
-    	if(ped.getParent() instanceof Pane parent) {
-    		parent.getChildren().remove(ped);
-    	}
-    	StackPane targetTile = vidmotLeid.get(stadsetning);
-    	if(stadsetning == 99) return; // staðsetning 99 er til að "fela" peð þegar það kemst í mark(placeholder?)
-		if(targetTile != null) {
-			targetTile.getChildren().add(ped);
-		}
-		
-    }
-    
-    /**
-     * Hjálparaðferð
-     * Bætir við listener sem hlustar á IntegerProperty peðs og uppfærir viðmótshlut samsvarandi peðs.
-     * @param ped Peð leikmanns
-     * @param pedImage Viðmótshlutur á leikborði
-     * @param leikmadurNr Númer leikmanns
-     * @param pedNr Númer peðs
-     */
-    private void bindaPed(Ped ped, ImageView pedImage, int leikmadurNr, int pedNr) {
-    	ped.stadurProperty().addListener((obs, oldVal, newVal) -> {
-    		int raunStadur = Reitur.getReitur(leikmadurNr+1, pedNr, newVal.intValue());
-    		hreyfaPed(pedImage, raunStadur);
-    	});
-    	int raunStadur = Reitur.getReitur(leikmadurNr+1, pedNr, ped.getStadsetning());
-    	hreyfaPed(pedImage, raunStadur);
-    }
-    /**
-     * Finnur öll stackpane sem eru á leikborði og tengir þær við staðsetningar.
-     * Býr til HashMap sem notar index sem táknar staðsetningu(key) 
-     * og StackPane(value) er viðmótshluturinn.
-     */
-    private void buaTilLeid() {
-    	int index = 0;
-    	for(Node node: fxGrid.getChildren()) {
-    		if(node instanceof StackPane && index < 73) {
-    			vidmotLeid.put(index++, (StackPane) node);
-    		}
-    	}
-    	vidmotLeid.forEach((i, pane) -> System.out.println("index: " + i + " | pane : " + pane));
     }
 }
 
