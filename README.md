@@ -7,7 +7,7 @@ Fyrst og fremst þarf ap hlaða niður forritinu héðan með því að ýta á 
 
 ### Aðferð 1 - Hlaða niður Maven
 Forritið notar verkefnisstjórnunartólið Maven til þess að byggja forritið, til þess að geta notað það.
-Farið eftir leiðbeiningur í eftirfarandi hlekk til þess að sækja maven:
+Farið eftir leiðbeiningur í eftirfarandi hlekk til þess að sækja maven: 
 https://maven.apache.org/install.html
 
 Þegar maven er rétt sett upp á að vera hægt að keyra í cmd skipunina "mvn -v" sem segir þér hvaða útgáfu af maven þú hefur náð í.
@@ -17,11 +17,7 @@ https://maven.apache.org/install.html
 Til þess að keyra loks forritið og spila Ludo skaltu skrifa inn "mvn clean javafx:run"
 
 ### Aðferð 2 - Hlaða niður Intellij
-Einnig er hægt að sækja IntelliJ og keyrt forritið í gegnum ritilinn, sjá hlekk:
-https://www.jetbrains.com/idea/download/?section=windows
-https://www.jetbrains.com/help/idea/maven-support.html
-Síðan þarf að:
-  Ræsa Intellij
-  Opna skjalamöppuna með Ludo leiknum
-  Minna Maven flipann á hægri hliðinni (Merkt "M")
-  Ýta á "plugins" síðan "javafx" og síðan tvísmella á "javafx:run" og þá ætti forrit að ræsast.
+Einnig er hægt að sækja Intellij og keyrt forritið í gegnum ritilinn, sjá hlekk: 
+https://www.jetbrains.com/idea/download/?section=windows 
+https://www.jetbrains.com/help/idea/maven-support.html 
+Síðan þarf að Ræsa Intellij. Opna skjalamöppuna með Ludo leiknum. Hægt er að finna Maven flipann á hægri hliðinni (Merkt "M"). Síðan þarf að ýta á "plugins" síðan "javafx" og síðan tvísmella á "javafx:run" og þá ætti forrit að ræsast.
