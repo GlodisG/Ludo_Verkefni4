@@ -3,6 +3,9 @@ Forritið er borðspilið Ludo.
 Gefið er val á 2-4 leikmönnum, valkvætt er að setja nafn sitt inn og hægt er að velja liti.
 
 ## Leiðbeiningar um keyrslu
+Fyrst og fremst þarf ap hlaða niður forritinu héðan með því að ýta á "<> code" hnappinn og "download zip" síðan þarf að "extract"-a möppuna út zip skjalinu.
+
+### Aðferð 1 - Hlaða niður Maven
 Forritið notar verkefnisstjórnunartólið Maven til þess að byggja forritið, til þess að geta notað það.
 Farið eftir leiðbeiningur í eftirfarandi hlekk til þess að sækja maven:
 https://maven.apache.org/install.html
@@ -13,5 +16,12 @@ https://maven.apache.org/install.html
 Þar skaltu skrifa "mvn clean install" til þess að byggja upp forritið.
 Til þess að keyra loks forritið og spila Ludo skaltu skrifa inn "mvn clean javafx:run"
 
-Einnig er hægt að sækja ritil eins og IntelliJ og keyrt forritið í gegnum ritilinn, sjá hlekk:
+### Aðferð 2 - Hlaða niður Intellij
+Einnig er hægt að sækja IntelliJ og keyrt forritið í gegnum ritilinn, sjá hlekk:
+https://www.jetbrains.com/idea/download/?section=windows
 https://www.jetbrains.com/help/idea/maven-support.html
+Síðan þarf að:
+  Ræsa Intellij
+  Opna skjalamöppuna með Ludo leiknum
+  Minna Maven flipann á hægri hliðinni (Merkt "M")
+  Ýta á "plugins" síðan "javafx" og síðan tvísmella á "javafx:run" og þá ætti forrit að ræsast.
