@@ -70,10 +70,10 @@ public class Controller {
      * Fær fjöldan úr upphafsglugga ásamt nöfnum(placeholder sett inn)
      */
     private int[] hverjirVirkir;
-    private boolean[] VIRKIR;
+    private static boolean[] VIRKIR;
     private boolean[] ERVIRKUR = {false,false,false,false};
-    private final int FJOLDI = 4;
-    private final String[] NOFN = {"Leikmaður 1", "Leikmaður 2", "Leikmaður 3", "Leikmaður 4"};
+    private static int fjoldi;
+    private static String[] nafnSpilara;
     
     
     private Ludo ludo;
@@ -145,7 +145,8 @@ public class Controller {
      * sem inniheldur númer leikmanns sem er virkur
      * @return fjöldi leikmanna sem spila
      */
-    private int getVirkir() {
+    private void setHverjir() {
+    	VIRKIR = ValmyndController.hvadaLit();
     	int counter = 0;
     	int hverjirCounter = 0;
 		for(int i = 0; i < VIRKIR.length; i++) {
@@ -160,8 +161,7 @@ public class Controller {
 				hverjirCounter++;
 			}
 		}
-		System.out.println("FJOLDI: " + counter);
-		return counter;
+		System.out.println("FJOLDI: " + counter + " VIRKIR: " + hverjirVirkir.toString());
 	}
 
 	/**
@@ -183,7 +183,7 @@ public class Controller {
     public void onNyrLeikur(){
         welcomeText.setText("Bleikur gerir fyrst");
         additionalText.setText("Ýttu á tening til að hefja leik");
-        Leikmadur.setFjoldi(FJOLDI);
+        Leikmadur.setFjoldi(fjoldi);
         Leikmadur.setLeikmadur(0);
         ludo.endurstillaLeid();
         Ludo.setLeikLokid(false);
@@ -258,8 +258,9 @@ public class Controller {
     	}
     	vidmotLeid.forEach((i, pane) -> System.out.println("index: " + i + " | pane : " + pane));
     }
+    
     private void stillaNofn() {
-    	String[] nafnSpilara = ValmyndController.getNafnSpilara();
+    	nafnSpilara = ValmyndController.getNafnSpilara();
     	labelEinn.setText("");
 		labelTveir.setText("");
 		labelThrir.setText("");
@@ -271,12 +272,18 @@ public class Controller {
     }
     
     public void initialize() {
+    	setHverjir();
+    	fjoldi = VIRKIR.length;
     	buaTilLeid();
     	stillaNofn();
-    	Leikmadur.setFjoldi(FJOLDI);
-    	boolean[] hvadaLit = ValmyndController.getHvadaLit();
-        System.out.println("Boolean fylkið: " + hvadaLit[0] + " " + hvadaLit[1] + " " + hvadaLit[2] + " " + hvadaLit[3]);
-        welcomeText.setText("Bleikur gerir fyrst");
+    	Leikmadur.setFjoldi(fjoldi);
+        System.out.println("Boolean fylkið: " + VIRKIR[0] + " " + VIRKIR[1] + " " + VIRKIR[2] + " " + VIRKIR[3]);
+        switch (hverjirVirkir[0]) {
+        case 0 -> welcomeText.setText("Bleikur gerir fyrst");
+        case 1 -> welcomeText.setText("Gulur gerir fyrst");
+		case 2 -> welcomeText.setText("Blár gerir fyrst");
+		case 3 -> welcomeText.setText("Grænn gerir fyrst");
+        }
         additionalText.setText("Ýttu á tening til að hefja leik");
 
         fxNyrLeikur.disableProperty().bind(Ludo.leikLokidProperty().not());
@@ -294,48 +301,51 @@ public class Controller {
                             .add(myndir[nytt.intValue() - 1]);
                 }
         );
-        Leikmadur.setFjoldi(FJOLDI);
-        ludo = new Ludo(FJOLDI,NOFN,VIRKIR);
+        Leikmadur.setFjoldi(fjoldi);
+        ludo = new Ludo(fjoldi,nafnSpilara,hverjirVirkir);
         
         // tengir viðmótshluti leikmanna við property með listeners með hjálparaðferðum.
-        for(int i = 0; i < FJOLDI; i++) {
+        for(int i: hverjirVirkir) {
+	        System.out.println("Virkur: " + i);
+        }
+        for(int i = 0; i < hverjirVirkir.length; i++) {
     		for(int j = 0; j < 4; j++) {
-    			Ped ped = ludo.getLeikmenn()[i].getPed(j); 
-    			System.out.println("Bind: " + NOFN[i] + "| ped:" + j);
-    			switch(i) {
+    			Ped ped = ludo.getLeikmenn()[hverjirVirkir[i]].getPed(j); 
+    			System.out.println("Bind: " + nafnSpilara[hverjirVirkir[i]] + "| ped:" + j);
+    			switch(hverjirVirkir[i]) {
 	    			case 0: {
 	    				switch(j) {
-		    			case 0 -> bindaPed(ped, bleikurKall1, i, j);
-		    			case 1 -> bindaPed(ped, bleikurKall2, i, j);
-		    			case 2 -> bindaPed(ped, bleikurKall3, i, j);
-		    			case 3 -> bindaPed(ped, bleikurKall4, i, j);
+		    			case 0 -> bindaPed(ped, bleikurKall1, hverjirVirkir[i], j);
+		    			case 1 -> bindaPed(ped, bleikurKall2, hverjirVirkir[i], j);
+		    			case 2 -> bindaPed(ped, bleikurKall3, hverjirVirkir[i], j);
+		    			case 3 -> bindaPed(ped, bleikurKall4, hverjirVirkir[i], j);
 	    				}
 	    				break;
 	    			}
 	    			case 1: {
 	    				switch(j) {
-	    				case 0 -> bindaPed(ped, graennKall1, i, j);
-	    				case 1 -> bindaPed(ped, graennKall2, i, j);
-	    				case 2 -> bindaPed(ped, graennKall3, i, j);
-	    				case 3 -> bindaPed(ped, graennKall4, i, j);
+	    				case 0 -> bindaPed(ped, graennKall1, hverjirVirkir[i], j);
+	    				case 1 -> bindaPed(ped, graennKall2, hverjirVirkir[i], j);
+	    				case 2 -> bindaPed(ped, graennKall3, hverjirVirkir[i], j);
+	    				case 3 -> bindaPed(ped, graennKall4, hverjirVirkir[i], j);
 	    				}
 	    				break;
 	    			}
 	    			case 2: {
 	    				switch(j) {
-	    				case 0 -> bindaPed(ped, blarKall1, i, j);
-	    				case 1 -> bindaPed(ped, blarKall2, i, j);
-	    				case 2 -> bindaPed(ped, blarKall3, i, j);
-	    				case 3 -> bindaPed(ped, blarKall4, i, j);
+	    				case 0 -> bindaPed(ped, blarKall1, hverjirVirkir[i], j);
+	    				case 1 -> bindaPed(ped, blarKall2, hverjirVirkir[i], j);
+	    				case 2 -> bindaPed(ped, blarKall3, hverjirVirkir[i], j);
+	    				case 3 -> bindaPed(ped, blarKall4, hverjirVirkir[i], j);
 	    				}
 	    				break;
 	    			}
 	    			case 3: {
 		    			switch(j) {
-		    			case 0 -> bindaPed(ped, gulurKall1, i, j);
-		    			case 1 -> bindaPed(ped, gulurKall2, i, j);
-		    			case 2 -> bindaPed(ped, gulurKall3, i, j);
-		    			case 3 -> bindaPed(ped, gulurKall4, i, j);
+		    			case 0 -> bindaPed(ped, gulurKall1, hverjirVirkir[i], j);
+		    			case 1 -> bindaPed(ped, gulurKall2, hverjirVirkir[i], j);
+		    			case 2 -> bindaPed(ped, gulurKall3, hverjirVirkir[i], j);
+		    			case 3 -> bindaPed(ped, gulurKall4, hverjirVirkir[i], j);
 		    			}
 		    			break;
 	    			}

@@ -21,10 +21,12 @@ public class Ludo {
     private static int fjoldi; //tala úr upphafsskjá
     private Leikmadur[] leikmenn;
 	private String[] nofn;
+	private int[] hverjirVirkir;
 	
-	public Ludo(int fjoldi, String[] nofn, boolean[] virkirLeikmenn) {
+	public Ludo(int fjoldi, String[] nofn, int[] hverjirVirkir) {
 		this.fjoldi = fjoldi;
 		this.nofn = nofn;
+		this.hverjirVirkir = hverjirVirkir;
 		leikmenn = new Leikmadur[fjoldi];
 		for(int i = 0; i < fjoldi; i++) {
 			leikmenn[i] = new Leikmadur(nofn[i], i);
@@ -38,9 +40,8 @@ public class Ludo {
      * skoðar hvaða leikmaður er að gera og bætir við leiðina
      */
     public void leikaLeik() {
-        boolean [] fylki = ValmyndController.getHvadaLit();
         teningur.kasta();
-        Leikmadur.setNaestiLeikmadur(fylki);
+        Leikmadur.setNaestiLeikmadur(hverjirVirkir);
         int leikUmferd = Leikmadur.getNaestiLeikmadur();
         
         //bætir í leið eftir hver er að gera
