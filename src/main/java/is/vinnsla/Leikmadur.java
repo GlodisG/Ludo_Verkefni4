@@ -1,4 +1,5 @@
 package is.vinnsla;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -133,6 +134,7 @@ public class Leikmadur {
 					counter2++;
 				}
 			}
+			System.out.println("nyttFylki: " + Arrays.toString(nyttFylki));
     		hvadaKall.set(0);
 			leikHafid = true;
     		return;

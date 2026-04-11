@@ -258,16 +258,23 @@ public class Controller {
     	}
     	vidmotLeid.forEach((i, pane) -> System.out.println("index: " + i + " | pane : " + pane));
     }
-    
-    public void initialize() {
-    	buaTilLeid();
+    private void stillaNofn() {
     	String[] nafnSpilara = ValmyndController.getNafnSpilara();
-    	boolean[] hvadaLit = ValmyndController.getHvadaLit();
-    	Leikmadur.setFjoldi(FJOLDI);
-        labelEinn.setText(nafnSpilara[0]);
+    	labelEinn.setText("");
+		labelTveir.setText("");
+		labelThrir.setText("");
+		labelFjorir.setText("");
+		labelEinn.setText(nafnSpilara[0]);
         labelTveir.setText(nafnSpilara[1]);
         labelThrir.setText(nafnSpilara[2]);
         labelFjorir.setText(nafnSpilara[3]);
+    }
+    
+    public void initialize() {
+    	buaTilLeid();
+    	stillaNofn();
+    	Leikmadur.setFjoldi(FJOLDI);
+    	boolean[] hvadaLit = ValmyndController.getHvadaLit();
         System.out.println("Boolean fylkið: " + hvadaLit[0] + " " + hvadaLit[1] + " " + hvadaLit[2] + " " + hvadaLit[3]);
         welcomeText.setText("Bleikur gerir fyrst");
         additionalText.setText("Ýttu á tening til að hefja leik");

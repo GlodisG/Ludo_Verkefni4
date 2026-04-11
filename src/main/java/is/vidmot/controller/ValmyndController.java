@@ -73,6 +73,7 @@ public class ValmyndController {
      */
     @FXML
     public void onHefjaLeik(ActionEvent ignored) {
+    	endurstillaNofn();
         if (hvadaLit[0]) { nafnSpilara[0] = Spilari1.getText();
             if (Spilari1.getText().isEmpty()) { nafnSpilara[0] = "Bjarni Bleiki"; }
         }
@@ -85,7 +86,7 @@ public class ValmyndController {
         if (hvadaLit[3]) { nafnSpilara[3] = Spilari4.getText();
             if (Spilari4.getText().isEmpty()) { nafnSpilara[3] = "Gyða Gula"; }
         }
-        System.out.println(nafnSpilara[0] + nafnSpilara[1] + nafnSpilara[2] + nafnSpilara[3]);
+        System.out.println(nafnSpilara[0] + " | " + nafnSpilara[1] + " | " + nafnSpilara[2] + " | " + nafnSpilara[3]);
         ViewSwitcher.switchTo(View.BORD,false, null);
     }
     public static boolean[] getHvadaLit() {
@@ -94,4 +95,10 @@ public class ValmyndController {
     public static String[] getNafnSpilara() {
 		return nafnSpilara;
 	}
+    private void endurstillaNofn() {
+    	nafnSpilara[0] = "";
+		nafnSpilara[1] = "";
+		nafnSpilara[2] = "";
+		nafnSpilara[3] = "";
+    }
 }

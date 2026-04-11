@@ -1,4 +1,5 @@
 package is.vinnsla;
+import is.vidmot.controller.ValmyndController;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -37,7 +38,7 @@ public class Ludo {
      * skoðar hvaða leikmaður er að gera og bætir við leiðina
      */
     public void leikaLeik() {
-        boolean [] fylki = {true,false,true,true}; //TODO LÁTA FREKAR SÆKJA boolean fylkið okkar
+        boolean [] fylki = ValmyndController.getHvadaLit();
         teningur.kasta();
         Leikmadur.setNaestiLeikmadur(fylki);
         int leikUmferd = Leikmadur.getNaestiLeikmadur();
