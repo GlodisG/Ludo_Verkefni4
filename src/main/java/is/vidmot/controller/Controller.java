@@ -19,8 +19,6 @@ import javafx.scene.layout.StackPane;
 import java.util.HashMap;
 import java.util.Map;
 
-import static is.vidmot.controller.ValmyndController.hvadaLit;
-import static is.vidmot.controller.ValmyndController.nafnSpilara;
 
 /******************************************************************************
  *  Lýsing  : Controllerinn
@@ -263,12 +261,13 @@ public class Controller {
     
     public void initialize() {
     	buaTilLeid();
+    	String[] nafnSpilara = ValmyndController.getNafnSpilara();
+    	boolean[] hvadaLit = ValmyndController.getHvadaLit();
     	Leikmadur.setFjoldi(FJOLDI);
         labelEinn.setText(nafnSpilara[0]);
         labelTveir.setText(nafnSpilara[1]);
         labelThrir.setText(nafnSpilara[2]);
         labelFjorir.setText(nafnSpilara[3]);
-
         System.out.println("Boolean fylkið: " + hvadaLit[0] + " " + hvadaLit[1] + " " + hvadaLit[2] + " " + hvadaLit[3]);
         welcomeText.setText("Bleikur gerir fyrst");
         additionalText.setText("Ýttu á tening til að hefja leik");
