@@ -280,9 +280,9 @@ public class Controller {
         System.out.println("Boolean fylkið: " + VIRKIR[0] + " " + VIRKIR[1] + " " + VIRKIR[2] + " " + VIRKIR[3]);
         switch (hverjirVirkir[0]) {
         case 0 -> welcomeText.setText("Bleikur gerir fyrst");
-        case 1 -> welcomeText.setText("Gulur gerir fyrst");
+        case 1 -> welcomeText.setText("Grænn gerir fyrst");
 		case 2 -> welcomeText.setText("Blár gerir fyrst");
-		case 3 -> welcomeText.setText("Grænn gerir fyrst");
+		case 3 -> welcomeText.setText("Gulur gerir fyrst");
         }
         additionalText.setText("Ýttu á tening til að hefja leik");
 
