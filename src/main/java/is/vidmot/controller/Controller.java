@@ -59,7 +59,6 @@ public class Controller {
 
     // Leikborð skilgreint
     private final Map<Integer, StackPane> vidmotLeid = new HashMap<>();
-    
     private final int[] bleikurUpphafsreitir = {57,58,59,60}; 	//leikmaður 1
     private final int[] graennUpphafsreitir = {61,62,63,64};	//leikmaður 2
     private final int[] gulurUpphafsreitir = {65,66,67,68};		//leikmaður 4
@@ -71,15 +70,17 @@ public class Controller {
      */
     private int[] hverjirVirkir;
     private static boolean[] VIRKIR;
-    private boolean[] ERVIRKUR = {false,false,false,false};
     private static int fjoldi;
     private static String[] nafnSpilara;
-    
-    
+
     private Ludo ludo;
     private Teningur teningur = new Teningur();
     private Reitur reitur = new Reitur();
 
+    private int teljari0;
+    private int teljari1;
+    private int teljari2;
+    private int teljari3;
 
     /**
      *Þegar ýtt er á tening
@@ -93,57 +94,54 @@ public class Controller {
         //ludo.getLeikmadur(hverGera).faeraLeikmann(ten, 0, hverGera); // sökudólgur >:C
         welcomeText.setText(
         		switch(hverGera) {
-        		case 0 -> "Bleikur færist " + ten + " áfram";
-				case 1 -> "Grænn færist " + ten + " áfram";
-				case 2 -> "Blar færist " + ten + " áfram";
-				case 3 -> "Gulur færist " + ten + " áfram";
+        		case 0 -> nafnSpilara[0] + " færist " + ten + " áfram";
+				case 1 -> nafnSpilara[1] + " færist " + ten + " áfram";
+				case 2 -> nafnSpilara[2] + " færist " + ten + " áfram";
+				case 3 -> nafnSpilara[3] + " færist " + ten + " áfram";
 				default -> "";
         		});
 
-
+        //Prenta út þegar peð fer i mark
+        forIMark();
 
         //Prentar sigurtexta eftir því hver vann
         if(ludo.getLeikmadur(hverGera).erSigurvegari()) {
         	switch(hverGera) {
-        	case 0 -> additionalText.setText("Bleikur vann!");
-        	case 1 -> additionalText.setText("Grænn vann!");
-        	case 2 -> additionalText.setText("Blár vann!");
-        	case 3 -> additionalText.setText("Gulur vann!");
+        	case 0 -> additionalText.setText(nafnSpilara[0] + " vann!");
+        	case 1 -> additionalText.setText(nafnSpilara[1] + " vann!");
+        	case 2 -> additionalText.setText(nafnSpilara[2] + " vann!");
+        	case 3 -> additionalText.setText(nafnSpilara[3] + " vann!");
         	}
         	Ludo.setLeikLokid(true);
         }
+        //additionalText.setText("Úps! " + nafnSpilara[i] + " aftur á byrjunarreit");
+    }
 
-        if (erSamiReitur()) {
-            //gera nýja if s
+    /**
+     * Prentar út setningu að peð fór í mark ef það fór í mark
+     */
+    private void forIMark(){
+        if(ludo.getLeikmadur(0).getPed(teljari0).getErSigrari()){
+            teljari0++;
+            additionalText.setText("Peð fór í mark!");
         }
-
-        /*
-        //Skilgreint á hvaða reit báðir spilarar eru
-        int reiturG = 0;
-        if(Ludo.getGraennLeid()>0){
-            reiturG =Reitur.reitur(Ludo.getGraennLeid(),1);
+        if(ludo.getLeikmadur(1).getPed(teljari1).getErSigrari()){
+            teljari1++;
+            additionalText.setText("Peð fór í mark!");
         }
-        int reiturB =Reitur.reitur(Ludo.getBleikurLeid(),2);
-      
-        //Ef þeir lenda á sama reit
-        if(reiturG==reiturB) {
-            if (Leikmadur.hvadaKall()==1) {
-                Ludo.bleikurLeid.set(0);
-                hreyfaBleikann(57);
-                additionalText.setText("Úps! Bleikur aftur á byrjunarreit");
-            } else {
-                Ludo.graennLeid.set(0);
-                hreyfaGraenann(61);
-                additionalText.setText("Úps! Grænn aftur á byrjunarreit");
-            }
+        if(ludo.getLeikmadur(2).getPed(teljari2).getErSigrari()){
+            teljari2++;
+            additionalText.setText("Peð fór í mark!");
         }
-         */
+        if(ludo.getLeikmadur(3).getPed(teljari3).getErSigrari()){
+            teljari3++;
+            additionalText.setText("Peð fór í mark!");
+        }
     }
 
     /**
      * Telur hversu margir leikmenn eru að spila og upphafsstillir fylki
      * sem inniheldur númer leikmanns sem er virkur
-     * @return fjöldi leikmanna sem spila
      */
     private void setHverjir() {
     	VIRKIR = ValmyndController.hvadaLit();
@@ -168,11 +166,34 @@ public class Controller {
      *
      * @return boolean segir til hvort þeir séu á sama reit
      */
-    public boolean erSamiReitur() {
+    //Þarf að breyta 100% hvar ég sæki reitina þarf liklega að tenja beint i hashmap
+    public boolean erSamiReitur(int hverGera) {
         int reitur1 = reitur.reiturPlayer1Property().get();
         int reitur2 = reitur.reiturPlayer2Property().get();
-        if (reitur1==reitur2){
-            return true;
+        int reitur3 = reitur.reiturPlayer3Property().get();
+        int reitur4 = reitur.reiturPlayer4Property().get();
+
+        switch(hverGera) {
+            case 1:
+                if (reitur1==reitur2){
+                    return true;
+                }
+                break;
+            case 2:
+                if (reitur2 == reitur3){
+                    return true;
+                }
+            break;
+            case 3:
+                if (reitur3==reitur4){
+                    return true;
+                }
+            break;
+            case 4:
+                if (reitur4 == reitur1){
+                    return true;
+                }
+            break;
         }
         return false;
     }
@@ -181,7 +202,7 @@ public class Controller {
      *Þegar ýtt er á "nýr leikur"
      */
     public void onNyrLeikur(){
-        welcomeText.setText("Bleikur gerir fyrst");
+        setHverByrjarTexti();
         additionalText.setText("Ýttu á tening til að hefja leik");
         Leikmadur.setFjoldi(fjoldi);
         Leikmadur.setLeikmadur(0);
@@ -208,12 +229,10 @@ public class Controller {
     	HashMap<Ped, Integer> virkPed; //TODO Viljum örugglega nota þetta :D
     }
 
-    
     /**
      * Færir viðmótshlut peðs á leikborði
      * Viðmótshluturinn er fjarlægður fyrst frá StackPane foreldri,
      * því næst er því bætt við nýtt StackPane foreldri.
-     * 
      * @param ped Viðmótshlutur peðs
      * @param stadsetning Stadsetning sem á að færa til
      */
@@ -258,7 +277,10 @@ public class Controller {
     	}
     	vidmotLeid.forEach((i, pane) -> System.out.println("index: " + i + " | pane : " + pane));
     }
-    
+
+    /**
+     * Skrifar nöfn spilara á ludo borðið
+     */
     private void stillaNofn() {
     	nafnSpilara = ValmyndController.getNafnSpilara();
     	labelEinn.setText("");
@@ -270,6 +292,18 @@ public class Controller {
         labelThrir.setText(nafnSpilara[2]);
         labelFjorir.setText(nafnSpilara[3]);
     }
+
+    /**
+     * Lætur notanda vita hver byrjar
+     */
+    private void setHverByrjarTexti(){
+        switch (hverjirVirkir[0]) {
+            case 0 -> welcomeText.setText(nafnSpilara[0] + " gerir fyrst");
+            case 1 -> welcomeText.setText(nafnSpilara[1] + " gerir fyrst");
+            case 2 -> welcomeText.setText(nafnSpilara[2] + " gerir fyrst");
+            case 3 -> welcomeText.setText(nafnSpilara[3] + " gerir fyrst");
+        }
+    }
     
     public void initialize() {
     	setHverjir();
@@ -278,12 +312,7 @@ public class Controller {
     	stillaNofn();
     	Leikmadur.setFjoldi(fjoldi);
         System.out.println("Boolean fylkið: " + VIRKIR[0] + " " + VIRKIR[1] + " " + VIRKIR[2] + " " + VIRKIR[3]);
-        switch (hverjirVirkir[0]) {
-        case 0 -> welcomeText.setText("Bleikur gerir fyrst");
-        case 1 -> welcomeText.setText("Grænn gerir fyrst");
-		case 2 -> welcomeText.setText("Blár gerir fyrst");
-		case 3 -> welcomeText.setText("Gulur gerir fyrst");
-        }
+        setHverByrjarTexti();
         additionalText.setText("Ýttu á tening til að hefja leik");
 
         fxNyrLeikur.disableProperty().bind(Ludo.leikLokidProperty().not());
@@ -354,6 +383,10 @@ public class Controller {
 		}
         Leikmadur.setLeikmadur(0);
         ludo.endurstillaLeid();
+        teljari0=0;
+        teljari1=0;
+        teljari2=0;
+        teljari3=0;
     }
 }
 

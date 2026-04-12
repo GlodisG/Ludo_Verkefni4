@@ -1,9 +1,6 @@
 package is.vinnsla;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
-
-import is.vidmot.controller.ValmyndController;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
@@ -28,9 +25,7 @@ public class Leikmadur {
     private static boolean leikHafid = false;
     private HashMap<Ped, Integer> virkPed = new HashMap<>();
     private int pedCounter = 0; //placeholder teljari fyrir peð
-    public int getPedCounter() {
-    	return pedCounter;
-    }
+
     /**
      * Smiður fyrir leikmann, inniheldur fylki af 4 peðum.
      * @param nafn Valkvætt nafn leikmanns
@@ -48,7 +43,7 @@ public class Leikmadur {
     	}
     	this.nafn = nafn;
     }
-    /*
+    /**
      * Sækir map af peðum sem eru á leikborði 
      */
     public HashMap<Ped,Integer> getVirkPed() {
@@ -96,26 +91,14 @@ public class Leikmadur {
       * Skilar hvaða leikmadur á næsta leik
       * @return númer leikmanns
       */
-    public static int getNaestiLeikmadur() { // þetta er bara nkl það sama og hvadaKall D:
-        /*
-        //ifhvergera meira en 4 næsti=0
-        //int naesti=hvergera+1
-        if (hverGera==1) {
-            hvadaKall.set(2);
-            return 2;
-        }
-        hvadaKall.set(1);
-        return 1;
-        */
-        
-        //System.out.println("hvadaKall: " + hvadaKall.get());
+    public static int getNaestiLeikmadur() {
         return hvadaKall.get();
         
     }
     
     /**
      * Færir næsta leik á næsta leikmann, breytilegt eftir fjölda leikmanna
-     * @param fjoldi Fjöldi leikmanna sem eru að spila
+     * @param
      */
     public static void setNaestiLeikmadur(int[] fylki) {
     	int hverGera = hvadaKall.get();
@@ -162,13 +145,6 @@ public class Leikmadur {
     }
 
     /**
-     * @return int //nær í hver á að gera 1 eða 2 fyrir föll í öðrum klösum
-     */
-    public static int hvadaKall() {
-        return hvadaKall.get();
-    }
-
-    /**
      * Lætur leikmann 1 gera, notað til að hefja nýjann leik
      */
     public static void setLeikmadur(int hver){
@@ -177,7 +153,7 @@ public class Leikmadur {
     
     /**
      * Skilgreinir fjölda leikmanna sem eru að spila
-     * @param fjoldi
+     * @param fjoldiInn
      */
     public static void setFjoldi(int fjoldiInn) {
     	fjoldi = fjoldiInn;
