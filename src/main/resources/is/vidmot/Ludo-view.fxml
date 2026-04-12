@@ -49,7 +49,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
          <RowConstraints maxHeight="50" minHeight="50.0" prefHeight="50" vgrow="SOMETIMES" />
          </rowConstraints>
       <children>
-         <StackPane fx:id="bleikur0" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="4"><Label text="1" />
+         <StackPane fx:id="bleikur0" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="4">
             <opaqueInsets>
                <Insets top="30.0" />
             </opaqueInsets>
@@ -61,17 +61,17 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children>
          </StackPane>
-         <StackPane fx:id="bleikur1" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="1" GridPane.rowIndex="4"><Label text="2" /></StackPane>
-         <StackPane fx:id="bleikur2" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="2" GridPane.rowIndex="4"><Label text="3" /></StackPane>
-         <StackPane fx:id="bleikur3" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="3" GridPane.rowIndex="4"><Label text="4" /></StackPane>
-         <StackPane fx:id="bleikur4" prefHeight="50.0" prefWidth="50.0" styleClass="rightdown" GridPane.columnIndex="4" GridPane.rowIndex="4"><Label text="5" /></StackPane>
-         <StackPane fx:id="bleikur5" prefHeight="50.0" prefWidth="50.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="3"><Label text="6" /></StackPane>
-         <StackPane fx:id="bleikur6" prefHeight="50.0" prefWidth="50.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="2"><Label text="7" /></StackPane>
-         <StackPane fx:id="bleikur7" prefHeight="50.0" prefWidth="50.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="1"><Label text="8" /></StackPane>
-         <StackPane fx:id="bleikur8" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="4"><Label text="9" /></StackPane>
-         <StackPane fx:id="bleikur9" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5"><Label text="10" /></StackPane>
+         <StackPane fx:id="bleikur1" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         <StackPane fx:id="bleikur2" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+         <StackPane fx:id="bleikur3" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+         <StackPane fx:id="bleikur4" prefHeight="50.0" prefWidth="50.0" styleClass="rightdown" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+         <StackPane fx:id="bleikur5" prefHeight="50.0" prefWidth="50.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+         <StackPane fx:id="bleikur6" prefHeight="50.0" prefWidth="50.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+         <StackPane fx:id="bleikur7" prefHeight="50.0" prefWidth="50.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+         <StackPane fx:id="bleikur8" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="4" />
+         <StackPane fx:id="bleikur9" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" />
 
-         <StackPane fx:id="graenn0" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="6"><Label text="11" />
+         <StackPane fx:id="graenn0" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="6">
             <children>
                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                   <image>
@@ -79,18 +79,18 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                   </image>
                </ImageView>
             </children></StackPane>
-         <StackPane fx:id="graenn1" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="1"><Label text="12" /></StackPane>
-         <StackPane fx:id="graenn2" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="2"><Label text="13" /></StackPane>
-         <StackPane fx:id="graenn3" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="3"><Label text="14" /></StackPane>
-         <StackPane fx:id="graenn4" prefHeight="50.0" prefWidth="50.0" styleClass="leftdown" GridPane.columnIndex="6" GridPane.rowIndex="4"><Label text="15" /></StackPane>
-         <StackPane fx:id="graenn5" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="7" GridPane.rowIndex="4"><Label text="16" /></StackPane>
-         <StackPane fx:id="graenn6" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="8" GridPane.rowIndex="4"><Label text="17" /></StackPane>
-         <StackPane fx:id="graenn7" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="9" GridPane.rowIndex="4"><Label text="18" /></StackPane>
-         <StackPane fx:id="graenn8" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="10" GridPane.rowIndex="4"><Label text="19" /></StackPane>
-         <StackPane fx:id="graenn9" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="10" GridPane.rowIndex="5"><Label text="20" /></StackPane>
+         <StackPane fx:id="graenn1" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+         <StackPane fx:id="graenn2" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+         <StackPane fx:id="graenn3" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+         <StackPane fx:id="graenn4" prefHeight="50.0" prefWidth="50.0" styleClass="leftdown" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+         <StackPane fx:id="graenn5" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+         <StackPane fx:id="graenn6" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+         <StackPane fx:id="graenn7" prefHeight="50.0" prefWidth="50.0" styleClass="down" GridPane.columnIndex="9" GridPane.rowIndex="4" />
+         <StackPane fx:id="graenn8" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="10" GridPane.rowIndex="4" />
+         <StackPane fx:id="graenn9" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="10" GridPane.rowIndex="5" />
 
 
-         <StackPane fx:id="blar0" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="10" GridPane.rowIndex="6"><Label text="21" />
+         <StackPane fx:id="blar0" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="10" GridPane.rowIndex="6">
             <opaqueInsets>
                <Insets top="30.0" />
             </opaqueInsets>
@@ -102,52 +102,52 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                </ImageView>
             </children>
          </StackPane>
-         <StackPane fx:id="blar1" prefHeight="50.0" prefWidth="50.0" styleClass="up" GridPane.columnIndex="9" GridPane.rowIndex="6"><Label text="22" />
+         <StackPane fx:id="blar1" prefHeight="50.0" prefWidth="50.0" styleClass="up" GridPane.columnIndex="9" GridPane.rowIndex="6">
             <opaqueInsets>
                <Insets top="30.0" />
             </opaqueInsets>
          </StackPane>
-         <StackPane fx:id="blar2" prefHeight="50.0" prefWidth="50.0" styleClass="up" GridPane.columnIndex="8" GridPane.rowIndex="6"><Label text="23" />
+         <StackPane fx:id="blar2" prefHeight="50.0" prefWidth="50.0" styleClass="up" GridPane.columnIndex="8" GridPane.rowIndex="6">
             <opaqueInsets>
                <Insets top="30.0" />
             </opaqueInsets>
          </StackPane>
-         <StackPane fx:id="blar3" prefHeight="50.0" prefWidth="50.0" styleClass="up" GridPane.columnIndex="7" GridPane.rowIndex="6"><Label text="24" />
+         <StackPane fx:id="blar3" prefHeight="50.0" prefWidth="50.0" styleClass="up" GridPane.columnIndex="7" GridPane.rowIndex="6">
             <opaqueInsets>
                <Insets top="30.0" />
             </opaqueInsets>
          </StackPane>
-         <StackPane fx:id="blar4" prefHeight="50.0" prefWidth="50.0" styleClass="leftup" GridPane.columnIndex="6" GridPane.rowIndex="6"><Label text="25" />
+         <StackPane fx:id="blar4" prefHeight="50.0" prefWidth="50.0" styleClass="leftup" GridPane.columnIndex="6" GridPane.rowIndex="6">
             <opaqueInsets>
                <Insets top="30.0" />
             </opaqueInsets>
          </StackPane>
-         <StackPane fx:id="blar5" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="7"><Label text="26" />
+         <StackPane fx:id="blar5" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="7">
             <opaqueInsets>
                <Insets top="30.0" />
             </opaqueInsets>
          </StackPane>
-         <StackPane fx:id="blar6" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="8"><Label text="27" />
+         <StackPane fx:id="blar6" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="8">
             <opaqueInsets>
                <Insets top="30.0" />
             </opaqueInsets>
          </StackPane>
-         <StackPane fx:id="blar7" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="9"><Label text="28" />
+         <StackPane fx:id="blar7" prefHeight="50.0" prefWidth="50.0" styleClass="left" GridPane.columnIndex="6" GridPane.rowIndex="9">
             <opaqueInsets>
                <Insets top="30.0" />
             </opaqueInsets>
          </StackPane>
-         <StackPane fx:id="blar8" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="6" GridPane.rowIndex="10"><Label text="29" />
+         <StackPane fx:id="blar8" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="6" GridPane.rowIndex="10">
             <opaqueInsets>
                <Insets top="30.0" />
             </opaqueInsets>
          </StackPane>
-         <StackPane fx:id="blar9" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="10"><Label text="30" />
+         <StackPane fx:id="blar9" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5" GridPane.rowIndex="10">
             <opaqueInsets>
                <Insets top="30.0" />
             </opaqueInsets>
          </StackPane>
-         <StackPane fx:id="gulur0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="10"><Label text="31" />
+         <StackPane fx:id="gulur0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="10">
             <children>
                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                   <image>
@@ -155,15 +155,15 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
                   </image>
                </ImageView>
             </children></StackPane>
-         <StackPane fx:id="gulur1" prefHeight="150.0" prefWidth="200.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="9"><Label text="32" /></StackPane>
-         <StackPane fx:id="gulur2" prefHeight="150.0" prefWidth="200.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="8"><Label text="33" /></StackPane>
-         <StackPane fx:id="gulur3" prefHeight="150.0" prefWidth="200.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="7"><Label text="34" /></StackPane>
-         <StackPane fx:id="gulur4" prefHeight="150.0" prefWidth="200.0" styleClass="rightup" GridPane.columnIndex="4" GridPane.rowIndex="6"><Label text="35" /></StackPane>
-         <StackPane fx:id="gulur5" prefHeight="150.0" prefWidth="200.0" styleClass="up" GridPane.columnIndex="3" GridPane.rowIndex="6"><Label text="36" /></StackPane>
-         <StackPane fx:id="gulur6" prefHeight="150.0" prefWidth="200.0" styleClass="up" GridPane.columnIndex="2" GridPane.rowIndex="6"><Label text="37" /></StackPane>
-         <StackPane fx:id="gulur7" prefHeight="150.0" prefWidth="200.0" styleClass="up" GridPane.columnIndex="1" GridPane.rowIndex="6"><Label text="38" /></StackPane>
-         <StackPane fx:id="gulur8" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="6"><Label text="39" /></StackPane>
-         <StackPane fx:id="gulur9" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="5"><Label text="40" /></StackPane>
+         <StackPane fx:id="gulur1" prefHeight="150.0" prefWidth="200.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+         <StackPane fx:id="gulur2" prefHeight="150.0" prefWidth="200.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+         <StackPane fx:id="gulur3" prefHeight="150.0" prefWidth="200.0" styleClass="right" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+         <StackPane fx:id="gulur4" prefHeight="150.0" prefWidth="200.0" styleClass="rightup" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+         <StackPane fx:id="gulur5" prefHeight="150.0" prefWidth="200.0" styleClass="up" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+         <StackPane fx:id="gulur6" prefHeight="150.0" prefWidth="200.0" styleClass="up" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+         <StackPane fx:id="gulur7" prefHeight="150.0" prefWidth="200.0" styleClass="up" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         <StackPane fx:id="gulur8" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="6" />
+         <StackPane fx:id="gulur9" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="5" />
 
          <StackPane fx:id="bleikurEinn" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="5"><Label text="41" />
             <children>
@@ -325,7 +325,6 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
 
          <StackPane fx:id="bleikurStart" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <children>
-               <Label text="BleikurStart" />
                <ImageView fx:id="bleikurKall1" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../CSS/myndir/bleikurKall.png" />
@@ -493,22 +492,22 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
    <Button fx:id="fxTeningur" layoutX="355.0" layoutY="600.0" mnemonicParsing="false" onAction="#onKastaTening" prefHeight="50.0" prefWidth="50.0" styleClass="one" />
    <Label fx:id="additionalText" layoutX="96.0" layoutY="625.0" text="Label" />
    <Button layoutX="499.0" layoutY="612.0" mnemonicParsing="false" onAction="#onValmynd" text="Valmynd" />
-   <Label fx:id="labelEinn" layoutX="46.0" layoutY="44.0" text="Spilari 1" textFill="WHITE">
+   <Label fx:id="labelEinn" layoutX="46.0" layoutY="44.0" text="Spilari 1" textFill="#ed4ca7">
       <font>
          <Font name="Consolas" size="18.0" />
       </font>
    </Label>
-   <Label fx:id="labelTveir" layoutX="398.0" layoutY="42.0" text="Spilari 2" textFill="WHITE">
+   <Label fx:id="labelTveir" layoutX="398.0" layoutY="42.0" text="Spilari 2" textFill="#45e245">
       <font>
          <Font name="Consolas" size="18.0" />
       </font>
    </Label>
-   <Label fx:id="labelThrir" layoutX="398.0" layoutY="393.0" text="Spilari 3" textFill="WHITE">
+   <Label fx:id="labelThrir" layoutX="398.0" layoutY="393.0" text="Spilari 3" textFill="#4f70ff">
       <font>
          <Font name="Consolas" size="18.0" />
       </font>
    </Label>
-   <Label fx:id="labelFjorir" layoutX="46.0" layoutY="393.0" text="Spilari 4" textFill="WHITE">
+   <Label fx:id="labelFjorir" layoutX="46.0" layoutY="393.0" text="Spilari 4" textFill="#e4ca36">
       <font>
          <Font name="Consolas" size="18.0" />
       </font>
