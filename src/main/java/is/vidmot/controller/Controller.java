@@ -118,7 +118,6 @@ public class Controller {
         }
     }
 
-
     /**
      * Prentar út setningu að peð fór í mark ef það fór í mark
      */
