@@ -89,9 +89,6 @@ public class ValmyndController {
         System.out.println(nafnSpilara[0] + " | " + nafnSpilara[1] + " | " + nafnSpilara[2] + " | " + nafnSpilara[3]);
         ViewSwitcher.switchTo(View.BORD,false, null);
     }
-    public static boolean[] getHvadaLit() {
-    	return hvadaLit;
-    }
     public static String[] getNafnSpilara() {
 		return nafnSpilara;
 	}

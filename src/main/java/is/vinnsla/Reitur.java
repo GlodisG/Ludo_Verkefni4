@@ -30,20 +30,6 @@ public class Reitur {
 	 */
 	public Reitur() {}
 
-	//delete á þessar aðferðir
-	public SimpleIntegerProperty reiturPlayer1Property() {
-		return reiturPlayer1;
-	}
-	public SimpleIntegerProperty reiturPlayer2Property() {
-		return reiturPlayer2;
-	}
-	public SimpleIntegerProperty reiturPlayer3Property() {
-		return reiturPlayer3;
-	}
-	public SimpleIntegerProperty reiturPlayer4Property() {
-		return reiturPlayer4;
-	}
-
 	/**
      * Færir leikmann á leikborði
      * @param leikmadur númer leikmanns
