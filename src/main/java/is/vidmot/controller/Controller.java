@@ -27,7 +27,6 @@ import java.util.Map;
 
 public class Controller {
     private static final String[] myndir = {"one", "two","three","four","five","six"};
-    
 
     //Skilaboð + takkar + grid
     @FXML private Label welcomeText; // Viðmótshlutur sem geymir texta með kveðju
@@ -104,6 +103,9 @@ public class Controller {
         //Prenta út þegar peð fer i mark
         forIMark();
 
+        //Segir hvaða peð var verið að lenda á ef einhverju
+        erSamiReitur(hverGera);
+
         //Prentar sigurtexta eftir því hver vann
         if(ludo.getLeikmadur(hverGera).erSigurvegari()) {
         	switch(hverGera) {
@@ -114,7 +116,6 @@ public class Controller {
         	}
         	Ludo.setLeikLokid(true);
         }
-        //additionalText.setText("Úps! " + nafnSpilara[i] + " aftur á byrjunarreit");
     }
 
     /**
@@ -162,46 +163,56 @@ public class Controller {
 		System.out.println("FJOLDI: " + counter + " VIRKIR: " + hverjirVirkir.toString());
 	}
 
-	/**
+    /**
      *
-     * @return boolean segir til hvort þeir séu á sama reit
+     * @param leikmadur
+     * @param ped
+     * @return númer reits sem spilari er á
      */
-    //Þarf að breyta 100% hvar ég sæki reitina þarf liklega að tenja beint i hashmap
-    public boolean erSamiReitur(int hverGera) {
-        int reitur1 = reitur.reiturPlayer1Property().get();
-        int reitur2 = reitur.reiturPlayer2Property().get();
-        int reitur3 = reitur.reiturPlayer3Property().get();
-        int reitur4 = reitur.reiturPlayer4Property().get();
+    private int hvadaReitur(int leikmadur, int ped){
+        return Reitur.getReitur(leikmadur+1,ped,ludo.getLeikmadur(leikmadur).getPed(ped).getStadsetning());
+    }
 
-        switch(hverGera) {
-            case 1:
-                if (reitur1==reitur2){
-                    return true;
-                }
-                break;
-            case 2:
-                if (reitur2 == reitur3){
-                    return true;
-                }
-            break;
-            case 3:
-                if (reitur3==reitur4){
-                    return true;
-                }
-            break;
-            case 4:
-                if (reitur4 == reitur1){
-                    return true;
-                }
-            break;
+    /**
+     * Ef peð lendir á öðru peði þá ver fórnalambið á byrjunarreit
+     * lætur notanda vita hvað gerðist
+     * @param hverGera Segir til um hvaða peð lenti á hinu
+     */
+    public void erSamiReitur(int hverGera) {
+        int reitaFylki[][]=new int[4][4];
+        for(int i=0;i<4;i++){
+            for(int j=0;j<4;j++){
+                reitaFylki[i][j] = hvadaReitur(i, j);
+                System.out.println("Spilari "+ i + ": " + reitaFylki[i][j]);
+            }
         }
-        return false;
+        int hverGeraTeljari=hverGera; //1
+        hverGeraTeljari++; //passar að skoða ekki liðið sem er að gera
+        for(int i=0;i<3;i++){ //skoðar 3 lið
+            if(hverGeraTeljari>3){
+                hverGeraTeljari=0;
+            }
+            for(int k=0;k<4;k++){ //skoðar öll ped þeirra sem var að gera
+                for(int j=0;j<4;j++){ //skoðar öll peð hja hinu lidinu
+                    if(hvadaReitur(hverGera, k)==hvadaReitur(hverGeraTeljari,j)){
+                        System.out.println("Ped "+ k +" hja  spilara "+ hverGera +" er a sama reit og ped "+ j +" hja spilara "+ hverGeraTeljari);
+                        ludo.getLeikmadur(hverGeraTeljari).getPed(j).endurstillaPed(-1);
+                        additionalText.setText("Úps! " + nafnSpilara[hverGeraTeljari] + " aftur á byrjunarreit");
+                    }
+                }
+            }
+            hverGeraTeljari++;
+        }
     }
 
     /**
      *Þegar ýtt er á "nýr leikur"
      */
     public void onNyrLeikur(){
+        teljari0=0;
+        teljari1=0;
+        teljari2=0;
+        teljari3=0;
         setHverByrjarTexti();
         additionalText.setText("Ýttu á tening til að hefja leik");
         Leikmadur.setFjoldi(fjoldi);
