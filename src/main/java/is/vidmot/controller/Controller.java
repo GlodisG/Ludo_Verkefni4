@@ -4,7 +4,6 @@ import is.vidmot.switcher.ViewSwitcher;
 import is.vinnsla.Leikmadur;
 import is.vinnsla.Ludo;
 import is.vinnsla.Ped;
-import is.vinnsla.Reitur;
 import is.vinnsla.Teningur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -74,7 +73,6 @@ public class Controller {
 
     private Ludo ludo;
     private Teningur teningur = new Teningur();
-    private Reitur reitur = new Reitur();
 
     private int teljari0;
     private int teljari1;
@@ -170,7 +168,7 @@ public class Controller {
      * @return númer reits sem spilari er á
      */
     private int hvadaReitur(int leikmadur, int ped){
-        return Reitur.getReitur(leikmadur+1,ped,ludo.getLeikmadur(leikmadur).getPed(ped).getStadsetning());
+        return Ludo.getReitur(leikmadur+1,ped,ludo.getLeikmadur(leikmadur).getPed(ped).getStadsetning());
     }
 
     /**
@@ -268,10 +266,10 @@ public class Controller {
      */
     private void bindaPed(Ped ped, ImageView pedImage, int leikmadurNr, int pedNr) {
     	ped.stadurProperty().addListener((obs, oldVal, newVal) -> {
-    		int raunStadur = Reitur.getReitur(leikmadurNr+1, pedNr, newVal.intValue());
+    		int raunStadur = Ludo.getReitur(leikmadurNr+1, pedNr, newVal.intValue());
     		hreyfaPed(pedImage, raunStadur);
     	});
-    	int raunStadur = Reitur.getReitur(leikmadurNr+1, pedNr, ped.getStadsetning());
+    	int raunStadur = Ludo.getReitur(leikmadurNr+1, pedNr, ped.getStadsetning());
     	hreyfaPed(pedImage, raunStadur);
     }
     /**

@@ -14,9 +14,16 @@ public class Ludo {
     public static final IntegerProperty bleikurLeid = new SimpleIntegerProperty(0);
     public static final IntegerProperty graennLeid = new SimpleIntegerProperty(0);
     public static final SimpleBooleanProperty leikLokid = new SimpleBooleanProperty(false);
+    private final static int PLAYER2OFFSET = 10;
+	private final static int PLAYER3OFFSET = 20;
+	private final static int PLAYER4OFFSET = 30;
+	private final static int FINISHOFFSET = 4;
+	private final static int[] PLAYER1START = {57,58,59,60};
+	private final static int[] PLAYER2START = {61,62,63,64}; 
+	private final static int[] PLAYER3START = {69,70,71,72};
+	private final static int[] PLAYER4START = {65,66,67,68};
     
     
-    private static final Reitur reitur = new Reitur();
     private static int leikUmferd = 1;
     private static int fjoldi; //tala úr upphafsskjá
     private Leikmadur[] leikmenn;
@@ -148,4 +155,53 @@ public class Ludo {
     		i.endurstillaLeikmann();
     	}
     }
+
+
+	/**
+	 * Finnur hvar leikmaður er staðsettur út frá hans offset
+	 * Tekur vegalengd sem peð hefur ferðast og umbreytir í raunstöðu á leikborði
+	 * @param leikmadur Númer leikmanns sem nær í reitinn
+	 * @param stadsetning Staðsetning sem þarf að finna
+	 * @param ped Númer peðs
+	 * @return raunveruleg staðsetning peð leikmanns
+	 */
+	public static int getReitur(int leikmadur, int ped,  int stadsetning) {
+		switch(leikmadur) {
+	    	case 1 : {
+	    		if(stadsetning == -1) return PLAYER1START[ped];
+	    		return stadsetning;
+	    	}
+			case 2 : {
+				if(stadsetning == -1) return PLAYER2START[ped];
+				if(stadsetning >= 40) {
+					return stadsetning + FINISHOFFSET * (PLAYER2OFFSET/10);
+				}
+				if(stadsetning + PLAYER2OFFSET >= 40) {
+					return (stadsetning + PLAYER2OFFSET) % 40;
+				}
+				return stadsetning + PLAYER2OFFSET;
+			}
+			case 3 : {
+				if(stadsetning == -1) return PLAYER3START[ped];
+				if(stadsetning >= 40) {
+					return stadsetning + FINISHOFFSET * (PLAYER3OFFSET/10);
+				}
+				if(stadsetning + PLAYER3OFFSET >= 40) {
+					return (stadsetning + PLAYER3OFFSET) % 40;
+				}
+				return stadsetning + PLAYER3OFFSET;
+			}
+			case 4 : {
+				if(stadsetning == -1) return PLAYER4START[ped];
+				if(stadsetning >= 	 40) {
+					return stadsetning + FINISHOFFSET * (PLAYER4OFFSET/10);
+				}
+				if(stadsetning + PLAYER4OFFSET >= 40) {
+					return (stadsetning + PLAYER4OFFSET) % 40;
+				}
+				return stadsetning + PLAYER4OFFSET;
+			}
+			default : return 0;
+		}    	
+	}
 }
