@@ -210,19 +210,6 @@ public class Controller {
      *Þegar ýtt er á "nýr leikur"
      */
     public void onNyrLeikur(){
-<<<<<<< HEAD
-        teljari0=0;
-        teljari1=0;
-        teljari2=0;
-        teljari3=0;
-        setHverByrjarTexti();
-        aukaTexti.setText("Ýttu á tening til að hefja leik");
-        Leikmadur.setFjoldi(fjoldi);
-        Leikmadur.setLeikmadur(0);
-        ludo.endurstillaLeid();
-        Ludo.setLeikLokid(false);
-        System.out.println(Ludo.getLeikLokid());
-=======
         Alert d = new Alert(Alert.AlertType.CONFIRMATION);
         d.setTitle("Nýr leikur");
         d.setHeaderText("Ertu viss um að þú viljir byrja nýjan leik?");
@@ -234,14 +221,13 @@ public class Controller {
             teljari2=0;
             teljari3=0;
             setHverByrjarTexti();
-            additionalText.setText("Ýttu á tening til að hefja leik");
+            aukaTexti.setText("Ýttu á tening til að hefja leik");
             Leikmadur.setFjoldi(fjoldi);
             Leikmadur.setLeikmadur(0);
             ludo.endurstillaLeid();
             Ludo.setLeikLokid(false);
             System.out.println(Ludo.getLeikLokid());
         }
->>>>>>> branch 'main' of https://github.com/GlodisG/Ludo_Verkefni4.git
     }
 
     /**
