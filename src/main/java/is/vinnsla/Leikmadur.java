@@ -11,7 +11,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class Leikmadur {
     private static final IntegerProperty hvadaKall = new SimpleIntegerProperty(1);
-    private final Ped[] pedArray;
+    private final Ped[] pedFylki;
     private final IntegerProperty ped1 = new SimpleIntegerProperty(-1);
 	private final IntegerProperty ped2 = new SimpleIntegerProperty(-1);
 	private final IntegerProperty ped3 = new SimpleIntegerProperty(-1);
@@ -24,7 +24,7 @@ public class Leikmadur {
     private static int fjoldi;
     private static boolean leikHafid = false;
     private HashMap<Ped, Integer> virkPed = new HashMap<>();
-    private int pedCounter = 0; //placeholder teljari fyrir peð
+    private int pedTeljari = 0; //placeholder teljari fyrir peð
 
     /**
      * Smiður fyrir leikmann, inniheldur fylki af 4 peðum.
@@ -32,13 +32,13 @@ public class Leikmadur {
      * @param leikmadurNumer Númer leikmanns, merkir peðin hans.
      */
     public Leikmadur(String nafn, int leikmadurNumer) {
-    	pedArray = new Ped[4];
-    	for(int i = 0; i < pedArray.length; i++) {
+    	pedFylki = new Ped[4];
+    	for(int i = 0; i < pedFylki.length; i++) {
     		switch(leikmadurNumer) {
-    		case 0 -> pedArray[i] = new Ped(nafn, bleikurUpphafsreitir[i]);
-    		case 1 -> pedArray[i] = new Ped(nafn, graennUpphafsreitir[i]);
-			case 2 -> pedArray[i] = new Ped(nafn, blarUpphafsreitir[i]);
-			case 3 -> pedArray[i] = new Ped(nafn, gulurUpphafsreitir[i]);
+    		case 0 -> pedFylki[i] = new Ped(nafn, bleikurUpphafsreitir[i]);
+    		case 1 -> pedFylki[i] = new Ped(nafn, graennUpphafsreitir[i]);
+			case 2 -> pedFylki[i] = new Ped(nafn, blarUpphafsreitir[i]);
+			case 3 -> pedFylki[i] = new Ped(nafn, gulurUpphafsreitir[i]);
     		}
     	}
     	this.nafn = nafn;
@@ -48,9 +48,9 @@ public class Leikmadur {
      */
     public HashMap<Ped,Integer> getVirkPed() {
     	virkPed.clear();
-    	for(int i = 0; i < pedArray.length; i++) {
-    		if(pedArray[i].getABordi()) 
-    			virkPed.put(pedArray[i], pedArray[i].getStadsetning());
+    	for(int i = 0; i < pedFylki.length; i++) {
+    		if(pedFylki[i].getABordi()) 
+    			virkPed.put(pedFylki[i], pedFylki[i].getStadsetning());
     	}
     	return virkPed;
     }
@@ -70,18 +70,18 @@ public class Leikmadur {
     	 * placeholder kóði, fer í gegnum fylkið, eitt peð í einu, þar til það hefur komist í mark
     	 * notar þá næsta peð eftir á o.s.frv.
     	 */
-    	if(!pedArray[pedCounter].getErSigrari()) {
-    		if(!pedArray[pedCounter].getABordi())
-    			pedArray[pedCounter].setABordi(true);
+    	if(!pedFylki[pedTeljari].getErSigrari()) {
+    		if(!pedFylki[pedTeljari].getABordi())
+    			pedFylki[pedTeljari].setABordi(true);
     		
-    		pedArray[pedCounter].faeraPed(teningur);
+    		pedFylki[pedTeljari].faeraPed(teningur);
     		
-    		if(pedArray[pedCounter].getStadsetning() >= 44) {
+    		if(pedFylki[pedTeljari].getStadsetning() >= 44) {
     			System.out.println(">> Ped komst i mark <<");
-    			pedArray[pedCounter].setErSigrari(true);
-    			pedArray[pedCounter].setABordi(false);
-    			pedArray[pedCounter].felaPed();
-    			pedCounter++;
+    			pedFylki[pedTeljari].setErSigrari(true);
+    			pedFylki[pedTeljari].setABordi(false);
+    			pedFylki[pedTeljari].felaPed();
+    			pedTeljari++;
     		}    		
     	}
     }
@@ -160,15 +160,15 @@ public class Leikmadur {
     }
     
     public Ped getPed(int pedNumer) {
-    	return pedArray[pedNumer];
+    	return pedFylki[pedNumer];
     }
     
     public void endurstillaLeikmann() {
 		for(int i = 0; i < 4; i++) {
-			pedArray[i].endurstillaPed(-1);    			
+			pedFylki[i].endurstillaPed(-1);    			
 		}
 		leikHafid = false;
-		pedCounter = 0;
+		pedTeljari = 0;
     }
     
     /**
@@ -177,7 +177,7 @@ public class Leikmadur {
      */
     public boolean erSigurvegari() {
 		boolean sigurvegari = false;
-    	for(Ped i: pedArray) {
+    	for(Ped i: pedFylki) {
     		if(i.getErSigrari())
 				sigurvegari = true;
     		else return false;

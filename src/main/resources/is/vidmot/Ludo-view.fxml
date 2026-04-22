@@ -19,7 +19,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
 
 <AnchorPane stylesheets="@../../CSS/ludo.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.controller.Controller">
    <!-- Viðmótshlutirnir -->
-       <Label fx:id="welcomeText" layoutX="57.0" layoutY="601.0" text="Label" />
+       <Label fx:id="velkomuTexti" layoutX="57.0" layoutY="601.0" text="Label" />
        <Button fx:id="fxNyrLeikur" layoutX="273.0" layoutY="610.0" onAction="#onNyrLeikur" text="Nýr leikur" />
       <GridPane fx:id="fxGrid" alignment="CENTER" gridLinesVisible="true" layoutX="34.0" prefHeight="550.0" prefWidth="550.0" styleClass="styleGrid" AnchorPane.topAnchor="20.0">
          <columnConstraints>
@@ -490,7 +490,7 @@ Viðmótið hefur tvo viðmótshluti, einn Label og einn Button
       </children>
       </GridPane>
    <Button fx:id="fxTeningur" layoutX="355.0" layoutY="600.0" mnemonicParsing="false" onAction="#onKastaTening" prefHeight="50.0" prefWidth="50.0" styleClass="one" />
-   <Label fx:id="additionalText" layoutX="57.0" layoutY="630.0" text="Label" />
+   <Label fx:id="aukaTexti" layoutX="57.0" layoutY="630.0" text="Label" />
    <Button layoutX="499.0" layoutY="612.0" mnemonicParsing="false" onAction="#onValmynd" text="Valmynd" />
    <Label fx:id="labelEinn" layoutX="46.0" layoutY="44.0" text="Spilari 1" textFill="#ed4ca7">
       <font>

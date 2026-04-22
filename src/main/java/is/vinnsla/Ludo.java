@@ -14,14 +14,14 @@ public class Ludo {
     public static final IntegerProperty bleikurLeid = new SimpleIntegerProperty(0);
     public static final IntegerProperty graennLeid = new SimpleIntegerProperty(0);
     public static final SimpleBooleanProperty leikLokid = new SimpleBooleanProperty(false);
-    private final static int PLAYER2OFFSET = 10;
-	private final static int PLAYER3OFFSET = 20;
-	private final static int PLAYER4OFFSET = 30;
-	private final static int FINISHOFFSET = 4;
-	private final static int[] PLAYER1START = {57,58,59,60};
-	private final static int[] PLAYER2START = {61,62,63,64}; 
-	private final static int[] PLAYER3START = {69,70,71,72};
-	private final static int[] PLAYER4START = {65,66,67,68};
+    private final static int LEIKMADUR2HLIDRUN = 10;
+	private final static int LEIKMADUR3HLIDRUN = 20;
+	private final static int LEIKMADUR4HLIDRUN = 30;
+	private final static int LOKAHLIDRUN = 4;
+	private final static int[] LEIKMADUR1UPPHAF = {57,58,59,60};
+	private final static int[] LEIKMADUR2UPPHAF = {61,62,63,64}; 
+	private final static int[] LEIKMADUR3UPPHAF = {69,70,71,72};
+	private final static int[] LEIKMADUR4UPPHAF = {65,66,67,68};
     
     
     private static int leikUmferd = 1;
@@ -168,38 +168,38 @@ public class Ludo {
 	public static int getReitur(int leikmadur, int ped,  int stadsetning) {
 		switch(leikmadur) {
 	    	case 1 : {
-	    		if(stadsetning == -1) return PLAYER1START[ped];
+	    		if(stadsetning == -1) return LEIKMADUR1UPPHAF[ped];
 	    		return stadsetning;
 	    	}
 			case 2 : {
-				if(stadsetning == -1) return PLAYER2START[ped];
+				if(stadsetning == -1) return LEIKMADUR2UPPHAF[ped];
 				if(stadsetning >= 40) {
-					return stadsetning + FINISHOFFSET * (PLAYER2OFFSET/10);
+					return stadsetning + LOKAHLIDRUN * (LEIKMADUR2HLIDRUN/10);
 				}
-				if(stadsetning + PLAYER2OFFSET >= 40) {
-					return (stadsetning + PLAYER2OFFSET) % 40;
+				if(stadsetning + LEIKMADUR2HLIDRUN >= 40) {
+					return (stadsetning + LEIKMADUR2HLIDRUN) % 40;
 				}
-				return stadsetning + PLAYER2OFFSET;
+				return stadsetning + LEIKMADUR2HLIDRUN;
 			}
 			case 3 : {
-				if(stadsetning == -1) return PLAYER3START[ped];
+				if(stadsetning == -1) return LEIKMADUR3UPPHAF[ped];
 				if(stadsetning >= 40) {
-					return stadsetning + FINISHOFFSET * (PLAYER3OFFSET/10);
+					return stadsetning + LOKAHLIDRUN * (LEIKMADUR3HLIDRUN/10);
 				}
-				if(stadsetning + PLAYER3OFFSET >= 40) {
-					return (stadsetning + PLAYER3OFFSET) % 40;
+				if(stadsetning + LEIKMADUR3HLIDRUN >= 40) {
+					return (stadsetning + LEIKMADUR3HLIDRUN) % 40;
 				}
-				return stadsetning + PLAYER3OFFSET;
+				return stadsetning + LEIKMADUR3HLIDRUN;
 			}
 			case 4 : {
-				if(stadsetning == -1) return PLAYER4START[ped];
+				if(stadsetning == -1) return LEIKMADUR4UPPHAF[ped];
 				if(stadsetning >= 	 40) {
-					return stadsetning + FINISHOFFSET * (PLAYER4OFFSET/10);
+					return stadsetning + LOKAHLIDRUN * (LEIKMADUR4HLIDRUN/10);
 				}
-				if(stadsetning + PLAYER4OFFSET >= 40) {
-					return (stadsetning + PLAYER4OFFSET) % 40;
+				if(stadsetning + LEIKMADUR4HLIDRUN >= 40) {
+					return (stadsetning + LEIKMADUR4HLIDRUN) % 40;
 				}
-				return stadsetning + PLAYER4OFFSET;
+				return stadsetning + LEIKMADUR4HLIDRUN;
 			}
 			default : return 0;
 		}    	

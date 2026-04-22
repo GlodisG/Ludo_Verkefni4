@@ -13,50 +13,50 @@ public class ValmyndController {
     @FXML private TextField Spilari2;
     @FXML private TextField Spilari3;
     @FXML private TextField Spilari4;
-    @FXML private CheckBox checkEinn;
-    @FXML private CheckBox checkTveir;
-    @FXML private CheckBox checkThrir;
-    @FXML private CheckBox checkFjorir;
+    @FXML private CheckBox hakEinn;
+    @FXML private CheckBox hakTveir;
+    @FXML private CheckBox hakThrir;
+    @FXML private CheckBox hakFjorir;
     @FXML private Button hefjaLeik;
     private static boolean [] hvadaLit = {false,false,false,false}; //bleikur, grænn, blár, gulur
     private static String [] nafnSpilara = {"","","",""};
 
     public void initialize() {
         Spilari1.disableProperty().
-                bind(checkEinn.selectedProperty().not());
+                bind(hakEinn.selectedProperty().not());
         Spilari2.disableProperty().
-                bind(checkTveir.selectedProperty().not());
+                bind(hakTveir.selectedProperty().not());
         Spilari3.disableProperty().
-                bind(checkThrir.selectedProperty().not());
+                bind(hakThrir.selectedProperty().not());
         Spilari4.disableProperty().
-                bind(checkFjorir.selectedProperty().not());
+                bind(hakFjorir.selectedProperty().not());
         hefjaLeik.setDisable(true);
     }
     @FXML
-    public void onChecked(ActionEvent ignored) {
-        int counter = 0;
-        if(checkEinn.isSelected()){
-            counter++;
+    public void onHakad(ActionEvent ignored) {
+        int teljari = 0;
+        if(hakEinn.isSelected()){
+            teljari++;
         }
-        if(checkTveir.isSelected()){
-            counter++;
+        if(hakTveir.isSelected()){
+            teljari++;
         }
-        if(checkThrir.isSelected()){
-            counter++;
+        if(hakThrir.isSelected()){
+            teljari++;
         }
-        if(checkFjorir.isSelected()){
-            counter++;
+        if(hakFjorir.isSelected()){
+            teljari++;
         }
-        System.out.println(counter);
-        if (counter>1){
+        System.out.println(teljari);
+        if (teljari>1){
             hefjaLeik.setDisable(false);
         } else {
             hefjaLeik.setDisable(true);
         }
-        hvadaLit[0] = checkEinn.isSelected();
-        hvadaLit[1] = checkTveir.isSelected();
-        hvadaLit[2] = checkThrir.isSelected();
-        hvadaLit[3] = checkFjorir.isSelected();
+        hvadaLit[0] = hakEinn.isSelected();
+        hvadaLit[1] = hakTveir.isSelected();
+        hvadaLit[2] = hakThrir.isSelected();
+        hvadaLit[3] = hakFjorir.isSelected();
     }
 
     /**

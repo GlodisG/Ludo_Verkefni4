@@ -28,8 +28,8 @@ public class Controller {
     private static final String[] myndir = {"one", "two","three","four","five","six"};
 
     //Skilaboð + takkar + grid
-    @FXML private Label welcomeText; // Viðmótshlutur sem geymir texta með kveðju
-    @FXML private Label additionalText;
+    @FXML private Label velkomuTexti; // Viðmótshlutur sem geymir texta með kveðju
+    @FXML private Label aukaTexti;
     @FXML public Button fxTeningur;
     @FXML public Button fxNyrLeikur;
     @FXML public GridPane fxGrid;
@@ -84,12 +84,12 @@ public class Controller {
      * kallar fallið á öll rétt föll til að kasta tening,færa kall og breyta texta
      */
     public void onKastaTening() {
-        additionalText.setText("");
+        aukaTexti.setText("");
         ludo.leikaLeik();
         int ten = teningur.getTala();
         int hverGera = Leikmadur.getNaestiLeikmadur();
         //ludo.getLeikmadur(hverGera).faeraLeikmann(ten, 0, hverGera); // sökudólgur >:C
-        welcomeText.setText(
+        velkomuTexti.setText(
         		switch(hverGera) {
         		case 0 -> nafnSpilara[0] + " færist " + ten + " áfram";
 				case 1 -> nafnSpilara[1] + " færist " + ten + " áfram";
@@ -107,10 +107,10 @@ public class Controller {
         //Prentar sigurtexta eftir því hver vann
         if(ludo.getLeikmadur(hverGera).erSigurvegari()) {
         	switch(hverGera) {
-        	case 0 -> additionalText.setText(nafnSpilara[0] + " vann!");
-        	case 1 -> additionalText.setText(nafnSpilara[1] + " vann!");
-        	case 2 -> additionalText.setText(nafnSpilara[2] + " vann!");
-        	case 3 -> additionalText.setText(nafnSpilara[3] + " vann!");
+        	case 0 -> aukaTexti.setText(nafnSpilara[0] + " vann!");
+        	case 1 -> aukaTexti.setText(nafnSpilara[1] + " vann!");
+        	case 2 -> aukaTexti.setText(nafnSpilara[2] + " vann!");
+        	case 3 -> aukaTexti.setText(nafnSpilara[3] + " vann!");
         	}
         	Ludo.setLeikLokid(true);
         }
@@ -122,19 +122,19 @@ public class Controller {
     private void forIMark(){
         if(ludo.getLeikmadur(0).getPed(teljari0).getErSigrari()){
             teljari0++;
-            additionalText.setText("Peð fór í mark!");
+            aukaTexti.setText("Peð fór í mark!");
         }
         if(ludo.getLeikmadur(1).getPed(teljari1).getErSigrari()){
             teljari1++;
-            additionalText.setText("Peð fór í mark!");
+            aukaTexti.setText("Peð fór í mark!");
         }
         if(ludo.getLeikmadur(2).getPed(teljari2).getErSigrari()){
             teljari2++;
-            additionalText.setText("Peð fór í mark!");
+            aukaTexti.setText("Peð fór í mark!");
         }
         if(ludo.getLeikmadur(3).getPed(teljari3).getErSigrari()){
             teljari3++;
-            additionalText.setText("Peð fór í mark!");
+            aukaTexti.setText("Peð fór í mark!");
         }
     }
 
@@ -195,7 +195,7 @@ public class Controller {
                     if(hvadaReitur(hverGera, k)==hvadaReitur(hverGeraTeljari,j)){
                         System.out.println("Ped "+ k +" hja  spilara "+ hverGera +" er a sama reit og ped "+ j +" hja spilara "+ hverGeraTeljari);
                         ludo.getLeikmadur(hverGeraTeljari).getPed(j).endurstillaPed(-1);
-                        additionalText.setText("Úps! " + nafnSpilara[hverGeraTeljari] + " aftur á byrjunarreit");
+                        aukaTexti.setText("Úps! " + nafnSpilara[hverGeraTeljari] + " aftur á byrjunarreit");
                     }
                 }
             }
@@ -212,7 +212,7 @@ public class Controller {
         teljari2=0;
         teljari3=0;
         setHverByrjarTexti();
-        additionalText.setText("Ýttu á tening til að hefja leik");
+        aukaTexti.setText("Ýttu á tening til að hefja leik");
         Leikmadur.setFjoldi(fjoldi);
         Leikmadur.setLeikmadur(0);
         ludo.endurstillaLeid();
@@ -307,10 +307,10 @@ public class Controller {
      */
     private void setHverByrjarTexti(){
         switch (hverjirVirkir[0]) {
-            case 0 -> welcomeText.setText(nafnSpilara[0] + " gerir fyrst");
-            case 1 -> welcomeText.setText(nafnSpilara[1] + " gerir fyrst");
-            case 2 -> welcomeText.setText(nafnSpilara[2] + " gerir fyrst");
-            case 3 -> welcomeText.setText(nafnSpilara[3] + " gerir fyrst");
+            case 0 -> velkomuTexti.setText(nafnSpilara[0] + " gerir fyrst");
+            case 1 -> velkomuTexti.setText(nafnSpilara[1] + " gerir fyrst");
+            case 2 -> velkomuTexti.setText(nafnSpilara[2] + " gerir fyrst");
+            case 3 -> velkomuTexti.setText(nafnSpilara[3] + " gerir fyrst");
         }
     }
     
@@ -322,7 +322,7 @@ public class Controller {
     	Leikmadur.setFjoldi(fjoldi);
         System.out.println("Boolean fylkið: " + VIRKIR[0] + " " + VIRKIR[1] + " " + VIRKIR[2] + " " + VIRKIR[3]);
         setHverByrjarTexti();
-        additionalText.setText("Ýttu á tening til að hefja leik");
+        aukaTexti.setText("Ýttu á tening til að hefja leik");
 
         fxNyrLeikur.disableProperty().bind(Ludo.leikLokidProperty().not());
 
