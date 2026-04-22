@@ -8,7 +8,9 @@ import is.vinnsla.Teningur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -17,6 +19,7 @@ import javafx.scene.layout.StackPane;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 
 /******************************************************************************
@@ -207,17 +210,24 @@ public class Controller {
      *Þegar ýtt er á "nýr leikur"
      */
     public void onNyrLeikur(){
-        teljari0=0;
-        teljari1=0;
-        teljari2=0;
-        teljari3=0;
-        setHverByrjarTexti();
-        additionalText.setText("Ýttu á tening til að hefja leik");
-        Leikmadur.setFjoldi(fjoldi);
-        Leikmadur.setLeikmadur(0);
-        ludo.endurstillaLeid();
-        Ludo.setLeikLokid(false);
-        System.out.println(Ludo.getLeikLokid());
+        Alert d = new Alert(Alert.AlertType.CONFIRMATION);
+        d.setTitle("Nýr leikur");
+        d.setHeaderText("Ertu viss um að þú viljir byrja nýjan leik?");
+        d.setContentText("Þetta mun enda núverandi leik");
+        Optional<ButtonType> utkoma = d.showAndWait();
+        if(utkoma.isPresent() && utkoma.get() == ButtonType.OK){
+            teljari0=0;
+            teljari1=0;
+            teljari2=0;
+            teljari3=0;
+            setHverByrjarTexti();
+            additionalText.setText("Ýttu á tening til að hefja leik");
+            Leikmadur.setFjoldi(fjoldi);
+            Leikmadur.setLeikmadur(0);
+            ludo.endurstillaLeid();
+            Ludo.setLeikLokid(false);
+            System.out.println(Ludo.getLeikLokid());
+        }
     }
 
     /**
@@ -226,7 +236,14 @@ public class Controller {
      */
     @FXML
     public void onValmynd(ActionEvent ignored) {
-        ViewSwitcher.switchTo(View.VALMYND,false, null);
+        Alert d = new Alert(Alert.AlertType.CONFIRMATION);
+        d.setTitle("Valmynd");
+        d.setHeaderText("Ertu viss um að þú viljir fara í valmynd?");
+        d.setContentText("Þetta mun enda núverandi leik");
+        Optional<ButtonType> utkoma = d.showAndWait();
+        if(utkoma.isPresent() && utkoma.get() == ButtonType.OK) {
+            ViewSwitcher.switchTo(View.VALMYND, false, null);
+        }
     }
     
     /**
@@ -324,9 +341,7 @@ public class Controller {
         setHverByrjarTexti();
         additionalText.setText("Ýttu á tening til að hefja leik");
 
-        fxNyrLeikur.disableProperty().bind(Ludo.leikLokidProperty().not());
-
-        fxTeningur.disableProperty().bind(fxNyrLeikur.disableProperty().not());
+        fxTeningur.disableProperty().bind(Ludo.leikLokidProperty());
 
         //Að setja myndirnar af tening eftir teningakasti
         Ludo.getTeningur().talaProperty().addListener(
