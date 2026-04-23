@@ -11,8 +11,6 @@ import javafx.beans.property.SimpleIntegerProperty;
  *****************************************************************************/
 public class Ludo {
     private static final Teningur teningur = new Teningur();
-    public static final IntegerProperty bleikurLeid = new SimpleIntegerProperty(0);
-    public static final IntegerProperty graennLeid = new SimpleIntegerProperty(0);
     public static final SimpleBooleanProperty leikLokid = new SimpleBooleanProperty(false);
     private final static int LEIKMADUR2HLIDRUN = 10;
 	private final static int LEIKMADUR3HLIDRUN = 20;

@@ -12,14 +12,25 @@ public class Teningur {
     private static final int MAX = 6;
     private static final IntegerProperty talaProperty = new SimpleIntegerProperty(MAX);
 
+    /**
+     * skilar property tölu sem er kastað á tening
+     * @return
+     */
     public IntegerProperty talaProperty() {
         return talaProperty;
     }
 
+    /**
+     * Kastar tening
+     */
     public void kasta() {
         this.talaProperty.set(((int)(Math.random()*MAX)+1));
     }
 
+    /**
+     * Nær í töluna sem teningur kastaði
+     * @return
+     */
     public int getTala() {
         return talaProperty.get();
     }
