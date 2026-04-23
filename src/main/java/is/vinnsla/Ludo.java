@@ -22,17 +22,10 @@ public class Ludo {
 	private final static int[] LEIKMADUR2UPPHAF = {61,62,63,64}; 
 	private final static int[] LEIKMADUR3UPPHAF = {69,70,71,72};
 	private final static int[] LEIKMADUR4UPPHAF = {65,66,67,68};
-    
-    
-    private static int leikUmferd = 1;
-    private static int fjoldi; //tala úr upphafsskjá
     private Leikmadur[] leikmenn;
-	private String[] nofn;
 	private int[] hverjirVirkir;
 	
 	public Ludo(int fjoldi, String[] nofn, int[] hverjirVirkir) {
-		this.fjoldi = fjoldi;
-		this.nofn = nofn;
 		this.hverjirVirkir = hverjirVirkir;
 		leikmenn = new Leikmadur[fjoldi];
 		for(int i = 0; i < fjoldi; i++) {
@@ -64,34 +57,7 @@ public class Ludo {
         		System.out.println("Ped " + (j + 1) + ": " + i.getPed(j).toString());
         	}
         	System.out.println();
-        }
-        // -------------------------------------------------------------------
-        
-        /*
-        if(Leikmadur.hvadaKall()==2){
-            graennLeid.set(graennLeid.get()+teningur.getTala());
-        } else {
-            bleikurLeid.set(bleikurLeid.get()+teningur.getTala());
-        }
-        
-        
-
-        //Skoðar hvort annar spilari vann
-        if (graennLeid.get()>=45){
-            //láta grænann vinna og enda leik
-            setLeikLokid(true);
-        }
-        if (bleikurLeid.get()>=45) {
-            //láta bleikann vinna og enda leik
-            setLeikLokid(true);
-        }
-        if(leikmenn[leikUmferd-1].erSigurvegari()) {
-        	setLeikLokid(true);
-        }
-        */
-        
-        
-        
+        }    
     }
     
     /**
@@ -101,22 +67,9 @@ public class Ludo {
     public Leikmadur getLeikmadur(int leikmadurNumer) {
     	return leikmenn[leikmadurNumer];
     }
+    
     public Leikmadur[] getLeikmenn() {
     	return leikmenn;
-    }
-
-    /**
-     * @return int //skilar hvar á leiðinni bleikur er
-     */
-    public static int getBleikurLeid(){
-        return bleikurLeid.get();
-    }
-
-    /**
-     * @return int //skilar hvar á leiðinni grænn er
-     */
-    public static int getGraennLeid(){
-        return graennLeid.get();
     }
 
     /**

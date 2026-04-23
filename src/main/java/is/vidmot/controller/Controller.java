@@ -60,10 +60,6 @@ public class Controller {
 
     // Leikborð skilgreint
     private final Map<Integer, StackPane> vidmotLeid = new HashMap<>();
-    private final int[] bleikurUpphafsreitir = {57,58,59,60}; 	//leikmaður 1
-    private final int[] graennUpphafsreitir = {61,62,63,64};	//leikmaður 2
-    private final int[] gulurUpphafsreitir = {65,66,67,68};		//leikmaður 4
-    private final int[] blarUpphafsreitir = {69,70,71,72};		//leikmaður 3
     
     /**
      * Array sem heldur utan um breytilegan fjölda leikmanna
@@ -246,15 +242,6 @@ public class Controller {
         }
     }
     
-    /**
-     * Gefur leikmanni valkost á hvaða peði hann/hún vill hreyfa af þeim sem eru virk
-     * @param leikmadur Númer leikmanns
-     * //TODO Seinna bæta við return value með vali leikmanns
-     */
-    private void hvadaPed(int leikmadur) {
-    	HashMap<Ped, Integer> virkPed; //TODO Viljum örugglega nota þetta :D
-    }
-
     /**
      * Færir viðmótshlut peðs á leikborði
      * Viðmótshluturinn er fjarlægður fyrst frá StackPane foreldri,

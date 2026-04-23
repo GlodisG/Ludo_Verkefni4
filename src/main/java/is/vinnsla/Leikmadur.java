@@ -12,18 +12,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class Leikmadur {
     private static final IntegerProperty hvadaKall = new SimpleIntegerProperty(1);
     private final Ped[] pedFylki;
-    private final IntegerProperty ped1 = new SimpleIntegerProperty(-1);
-	private final IntegerProperty ped2 = new SimpleIntegerProperty(-1);
-	private final IntegerProperty ped3 = new SimpleIntegerProperty(-1);
-	private final IntegerProperty ped4 = new SimpleIntegerProperty(-1);
-	private final int[] bleikurUpphafsreitir = {57,58,59,60};
-    private final int[] graennUpphafsreitir = {61,62,63,64};
-    private final int[] gulurUpphafsreitir = {65,66,67,68};
-    private final int[] blarUpphafsreitir = {69,70,71,72};
-    private final String nafn;
     private static int fjoldi;
     private static boolean leikHafid = false;
-    private HashMap<Ped, Integer> virkPed = new HashMap<>();
     private int pedTeljari = 0; //placeholder teljari fyrir peð
 
     /**
@@ -35,26 +25,14 @@ public class Leikmadur {
     	pedFylki = new Ped[4];
     	for(int i = 0; i < pedFylki.length; i++) {
     		switch(leikmadurNumer) {
-    		case 0 -> pedFylki[i] = new Ped(nafn, bleikurUpphafsreitir[i]);
-    		case 1 -> pedFylki[i] = new Ped(nafn, graennUpphafsreitir[i]);
-			case 2 -> pedFylki[i] = new Ped(nafn, blarUpphafsreitir[i]);
-			case 3 -> pedFylki[i] = new Ped(nafn, gulurUpphafsreitir[i]);
+    		case 0 -> pedFylki[i] = new Ped(nafn);
+    		case 1 -> pedFylki[i] = new Ped(nafn);
+			case 2 -> pedFylki[i] = new Ped(nafn);
+			case 3 -> pedFylki[i] = new Ped(nafn);
     		}
     	}
-    	this.nafn = nafn;
     }
-    /**
-     * Sækir map af peðum sem eru á leikborði 
-     */
-    public HashMap<Ped,Integer> getVirkPed() {
-    	virkPed.clear();
-    	for(int i = 0; i < pedFylki.length; i++) {
-    		if(pedFylki[i].getABordi()) 
-    			virkPed.put(pedFylki[i], pedFylki[i].getStadsetning());
-    	}
-    	return virkPed;
-    }
-    
+
     /**
      * Færir peð leikmanns á leikborði
      * @param teningur Vegalengdin sem á að ferðast um
@@ -62,14 +40,6 @@ public class Leikmadur {
      * @param leikmadurNumer Númer leikmanns sem á að hreyfa
      */
     public void faeraLeikmann(int teningur, int ped, int leikmadurNumer) {
-    	if(teningur == 6) {
-    		//valkostur um að bæta við peði ?
-    		//kannski hafa þann kóða í controller?
-    	}
-    	/*
-    	 * placeholder kóði, fer í gegnum fylkið, eitt peð í einu, þar til það hefur komist í mark
-    	 * notar þá næsta peð eftir á o.s.frv.
-    	 */
     	if(!pedFylki[pedTeljari].getErSigrari()) {
     		if(!pedFylki[pedTeljari].getABordi())
     			pedFylki[pedTeljari].setABordi(true);
@@ -133,16 +103,6 @@ public class Leikmadur {
 	    	}
     	}  	
     }
-    
-    public IntegerProperty pedProperty(int ped) {
-    	switch(ped) {
-    	case 1 : return ped1;
-		case 2 : return ped2;
-		case 3 : return ped3;
-		case 4 : return ped4;
-		default : return null;
-    	}
-    }
 
     /**
      * Lætur leikmann 1 gera, notað til að hefja nýjann leik
@@ -184,21 +144,4 @@ public class Leikmadur {
     	}
     	return sigurvegari;
     }
-
-
-//    public static void hreyfaBleikann(int newTileIndex) {
-//        for (StackPane tile : Controller.ludoBord.values()) {
-//            tile.getChildren().remove(Controller.bleikurKall);
-//        }
-//        Controller.ludoBord.get(newTileIndex).getChildren().add(Controller.bleikurKall);
-//    }
-
-
-//
-//    public static void hreyfaGraenann(int newTileIndex) {
-//        for (StackPane tile : Controller.ludoBord.values()) {
-//            tile.getChildren().remove(Controller.graennKall);
-//        }
-//        Controller.ludoBord.get(newTileIndex).getChildren().add(Controller.graennKall);
-//    }
 }

@@ -2,7 +2,6 @@ package is.vinnsla;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import java.util.Random;
 
 /******************************************************************************
  *  Lýsing  : Kastar teningi
@@ -12,7 +11,6 @@ import java.util.Random;
 public class Teningur {
     private static final int MAX = 6;
     private static final IntegerProperty talaProperty = new SimpleIntegerProperty(MAX);
-    private final Random randomNum = new Random();
 
     public IntegerProperty talaProperty() {
         return talaProperty;

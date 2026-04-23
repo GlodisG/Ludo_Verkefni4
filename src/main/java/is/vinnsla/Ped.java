@@ -1,22 +1,15 @@
 package is.vinnsla;
 
-import java.util.HashMap;
-
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.scene.image.Image;
 
 public class Ped {
 	private boolean erABordi = false;
 	private boolean erSigrari = false;
 	private final String leikmadur;
-	private final int upphafsReitur;
 	private final SimpleIntegerProperty stadur = new SimpleIntegerProperty(-1);
 	
-	public Ped(String leikmadur, int upphafsReitur) {
+	public Ped(String leikmadur) {
 		this.leikmadur = leikmadur;
-		this.upphafsReitur = upphafsReitur;
 	}
 	
 	public void faeraPed(int teningur) {
