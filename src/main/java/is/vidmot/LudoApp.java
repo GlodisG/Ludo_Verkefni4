@@ -28,13 +28,4 @@ public class LudoApp extends javafx.application.Application {
         stage.sizeToScene();
         stage.show();
     }
-
-    /**
-     * Aðalforritið sem ræsir appið
-     *
-     * @param args ónotað
-     */
-    public static void main(String[] args) {
-        launch();
-    }
 }
